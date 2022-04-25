@@ -1,0 +1,14 @@
+{
+  "name": "cryptofonts",
+  "version": "1.0.0",
+  "description": "Your Figma Plugin",
+  "main": "code.js",
+  "scripts": {
+    "build": ""
+  },
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.44.0"
+  }
+}

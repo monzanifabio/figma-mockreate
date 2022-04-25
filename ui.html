@@ -1,0 +1,869 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lexend', sans-serif;
+  }
+
+  body {
+    color: #272727;
+    background-color: #F4F4F4;
+    margin: 15px;
+  }
+
+  .ms-1 {
+    margin-left: 0.5rem;
+  }
+
+  .me-1 {
+    margin-right: 0.5rem;
+  }
+
+  h4 {
+    margin-bottom: 0.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background-color: #00B763;
+    border-color: #00B763;
+    color: #FFFFFF;
+  }
+
+  .btn-primary:hover {
+    background-color: #009b4e;
+    border-color: #008d47;
+    color: #FFFFFF;
+  }
+
+  .btn-primary:focus {
+    background-color: #009b4e;
+    border-color: #008d47;
+    color: #FFFFFF;
+    box-shadow: 0 0 0 0.2rem rgb(38 255 121 / 50%)
+  }
+
+  .btn-block {
+    width: 100%;
+  }
+
+  .form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #FFFFFF;
+    background-clip: padding-box;
+    border: none;
+    border-radius: 0.25rem;
+  }
+
+  .form-control:focus {
+    color: #495057;
+    background-color: #FFFFFF;
+    border-color: #92ffbb;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(38 255 121 / 25%)
+  }
+
+  label {
+    display: inline-block;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .layout-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  input[type=radio] {
+    /*Hack to get the radio button to disappear without using display:none but still trigger the 'required' property*/
+    opacity: 0;
+    margin: -1px;
+    height: 1px;
+    width: 1px;
+  }
+
+  .radio-tab {
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+
+  .radio-tab:checked+.tab {
+    background-color: #FFFFFF;
+    border-radius: 0.15rem;
+  }
+
+  .tab {
+    margin: 3px;
+    padding: 6px;
+  }
+
+  .btn-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #D9DEDC;
+    border-radius: 0.25rem;
+  }
+
+  .btn-group label {
+    margin: 0;
+  }
+
+  .btn-group-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  hr {
+    margin: 1rem 0;
+    border-top: 1px solid #D9DEDC;
+  }
+
+  footer {
+    padding: 15px;
+    background-color: #D9DEDC;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .input-group-prepend {
+    display: flex;
+    margin-right: -1px;
+  }
+
+  .input-group-text {
+    display: flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    background-color: #FFFFFF;
+    white-space: nowrap;
+    border-radius: 0.25rem;
+  }
+
+  .input-group>.input-group-prepend>.input-group-text {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .input-group>.form-control {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .form-helper {
+    margin-top: 0.25rem;
+    font-size: .8rem;
+    color: #6c757d;
+  }
+</style>
+<!-- <h2>Random Generator</h2> -->
+<div class="form-group">
+  <select name="" id="datasetSelector" class="form-control" onchange="datasetController(this)">
+    <option value="null" selected disabled>Select dataset</option>
+    <option value="names" data-url="https://cryptofonts.com/first-names.json">First name</option>
+    <option value="surnames" data-url="https://cryptofonts.com/last-names.json">Last name</option>
+    <option value="fullnames" data-url="https://cryptofonts.com/full-names.json">Full name</option>
+    <option value="usernames" data-url="https://cryptofonts.com/usernames.json">Username</option>
+    <option value="emails" data-url="https://cryptofonts.com/emails.json">Email</option>
+    <option value="phones">Phone number</option>
+    <option value="dates">Date</option>
+    <option value="times">Time</option>
+    <option value="numbers">Number range</option>
+    <option value="money">Money</option>
+    <option value="creditcards">Credit card</option>
+    <option value="custom">Custom</option>
+  </select>
+  <div id="formHelper" class="form-helper">Select a dataset to get started.<br>Each dataset has different options that you can customise to your liking.</div>
+</div>
+<!-- FIRST NAMES -->
+<section id="section-names" style="display: none;">
+  <label for="">Gender</label>
+  <div class="form-group btn-group">
+    <label class="btn-group-item" for="male">
+      <input class="radio-tab tab" type="radio" id="male" name="gender" value="male" onchange="generate();">
+      <div class="radio-tab tab">
+        <p>Male</p>
+      </div>
+    </label>
+    <label class="btn-group-item" for="female">
+      <input class="radio-tab tab" type="radio" id="female" name="gender" value="female" onchange="generate();">
+      <div class="radio-tab tab">
+        <p>Female</p>
+      </div>
+    </label>
+    <label class="btn-group-item" for="both">
+      <input class="radio-tab tab" type="radio" id="both" name="gender" value="both" onchange="generate();" checked>
+      <div class="radio-tab tab">
+        <p>Both</p>
+      </div>
+    </label>
+  </div>
+
+  <hr>
+</section>
+<!-- LAST NAMES -->
+<section id="section-surnames" style="display: none;"></section>
+
+<!-- FULL NAMES -->
+<section id="section-fullnames" style="display: none;"></section>
+
+<!--  USERNAMES -->
+<section id="section-usernames" style="display: none;"></section>
+
+<!--  EMAILS -->
+<section id="section-emails" style="display: none;"></section>
+
+<!--  PHONE NUMBERS -->
+<section id="section-phones" style="display: none;">
+  <div class="layout-options">
+    <div class="input-group me-1">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <img src="https://www.svgrepo.com/show/315125/plus.svg" width="20" height="20" alt="">
+        </span>
+      </div>
+      <input class="form-control" id="phonePrefix" type="number" placeholder="Phone prefix e.g.41" onchange="generate()">
+    </div>
+
+    <div class="input-group ms-1">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <img src="https://www.svgrepo.com/show/304555/phone-number.svg" width="20" height="20" alt="">
+        </span>
+      </div>
+      <input class="form-control" id="phoneDigits" type="number" placeholder="Number of digits" onchange="generate()">
+    </div>
+  </div>
+</section>
+
+<!--  DATES -->
+<section id="section-dates" style="display: none;">
+  <div class="layout-options">
+    <div class="input-group me-1">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <img src="https://www.svgrepo.com/show/56992/calendar.svg" width="20" height="20" alt="">
+        </span>
+      </div>
+      <input class="form-control" id="selectedYear" type="number" min="1900" max="2099" step="1" value="2022" onchange="generate()">
+    </div>
+
+    <div class="input-group ms-1">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <img src="https://www.svgrepo.com/show/333084/format-slash.svg" width="20" height="20" alt="">
+        </span>
+      </div>
+      <select class="form-control" id="dateFormat" onchange="generate()">
+        <option value="0" selected disabled>Select date format</option>
+        <option value="1">26/08/1988</option>
+        <option value="2">26-08-1988</option>
+        <option value="3">26 08 1988</option>
+        <option value="4">26 Aug 1988</option>
+      </select>
+    </div>
+  </div>
+</section>
+
+<!--  TIME -->
+<section id="section-times" style="display: none;">
+  <div class="layout-options">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <img src="https://www.svgrepo.com/show/64048/clock.svg" width="20" height="20" alt="">
+        </span>
+      </div>
+      <select class="form-control" id="timeFormat" onchange="generate()">
+        <option value="0" selected disabled>Select time format</option>
+        <option value="1">24h - hh:mm - 15:30</option>
+        <option value="2">12h - h:mm am/pm - 4:30pm</option>
+      </select>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section id="section-numbers" style="display: none;">
+  <div class="layout-options">
+    <div class="input-group me-1">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <img src="https://www.svgrepo.com/show/388792/to-right.svg" width="20" height="20" alt="">
+        </span>
+      </div>
+      <input class="form-control" id="numberFrom" type="number" value="0" onchange="generate()">
+    </div>
+
+    <div class="input-group ms-1">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <img src="https://www.svgrepo.com/show/388785/to-left.svg" width="20" height="20" alt="">
+        </span>
+      </div>
+      <input class="form-control" id="numberTo" type="number" value="50" onchange="generate()">
+    </div>
+  </div>
+</section>
+
+<!-- MONEY -->
+<section id="section-money" style="display: none;">
+  <div class="layout-options">
+    <div class="input-group me-1">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <img src="https://www.svgrepo.com/show/388792/to-right.svg" width="20" height="20" alt="">
+        </span>
+      </div>
+      <input class="form-control" id="moneyFrom" type="number" value="0" onchange="generate()">
+    </div>
+
+    <div class="input-group ms-1">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <img src="https://www.svgrepo.com/show/388785/to-left.svg" width="20" height="20" alt="">
+        </span>
+      </div>
+      <input class="form-control" id="moneyTo" type="number" value="50" onchange="generate()">
+    </div>
+
+    <div class="input-group ms-1">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <img src="https://www.svgrepo.com/show/239524/coin-currency.svg" width="20" height="20" alt="">
+        </span>
+      </div>
+      <input class="form-control" id="moneyCurrency" type="text" value="$" onchange="generate()">
+    </div>
+  </div>
+</section>
+
+<!--  CREDIT CARDS -->
+<section id="section-creditcards" style="display: none;"></section>
+
+<!--  CUSTOM  -->
+<section id="section-custom" style="display: none;">
+  <div class="form-group">
+    <label>Custom dataset</label>
+    <input class="form-control" id="customDataset" type="url" placeholder="Link to your JSON dataset" onchange="generate();">
+  </div>
+
+  <div class="form-group">
+    <label>Key</label>
+    <input class="form-control" id="customDatasetKey" type="text" placeholder="e.g. names" onchange="generate();">
+  </div>
+
+  <hr>
+</section>
+
+
+
+<div id="options" style="display: none;">
+
+  <div class="form-group">
+    <label>Number of results</label>
+    <input class="form-control" id="count" min="0" type="number" value="5" onchange="generate();">
+  </div>
+
+  <h4>Layout options</h4>
+
+  <div class="layout-options">
+    <div class="input-group me-1">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <img src="https://www.svgrepo.com/show/162919/text-size-button.svg" width="20" height="20" alt="">
+        </span>
+      </div>
+      <input class="form-control" id="fontSize" type="number" value="16">
+    </div>
+
+    <div class="input-group ms-1">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <img src="https://www.svgrepo.com/show/311372/text-line-spacing.svg" width="20" height="20" alt="">
+        </span>
+      </div>
+      <input class="form-control" id="textSpacing" type="number" value="16">
+    </div>
+  </div>
+
+  <button id="create" class="btn btn-primary btn-block">Generate</button>
+</div>
+
+<footer>
+  <!-- <p>Helloooo there!</p>
+  <a href="https://www.google.com" target="_blank">Link</a> -->
+</footer>
+<script>
+  function datasetController(el) {
+    //Layout options startup
+    if (el.value !== "null") {
+      let options = document.getElementById('options');
+      options.style.display = "block";
+      let helper = document.getElementById('formHelper');
+      helper.style.display = "none";
+    }
+
+    //Display names section if names is selected
+    if (el.value == "names") {
+      let section = document.getElementById('section-names');
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName('section');
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+      generate();
+    }
+    //Display surnames section if surname is selected
+    if (el.value == "surnames") {
+      let section = document.getElementById('section-surnames');
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName('section');
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+      generate()
+    }
+    //Display full names section if full names is selected
+    if (el.value == "fullnames") {
+      let section = document.getElementById('section-fullnames');
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName('section');
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+      generate()
+    }
+    //Display  usernames section if usernames is selected
+    if (el.value == "usernames") {
+      let section = document.getElementById('section-usernames');
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName('section');
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+      generate()
+    }
+    //Display  emails section if emails is selected
+    if (el.value == "emails") {
+      let section = document.getElementById('section-emails');
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName('section');
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+      generate()
+    }
+    //Display  phone numbers section if phone numbers is selected
+    if (el.value == "phones") {
+      let section = document.getElementById('section-phones');
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName('section');
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+      generate()
+    }
+
+    //Display dates section if dates is selected
+    if (el.value == "dates") {
+      let section = document.getElementById('section-dates');
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName('section');
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+      generate()
+    }
+
+    //Display times section if times is selected
+    if (el.value == "times") {
+      let section = document.getElementById('section-times');
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName('section');
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+      generate()
+    }
+
+    //Display numbers section if numbers is selected
+    if (el.value == "numbers") {
+      let section = document.getElementById('section-numbers');
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName('section');
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+      generate()
+    }
+
+    //Display money section if money is selected
+    if (el.value == "money") {
+      let section = document.getElementById('section-money');
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName('section');
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+      generate()
+    }
+
+    //Display credit cards section if credit cards is selected
+    if (el.value == "creditcards") {
+      let section = document.getElementById('section-creditcards');
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName('section');
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+      generate()
+    }
+
+    //Display custom section if custom is selected
+    if (el.value == "custom") {
+      let section = document.getElementById('section-custom');
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName('section');
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+      generate()
+    }
+  }
+  //Define array to store the generated results
+  let genStorage = [];
+  let count;
+  let genderSelection;
+
+  async function generate() {
+    //Empty the array on a new generation
+    genStorage.length = 0;
+    count = parseInt(document.getElementById('count').value);
+    genderSelection = document.querySelector('input[name="gender"]:checked').value;
+    const dataSelection = document.getElementById('datasetSelector').value;
+
+    // const requestURL = 'https://cryptofonts.com/first-names.json';
+
+
+    if (dataSelection == "names") {
+      const requestURL = document.getElementById('datasetSelector').options[datasetSelector.selectedIndex].getAttribute('data-url');
+      console.log(requestURL);
+
+      const request = new Request(requestURL);
+
+      const response = await fetch(request);
+      const items = await response.json();
+
+      for (var i = 0; i < count; i++) {
+        x = Math.floor(Math.random() * items.length);
+        // console.log(items[x].name);
+        if (genderSelection === "both") {
+          console.log(items[x].name, items[x].gender);
+          genStorage.push(items[x].name)
+        } else if (items[x].gender === genderSelection) {
+          console.log(items[x].name, items[x].gender)
+          genStorage.push(items[x].name)
+        } else {
+          console.log(items[x + 1].name, items[x].gender)
+          genStorage.push(items[x].name)
+        }
+      }
+      console.log('------------------')
+    }
+
+    if (dataSelection == "surnames") {
+      const requestURL = document.getElementById('datasetSelector').options[datasetSelector.selectedIndex].getAttribute('data-url');
+      console.log(requestURL);
+
+      const request = new Request(requestURL);
+
+      const response = await fetch(request);
+      const items = await response.json();
+
+      for (var i = 0; i < count; i++) {
+        x = Math.floor(Math.random() * items.length);
+        console.log(items[x]);
+        genStorage.push(items[x])
+      }
+      console.log('------------------')
+    }
+
+    if (dataSelection == "fullnames") {
+      const requestURL = document.getElementById('datasetSelector').options[datasetSelector.selectedIndex].getAttribute('data-url');
+      console.log(requestURL);
+
+      const request = new Request(requestURL);
+
+      const response = await fetch(request);
+      const items = await response.json();
+
+      for (var i = 0; i < count; i++) {
+        x = Math.floor(Math.random() * items.length);
+        console.log(items[x].full_name);
+        genStorage.push(items[x].full_name)
+      }
+      console.log('------------------')
+    }
+
+    if (dataSelection == "usernames") {
+      const requestURL = document.getElementById('datasetSelector').options[datasetSelector.selectedIndex].getAttribute('data-url');
+      console.log(requestURL);
+
+      const request = new Request(requestURL);
+
+      const response = await fetch(request);
+      const items = await response.json();
+
+      for (var i = 0; i < count; i++) {
+        x = Math.floor(Math.random() * items.length);
+        console.log(items[x].username);
+        genStorage.push(items[x].username)
+      }
+      console.log('------------------')
+    }
+
+    if (dataSelection == "emails") {
+      const requestURL = document.getElementById('datasetSelector').options[datasetSelector.selectedIndex].getAttribute('data-url');
+      console.log(requestURL);
+
+      const request = new Request(requestURL);
+
+      const response = await fetch(request);
+      const items = await response.json();
+
+      for (var i = 0; i < count; i++) {
+        x = Math.floor(Math.random() * items.length);
+        console.log(items[x].email);
+        genStorage.push(items[x].email)
+      }
+      console.log('------------------')
+    }
+
+    let phonePrefix = document.getElementById('phonePrefix').value;
+    let phoneDigits = document.getElementById('phoneDigits').value;
+
+    if (dataSelection == "phones" && phonePrefix !== "" && phoneDigits !== "") {
+      for (var i = 0; i < count; i++) {
+        x = (Math.floor(Math.pow(10, phoneDigits - 1) + Math.random() * 9 * Math.pow(10, phoneDigits - 1))).toString();
+        console.log('+' + phonePrefix + ' ' + x);
+        genStorage.push('+' + phonePrefix + ' ' + x);
+      }
+      console.log('------------------')
+    }
+
+    let selectedYear = document.getElementById('selectedYear').value;
+    let dateFormat = document.getElementById('dateFormat').value;
+
+    if (dataSelection == "dates" && selectedYear !== "" && dateFormat != 0) {
+      for (var i = 0; i < count; i++) {
+        d = (Math.floor(Math.random() * (31 - 1 + 1)) + 1).toString();
+        m = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
+        let separator = ["_", "/", "-", " ", " "];
+        let mm = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        if (dateFormat == 1) {
+          console.log(d + "/" + m + "/" + selectedYear);
+          genStorage.push(d + "/" + m + "/" + selectedYear);
+        }
+        if (dateFormat == 2) {
+          console.log(d + "-" + m + "-" + selectedYear);
+          genStorage.push(d + "-" + m + "-" + selectedYear);
+        }
+        if (dateFormat == 3) {
+          console.log(d + " " + m + " " + selectedYear);
+          genStorage.push(d + " " + m + " " + selectedYear);
+        }
+        if (dateFormat == 4) {
+          console.log(d + " " + mm[m] + " " + selectedYear);
+          genStorage.push(d + " " + mm[m] + " " + selectedYear);
+        }
+      }
+      console.log('------------------')
+    }
+
+    let timeFormat = document.getElementById('timeFormat').value;
+
+    if (dataSelection == "times" && timeFormat != 0) {
+      for (var i = 0; i < count; i++) {
+        hh = (Math.floor(Math.random() * (23 - 1 + 1)) + 1).toString();
+        h = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
+        m = (Math.floor(Math.random() * (60 - 1 + 1)) + 1).toString();
+        if (hh < 10) {
+          hh = "0" + hh;
+        }
+        if (m < 10) {
+          m = "0" + m;
+        }
+        let time = ["am", "pm"];
+        x = Math.floor(Math.random() * time.length)
+        if (timeFormat == 1) {
+          console.log(hh + ":" + m);
+          genStorage.push(hh + ":" + m);
+        }
+        if (timeFormat == 2) {
+          console.log(h + ":" + m + time[x]);
+          genStorage.push(h + ":" + m + time[x]);
+        }
+      }
+      console.log('------------------')
+    }
+
+    if (dataSelection == "numbers") {
+      let numberFrom = parseInt(document.getElementById('numberFrom').value);
+      let numberTo = parseInt(document.getElementById('numberTo').value);
+      for (var i = 0; i < count; i++) {
+        x = (Math.floor(Math.random() * (numberTo - numberFrom + 1)) + numberFrom).toString();
+        console.log(x);
+        genStorage.push(x);
+      }
+      console.log('------------------')
+    }
+
+    if (dataSelection == "money") {
+      let moneyFrom = parseInt(document.getElementById('moneyFrom').value);
+      let moneyTo = parseInt(document.getElementById('moneyTo').value);
+      let currency = document.getElementById('moneyCurrency').value;
+      for (var i = 0; i < count; i++) {
+        x = currency + (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString();
+        console.log(x);
+        genStorage.push(x);
+      }
+      console.log('------------------')
+    }
+
+    if (dataSelection == "creditcards") {
+      for (var i = 0; i < count; i++) {
+        x = (Math.floor(Math.random() * (9999999999999999 - 1234567890123456 + 1)) + 1234567890123456).toString().replace(/\d{4}(?=.)/g, '$& ');
+        console.log(x);
+        genStorage.push(x);
+      }
+      console.log('------------------')
+    }
+
+    const customDataset = document.getElementById('customDataset');
+    const customDatasetKey = document.getElementById('customDatasetKey').value.toString();
+
+    if (dataSelection == "custom" && customDataset != "" && customDatasetKey != "") {
+
+      const requestURL = document.getElementById('customDataset').value;
+      console.log(requestURL);
+
+      const request = new Request(requestURL);
+
+      const response = await fetch(request);
+      const items = await response.json();
+
+      for (var i = 0; i < count; i++) {
+        x = Math.floor(Math.random() * items.length);
+        console.log(items[x][customDatasetKey]);
+        genStorage.push(items[x][customDatasetKey]);
+      }
+      console.log('------------------')
+    }
+
+  }
+
+  document.getElementById('create').onclick = () => {
+
+    const fontSize = parseInt(document.getElementById('fontSize').value);
+    const textSpacing = parseInt(document.getElementById('textSpacing').value);
+    parent.postMessage({
+      pluginMessage: {
+        type: 'create-random-text',
+        genStorage,
+        count,
+        fontSize,
+        textSpacing
+      }
+    }, '*')
+  }
+</script>
