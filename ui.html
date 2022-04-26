@@ -92,6 +92,13 @@
     box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 50%);
   }
 
+  .btn-primary:disabled, .btn-primary[disabled]{
+    background-color: #A6C4E3;
+    border-color: #A6C4E3;
+    color: #FFFFFF;
+    cursor: default;
+  }
+
   .btn-block {
     width: 100%;
   }
@@ -431,6 +438,8 @@
   </div>
 </footer>
 <script>
+  const btnCreate = document.getElementById('create');
+
   function datasetController(el) {
     //Layout options startup
     if (el.value !== "null") {
@@ -449,6 +458,7 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
+        btnCreate.setAttribute('disabled', '');
       } else {
         section.style.display = "none";
       }
@@ -463,6 +473,7 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
+        btnCreate.setAttribute('disabled', '');
       } else {
         section.style.display = "none";
       }
@@ -477,6 +488,7 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
+        btnCreate.setAttribute('disabled', '');
       } else {
         section.style.display = "none";
       }
@@ -491,6 +503,7 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
+        btnCreate.setAttribute('disabled', '');
       } else {
         section.style.display = "none";
       }
@@ -505,6 +518,7 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
+        btnCreate.setAttribute('disabled', '');
       } else {
         section.style.display = "none";
       }
@@ -519,6 +533,7 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
+        btnCreate.setAttribute('disabled', '');
       } else {
         section.style.display = "none";
       }
@@ -534,6 +549,7 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
+        btnCreate.setAttribute('disabled', '');
       } else {
         section.style.display = "none";
       }
@@ -549,6 +565,7 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
+        btnCreate.setAttribute('disabled', '');
       } else {
         section.style.display = "none";
       }
@@ -564,6 +581,7 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
+        btnCreate.removeAttribute('disabled');
       } else {
         section.style.display = "none";
       }
@@ -579,6 +597,7 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
+        btnCreate.removeAttribute('disabled');
       } else {
         section.style.display = "none";
       }
@@ -594,6 +613,7 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
+        btnCreate.removeAttribute('disabled');
       } else {
         section.style.display = "none";
       }
@@ -609,6 +629,7 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
+        btnCreate.setAttribute('disabled', '');
       } else {
         section.style.display = "none";
       }
@@ -631,6 +652,7 @@
 
 
     if (dataSelection == "names") {
+      btnCreate.removeAttribute('disabled');
       const requestURL = document.getElementById('datasetSelector').options[datasetSelector.selectedIndex].getAttribute('data-url');
       console.log(requestURL);
 
@@ -657,6 +679,7 @@
     }
 
     if (dataSelection == "surnames") {
+      btnCreate.removeAttribute('disabled');
       const requestURL = document.getElementById('datasetSelector').options[datasetSelector.selectedIndex].getAttribute('data-url');
       console.log(requestURL);
 
@@ -674,6 +697,7 @@
     }
 
     if (dataSelection == "fullnames") {
+      btnCreate.removeAttribute('disabled');
       const requestURL = document.getElementById('datasetSelector').options[datasetSelector.selectedIndex].getAttribute('data-url');
       console.log(requestURL);
 
@@ -691,6 +715,7 @@
     }
 
     if (dataSelection == "usernames") {
+      btnCreate.removeAttribute('disabled');
       const requestURL = document.getElementById('datasetSelector').options[datasetSelector.selectedIndex].getAttribute('data-url');
       console.log(requestURL);
 
@@ -708,6 +733,7 @@
     }
 
     if (dataSelection == "emails") {
+      btnCreate.removeAttribute('disabled');
       const requestURL = document.getElementById('datasetSelector').options[datasetSelector.selectedIndex].getAttribute('data-url');
       console.log(requestURL);
 
@@ -728,6 +754,7 @@
     let phoneDigits = document.getElementById('phoneDigits').value;
 
     if (dataSelection == "phones" && phonePrefix !== "" && phoneDigits !== "") {
+      btnCreate.removeAttribute('disabled');
       for (var i = 0; i < count; i++) {
         x = (Math.floor(Math.pow(10, phoneDigits - 1) + Math.random() * 9 * Math.pow(10, phoneDigits - 1))).toString();
         console.log('+' + phonePrefix + ' ' + x);
@@ -740,6 +767,7 @@
     let dateFormat = document.getElementById('dateFormat').value;
 
     if (dataSelection == "dates" && selectedYear !== "" && dateFormat != 0) {
+      btnCreate.removeAttribute('disabled');
       for (var i = 0; i < count; i++) {
         d = (Math.floor(Math.random() * (31 - 1 + 1)) + 1).toString();
         m = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
@@ -768,6 +796,7 @@
     let timeFormat = document.getElementById('timeFormat').value;
 
     if (dataSelection == "times" && timeFormat != 0) {
+      btnCreate.removeAttribute('disabled');
       for (var i = 0; i < count; i++) {
         hh = (Math.floor(Math.random() * (23 - 1 + 1)) + 1).toString();
         h = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
@@ -792,9 +821,12 @@
       console.log('------------------')
     }
 
-    if (dataSelection == "numbers") {
-      let numberFrom = parseInt(document.getElementById('numberFrom').value);
-      let numberTo = parseInt(document.getElementById('numberTo').value);
+    let numberFrom = parseInt(document.getElementById('numberFrom').value);
+    let numberTo = parseInt(document.getElementById('numberTo').value);
+
+    if (dataSelection == "numbers" && numberFrom !== "" && numberTo !== "") {
+      btnCreate.removeAttribute('disabled');
+
       for (var i = 0; i < count; i++) {
         x = (Math.floor(Math.random() * (numberTo - numberFrom + 1)) + numberFrom).toString();
         console.log(x);
@@ -803,10 +835,13 @@
       console.log('------------------')
     }
 
-    if (dataSelection == "money") {
-      let moneyFrom = parseInt(document.getElementById('moneyFrom').value);
-      let moneyTo = parseInt(document.getElementById('moneyTo').value);
-      let currency = document.getElementById('moneyCurrency').value;
+    let moneyFrom = parseInt(document.getElementById('moneyFrom').value);
+    let moneyTo = parseInt(document.getElementById('moneyTo').value);
+    let currency = document.getElementById('moneyCurrency').value;
+
+    if (dataSelection == "money" && moneyFrom !== "" && moneyTo !== "") {
+      btnCreate.removeAttribute('disabled');
+
       for (var i = 0; i < count; i++) {
         x = currency + (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString();
         console.log(x);
@@ -816,6 +851,7 @@
     }
 
     if (dataSelection == "creditcards") {
+      btnCreate.removeAttribute('disabled');
       for (var i = 0; i < count; i++) {
         x = (Math.floor(Math.random() * (9999999999999999 - 1234567890123456 + 1)) + 1234567890123456).toString().replace(/\d{4}(?=.)/g, '$& ');
         console.log(x);
@@ -828,6 +864,7 @@
     const customDatasetKey = document.getElementById('customDatasetKey').value.toString();
 
     if (dataSelection == "custom" && customDataset != "" && customDatasetKey != "") {
+      btnCreate.removeAttribute('disabled');
 
       const requestURL = document.getElementById('customDataset').value;
       console.log(requestURL);
