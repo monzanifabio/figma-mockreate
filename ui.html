@@ -273,7 +273,7 @@
           <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/phone-number.svg" width="20" height="20" alt="">
         </span>
       </div>
-      <input class="form-control" id="phoneDigits" type="number" placeholder="Number of digits" onchange="generate()">
+      <input class="form-control" id="phoneDigits" type="number" min="0" placeholder="Number of digits" onchange="generate()">
     </div>
   </div>
 </section>
@@ -334,7 +334,7 @@
           <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="">
         </span>
       </div>
-      <input class="form-control" id="numberFrom" type="number" value="0" onchange="generate()">
+      <input class="form-control" id="numberFrom" type="number" min="0" value="0" onchange="generate()">
     </div>
 
     <div class="input-group ms-1">
@@ -343,7 +343,7 @@
           <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="">
         </span>
       </div>
-      <input class="form-control" id="numberTo" type="number" value="50" onchange="generate()">
+      <input class="form-control" id="numberTo" type="number" min="0" value="50" onchange="generate()">
     </div>
   </div>
 </section>
@@ -357,7 +357,7 @@
           <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="">
         </span>
       </div>
-      <input class="form-control" id="moneyFrom" type="number" value="0" onchange="generate()">
+      <input class="form-control" id="moneyFrom" type="number" min="0" value="0" onchange="generate()">
     </div>
 
     <div class="input-group ms-1">
@@ -366,7 +366,7 @@
           <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="">
         </span>
       </div>
-      <input class="form-control" id="moneyTo" type="number" value="50" onchange="generate()">
+      <input class="form-control" id="moneyTo" type="number" min="0" value="50" onchange="generate()">
     </div>
 
     <div class="input-group ms-1">
@@ -416,7 +416,7 @@
           <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/text-size-button.svg" width="20" height="20" alt="">
         </span>
       </div>
-      <input class="form-control" id="fontSize" type="number" value="16">
+      <input class="form-control" id="fontSize" type="number" min="0" value="16">
     </div>
 
     <div class="input-group ms-1">
@@ -425,7 +425,7 @@
           <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/text-line-spacing.svg" width="20" height="20" alt="">
         </span>
       </div>
-      <input class="form-control" id="textSpacing" type="number" value="16">
+      <input class="form-control" id="textSpacing" type="number" min="0" value="16">
     </div>
   </div>
 
