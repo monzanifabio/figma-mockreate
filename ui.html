@@ -10,7 +10,6 @@
 
   body {
     color: #272727;
-    background-color: #F4F4F4;
     margin: 15px;
   }
 
@@ -109,7 +108,7 @@
     background-color: #FFFFFF;
     background-clip: padding-box;
     border: none;
-    border-radius: 0.25rem;
+    border-bottom: 1px solid #E5E5E5;
   }
 
   .form-control:focus {
@@ -117,7 +116,6 @@
     background-color: #FFFFFF;
     border-color: #0F99FF;
     outline: 0;
-    <!-- box-shadow: 0 0 0 0.2rem rgb(0 183 99 / 25%) -->
   }
 
   label {
@@ -153,10 +151,6 @@
     text-align: center;
   }
 
-  hr {
-    margin: 1rem 0;
-    border: 1px solid #E5E5E5;
-  }
 
   footer {
     width: 100%;
@@ -233,13 +227,14 @@
 <!-- FIRST NAMES -->
 <section id="section-names" style="display: none;">
   <h5>Gender</h5>
-  <select id="genderSelection" class="form-control" name="" onchange="generate();">
-    <option value="male">Male</option>
-    <option value="female">Female</option>
-    <option value="both" selected>Both</option>
-  </select>
+  <div class="form-group">
+    <select id="genderSelection" class="form-control" name="" onchange="generate();">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="both" selected>Both</option>
+    </select>
+  </div>
 
-  <hr>
 </section>
 <!-- LAST NAMES -->
 <section id="section-surnames" style="display: none;"></section>
@@ -393,7 +388,6 @@
     <input class="form-control" id="customDatasetKey" type="text" placeholder="e.g. names" onchange="generate();">
   </div>
 
-  <hr>
 </section>
 
 
@@ -405,7 +399,6 @@
     <input class="form-control" id="count" min="0" type="number" value="5" onchange="generate();">
   </div>
 
-  <hr>
 
   <h5>Layout options</h5>
 
@@ -433,7 +426,6 @@
 </div>
 
 <footer>
-  <hr>
   <div>
     <a href="https://twitter.com/monzanifabio" class="arrow" target="_blank">Support and suggestions</a>
   </div>
