@@ -1,10 +1,10 @@
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+
 
   * {
     margin: 0;
     padding: 0;
-    font-family: 'Lexend', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   body {
@@ -21,7 +21,11 @@
     margin-right: 0.5rem;
   }
 
-  h4 {
+  .mt-1 {
+    margin-top: 1rem;
+  }
+
+  h4, h5 {
     margin-bottom: 0.5rem;
   }
 
@@ -62,25 +66,26 @@
     line-height: 1.5;
     border-radius: 0.25rem;
     border: 1px solid transparent;
+    cursor: pointer;
   }
 
   .btn-primary {
-    background-color: #00B763;
-    border-color: #00B763;
+    background-color: #0F99FF;
+    border-color: #0F99FF;
     color: #FFFFFF;
   }
 
   .btn-primary:hover {
-    background-color: #009b4e;
-    border-color: #008d47;
+    background-color: #0069d9;
+    border-color: #0069d9;
     color: #FFFFFF;
   }
 
   .btn-primary:focus {
-    background-color: #009b4e;
-    border-color: #008d47;
+    background-color: #0069d9;
+    border-color: #0069d9;
     color: #FFFFFF;
-    box-shadow: 0 0 0 0.2rem rgb(0 183 99 / 50%)
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 50%);
   }
 
   .btn-block {
@@ -92,7 +97,7 @@
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
     padding: 0.375rem 0.75rem;
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 400;
     line-height: 1.5;
     color: #495057;
@@ -105,9 +110,9 @@
   .form-control:focus {
     color: #495057;
     background-color: #FFFFFF;
-    border-color: #00B763;
+    border-color: #0F99FF;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgb(0 183 99 / 25%)
+    <!-- box-shadow: 0 0 0 0.2rem rgb(0 183 99 / 25%) -->
   }
 
   label {
@@ -169,7 +174,7 @@
 
   hr {
     margin: 1rem 0;
-    border-top: 1px solid #D9DEDC;
+    border: 1px solid #E5E5E5;
   }
 
   footer {
@@ -220,9 +225,10 @@
   }
 
   .form-helper {
-    margin-top: 0.25rem;
+    margin-top: 0.5rem;
     font-size: .8rem;
     color: #6c757d;
+    line-height: 1.4;
   }
 </style>
 <!-- <h2>Random Generator</h2> -->
@@ -246,7 +252,7 @@
 </div>
 <!-- FIRST NAMES -->
 <section id="section-names" style="display: none;">
-  <label for="">Gender</label>
+  <h5>Gender</h5>
   <div class="form-group btn-group">
     <label class="btn-group-item" for="male">
       <input class="radio-tab tab" type="radio" id="male" name="gender" value="male" onchange="generate();">
@@ -413,12 +419,12 @@
 <!--  CUSTOM  -->
 <section id="section-custom" style="display: none;">
   <div class="form-group">
-    <label>Custom dataset</label>
+    <h5>Custom dataset</h5>
     <input class="form-control" id="customDataset" type="url" placeholder="Link to your JSON dataset" onchange="generate();">
   </div>
 
   <div class="form-group">
-    <label>Key</label>
+    <h5>Key</h5>
     <input class="form-control" id="customDatasetKey" type="text" placeholder="e.g. names" onchange="generate();">
   </div>
 
@@ -430,11 +436,11 @@
 <div id="options" style="display: none;">
 
   <div class="form-group">
-    <label>Number of results</label>
+    <h5>Number of results</h5>
     <input class="form-control" id="count" min="0" type="number" value="5" onchange="generate();">
   </div>
 
-  <h4>Layout options</h4>
+  <h5>Layout options</h5>
 
   <div class="layout-options">
     <div class="input-group me-1">
@@ -456,7 +462,7 @@
     </div>
   </div>
 
-  <button id="create" class="btn btn-primary btn-block">Generate</button>
+  <button id="create" class="btn btn-primary btn-block mt-1">Generate</button>
 </div>
 
 <footer>
