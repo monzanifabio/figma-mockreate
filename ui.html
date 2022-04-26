@@ -136,37 +136,6 @@
     margin-bottom: 1rem;
   }
 
-  input[type=radio] {
-    /*Hack to get the radio button to disappear without using display:none but still trigger the 'required' property*/
-    opacity: 0;
-    margin: -1px;
-    height: 1px;
-    width: 1px;
-  }
-
-  .radio-tab {
-    cursor: pointer;
-    border: none;
-    outline: none;
-  }
-  .radio-tab p {
-    color: B3B3B3;
-  }
-
-  .radio-tab:checked+.tab {
-    background-color: #FFFFFF;
-    border-radius: 0.15rem;
-  }
-
-  .radio-tab:checked+.tab p {
-    color: #333333;
-  }
-
-  .tab {
-    margin: 3px;
-    padding: 6px;
-  }
-
   .btn-group {
     display: flex;
     flex-direction: row;
@@ -264,26 +233,11 @@
 <!-- FIRST NAMES -->
 <section id="section-names" style="display: none;">
   <h5>Gender</h5>
-  <div class="form-group btn-group">
-    <label class="btn-group-item" for="male">
-      <input class="radio-tab tab" type="radio" id="male" name="gender" value="male" onchange="generate();">
-      <div class="radio-tab tab">
-        <p>Male</p>
-      </div>
-    </label>
-    <label class="btn-group-item" for="female">
-      <input class="radio-tab tab" type="radio" id="female" name="gender" value="female" onchange="generate();">
-      <div class="radio-tab tab">
-        <p>Female</p>
-      </div>
-    </label>
-    <label class="btn-group-item" for="both">
-      <input class="radio-tab tab" type="radio" id="both" name="gender" value="both" onchange="generate();" checked>
-      <div class="radio-tab tab">
-        <p>Both</p>
-      </div>
-    </label>
-  </div>
+  <select id="genderSelection" class="form-control" name="" onchange="generate();">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <option value="both" selected>Both</option>
+  </select>
 
   <hr>
 </section>
@@ -678,7 +632,7 @@
     //Empty the array on a new generation
     genStorage.length = 0;
     count = parseInt(document.getElementById('count').value);
-    genderSelection = document.querySelector('input[name="gender"]:checked').value;
+    genderSelection = document.getElementById('genderSelection').value;
     const dataSelection = document.getElementById('datasetSelector').value;
 
     // const requestURL = 'https://cryptofonts.com/first-names.json';
