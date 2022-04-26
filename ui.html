@@ -25,6 +25,34 @@
     margin-bottom: 0.5rem;
   }
 
+  a {
+    color: #00B763;
+    text-decoration: none;
+  }
+
+  footer a {
+    font-size: 0.8rem;
+  }
+
+  .arrow::after {
+    content: " ";
+    display: inline-block;
+    background-image: url(img/arrow.svg);
+    width: 15px;
+    height: 15px;
+    margin-left: -5px;
+    opacity: 0;
+    transition: all 0.2s;
+    vertical-align: sub;
+  }
+
+  .arrow:hover::after {
+    opacity: 1;
+    transform: translate(10px, 0px);
+    transition: all 0.2s;
+    vertical-align: sub;
+  }
+
   .btn {
     display: inline-block;
     text-align: center;
@@ -432,8 +460,7 @@
 </div>
 
 <footer>
-  <!-- <p>Helloooo there!</p>
-  <a href="https://www.google.com" target="_blank">Link</a> -->
+  <a href="https://twitter.com/monzanifabio" class="arrow" target="_blank">Support and suggestions</a>
 </footer>
 <script>
   function datasetController(el) {
