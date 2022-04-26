@@ -39,6 +39,10 @@
     font-size: 0.8rem;
   }
 
+  footer div {
+    padding: 0 15px 15px 15px;
+  }
+
   .arrow::after {
     content: " ";
     display: inline-block;
@@ -186,12 +190,10 @@
   }
 
   footer {
-    padding: 15px;
-    background-color: #E5E5E5;
+    width: 100%;
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
   }
 
   .input-group {
@@ -477,7 +479,10 @@
 </div>
 
 <footer>
-  <a href="https://twitter.com/monzanifabio" class="arrow" target="_blank">Support and suggestions</a>
+  <hr>
+  <div>
+    <a href="https://twitter.com/monzanifabio" class="arrow" target="_blank">Support and suggestions</a>
+  </div>
 </footer>
 <script>
   function datasetController(el) {
