@@ -1,3 +1,4 @@
+
 # Mockreate Figma Plugin
 Mockreate is a Figma plugin to generate random data quickly to fill tables and designs in general.
 ### What can you create with Mockreate?
@@ -22,3 +23,8 @@ Mockreate allows you to generate random data from default datasets, random math 
 - Select the number of generated results
 - Font size
 - Spacing between rows
+
+### Todo
+- [ ] Add a data preview
+- [ ] Add more datasets
+- [ ] UI improvements?
