@@ -34,6 +34,12 @@
     text-decoration: none;
   }
 
+  #outputPreview {
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.8rem;
+    color: #AAAAAA;
+  }
+
   footer a {
     font-size: 0.8rem;
   }
@@ -172,7 +178,7 @@
     flex-wrap: nowrap;
     align-items: stretch;
     width: 100%;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 
   .input-group-prepend {
@@ -427,7 +433,16 @@
       </div>
       <input class="form-control" id="textSpacing" type="number" min="0" value="16">
     </div>
+
   </div>
+
+  <h5>Preview</h5>
+
+  <div class="" id="outputPreview">
+    ciaoo
+    another line
+  </div>
+
 
   <button id="create" class="btn btn-primary btn-block mt-1">Generate</button>
 </div>
@@ -439,6 +454,7 @@
 </footer>
 <script>
   const btnCreate = document.getElementById('create');
+  const outputPreview = document.getElementById('outputPreview');
 
   function datasetController(el) {
     //Layout options startup
@@ -666,6 +682,7 @@
         // console.log(items[x].name);
         if (genderSelection === "both") {
           console.log(items[x].name, items[x].gender);
+          outputPreview.textContent += items[x].name, items[x].gender;
           genStorage.push(items[x].name)
         } else if (items[x].gender === genderSelection) {
           console.log(items[x].name, items[x].gender)
