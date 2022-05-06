@@ -29,6 +29,7 @@ Mockreate allows you to generate random data from default datasets, random math 
 - Select the number of generated results
 - Font size
 - Spacing between rows
+- See data preview before adding it to the workspace
 
 ### Todo
 - [x] Add a data preview
