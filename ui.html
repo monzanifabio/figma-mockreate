@@ -38,6 +38,8 @@
     font-family: "Roboto Mono", monospace;
     font-size: 0.8rem;
     color: #AAAAAA;
+    height: 200px;
+    overflow: scroll;
   }
 
   footer a {
@@ -439,8 +441,7 @@
   <h5>Preview</h5>
 
   <div class="" id="outputPreview">
-    ciaoo
-    another line
+    Randomly generated data will appear here...
   </div>
 
 
@@ -679,11 +680,10 @@
 
       for (var i = 0; i < count; i++) {
         x = Math.floor(Math.random() * items.length);
-        // console.log(items[x].name);
         if (genderSelection === "both") {
           console.log(items[x].name, items[x].gender);
-          outputPreview.textContent += items[x].name, items[x].gender;
           genStorage.push(items[x].name)
+          outputPreview.innerHTML = genStorage.join('<br>');
         } else if (items[x].gender === genderSelection) {
           console.log(items[x].name, items[x].gender)
           genStorage.push(items[x].name)
