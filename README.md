@@ -31,6 +31,6 @@ Mockreate allows you to generate random data from default datasets, random math 
 - Spacing between rows
 
 ### Todo
-- [*] Add a data preview
+- [x] Add a data preview
 - [ ] Add more datasets
 - [ ] UI improvements?
