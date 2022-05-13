@@ -34,6 +34,15 @@
     text-decoration: none;
   }
 
+  #outputPreview {
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.8rem;
+    color: #AAAAAA;
+    min-height: 85px;
+    max-height: 130px;
+    overflow: scroll;
+  }
+
   footer a {
     font-size: 0.8rem;
   }
@@ -172,7 +181,7 @@
     flex-wrap: nowrap;
     align-items: stretch;
     width: 100%;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 
   .input-group-prepend {
@@ -427,7 +436,15 @@
       </div>
       <input class="form-control" id="textSpacing" type="number" min="0" value="16">
     </div>
+
   </div>
+
+  <h5>Preview</h5>
+
+  <div class="" id="outputPreview">
+    Randomly generated data will appear here...
+  </div>
+
 
   <button id="create" class="btn btn-primary btn-block mt-1">Generate</button>
 </div>
@@ -439,6 +456,7 @@
 </footer>
 <script>
   const btnCreate = document.getElementById('create');
+  const outputPreview = document.getElementById('outputPreview');
 
   function datasetController(el) {
     //Layout options startup
@@ -663,16 +681,18 @@
 
       for (var i = 0; i < count; i++) {
         x = Math.floor(Math.random() * items.length);
-        // console.log(items[x].name);
         if (genderSelection === "both") {
           console.log(items[x].name, items[x].gender);
           genStorage.push(items[x].name)
+          outputPreview.innerHTML = genStorage.join('<br>');
         } else if (items[x].gender === genderSelection) {
           console.log(items[x].name, items[x].gender)
           genStorage.push(items[x].name)
+          outputPreview.innerHTML = genStorage.join('<br>');
         } else {
           console.log(items[x + 1].name, items[x].gender)
           genStorage.push(items[x].name)
+          outputPreview.innerHTML = genStorage.join('<br>');
         }
       }
       console.log('------------------')
@@ -692,6 +712,7 @@
         x = Math.floor(Math.random() * items.length);
         console.log(items[x]);
         genStorage.push(items[x])
+        outputPreview.innerHTML = genStorage.join('<br>');
       }
       console.log('------------------')
     }
@@ -710,6 +731,7 @@
         x = Math.floor(Math.random() * items.length);
         console.log(items[x].full_name);
         genStorage.push(items[x].full_name)
+        outputPreview.innerHTML = genStorage.join('<br>');
       }
       console.log('------------------')
     }
@@ -728,6 +750,7 @@
         x = Math.floor(Math.random() * items.length);
         console.log(items[x].username);
         genStorage.push(items[x].username)
+        outputPreview.innerHTML = genStorage.join('<br>');
       }
       console.log('------------------')
     }
@@ -746,6 +769,7 @@
         x = Math.floor(Math.random() * items.length);
         console.log(items[x].email);
         genStorage.push(items[x].email)
+        outputPreview.innerHTML = genStorage.join('<br>');
       }
       console.log('------------------')
     }
@@ -759,6 +783,7 @@
         x = (Math.floor(Math.pow(10, phoneDigits - 1) + Math.random() * 9 * Math.pow(10, phoneDigits - 1))).toString();
         console.log('+' + phonePrefix + ' ' + x);
         genStorage.push('+' + phonePrefix + ' ' + x);
+        outputPreview.innerHTML = genStorage.join('<br>');
       }
       console.log('------------------')
     }
@@ -776,18 +801,22 @@
         if (dateFormat == 1) {
           console.log(d + "/" + m + "/" + selectedYear);
           genStorage.push(d + "/" + m + "/" + selectedYear);
+          outputPreview.innerHTML = genStorage.join('<br>');
         }
         if (dateFormat == 2) {
           console.log(d + "-" + m + "-" + selectedYear);
           genStorage.push(d + "-" + m + "-" + selectedYear);
+          outputPreview.innerHTML = genStorage.join('<br>');
         }
         if (dateFormat == 3) {
           console.log(d + " " + m + " " + selectedYear);
           genStorage.push(d + " " + m + " " + selectedYear);
+          outputPreview.innerHTML = genStorage.join('<br>');
         }
         if (dateFormat == 4) {
           console.log(d + " " + mm[m] + " " + selectedYear);
           genStorage.push(d + " " + mm[m] + " " + selectedYear);
+          outputPreview.innerHTML = genStorage.join('<br>');
         }
       }
       console.log('------------------')
@@ -812,10 +841,12 @@
         if (timeFormat == 1) {
           console.log(hh + ":" + m);
           genStorage.push(hh + ":" + m);
+          outputPreview.innerHTML = genStorage.join('<br>');
         }
         if (timeFormat == 2) {
           console.log(h + ":" + m + time[x]);
           genStorage.push(h + ":" + m + time[x]);
+          outputPreview.innerHTML = genStorage.join('<br>');
         }
       }
       console.log('------------------')
@@ -831,6 +862,7 @@
         x = (Math.floor(Math.random() * (numberTo - numberFrom + 1)) + numberFrom).toString();
         console.log(x);
         genStorage.push(x);
+        outputPreview.innerHTML = genStorage.join('<br>');
       }
       console.log('------------------')
     }
@@ -846,6 +878,7 @@
         x = currency + (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString();
         console.log(x);
         genStorage.push(x);
+        outputPreview.innerHTML = genStorage.join('<br>');
       }
       console.log('------------------')
     }
@@ -856,6 +889,7 @@
         x = (Math.floor(Math.random() * (9999999999999999 - 1234567890123456 + 1)) + 1234567890123456).toString().replace(/\d{4}(?=.)/g, '$& ');
         console.log(x);
         genStorage.push(x);
+        outputPreview.innerHTML = genStorage.join('<br>');
       }
       console.log('------------------')
     }
@@ -878,6 +912,7 @@
         x = Math.floor(Math.random() * items.length);
         console.log(items[x][customDatasetKey]);
         genStorage.push(items[x][customDatasetKey]);
+        outputPreview.innerHTML = genStorage.join('<br>');
       }
       console.log('------------------')
     }
