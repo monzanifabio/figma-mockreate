@@ -1,16 +1,20 @@
 <style>
-
-
   * {
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    color: #333333;
   }
 
   body {
-    color: #272727;
     margin: 15px;
+  }
+
+  .figma-light body {
+    color: #333333;
+  }
+
+  .figma-dark body {
+    color: #FFFFFF;
   }
 
   .ms-1 {
@@ -25,7 +29,8 @@
     margin-top: 1rem;
   }
 
-  h4, h5 {
+  h4,
+  h5 {
     margin-bottom: 0.5rem;
   }
 
@@ -101,7 +106,8 @@
     box-shadow: 0 0 0 0.2rem rgb(0 183 99 / 50%);
   }
 
-  .btn-primary:disabled, .btn-primary[disabled]{
+  .btn-primary:disabled,
+  .btn-primary[disabled] {
     background-color: #A5D0BC;
     border-color: #A5D0BC;
     color: #FFFFFF;
@@ -120,19 +126,38 @@
     font-size: 0.85rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #495057;
-    background-color: #FFFFFF;
     background-clip: padding-box;
     border: none;
+  }
+
+  .figma-light .form-control {
+    color: #495057;
+    background-color: #FFFFFF;
     border-bottom: 1px solid #E5E5E5;
   }
 
+  .figma-dark .form-control {
+    color: #FFFFFF;
+    background-color: #2C2C2C;
+    border-bottom: 1px solid #444444;
+  }
+
   .form-control:focus {
+    outline: 0;
+  }
+
+  .figma-light .form-control:focus {
     color: #495057;
     background-color: #FFFFFF;
     border-color: #00B763;
-    outline: 0;
   }
+
+  .figma-dark .form-control:focus {
+    color: #FFFFFF;
+    background-color: #2C2C2C;
+    border-color: #00B763;
+  }
+
 
   label {
     display: inline-block;
@@ -154,8 +179,15 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #E5E5E5;
     border-radius: 0.25rem;
+  }
+
+  .figma-light .btn-group {
+    background-color: #E5E5E5;
+  }
+
+  .figma-dark .btn-group {
+    background-color: #2C2C2C;
   }
 
   .btn-group label {
@@ -202,6 +234,15 @@
     white-space: nowrap;
     border-radius: 0.25rem;
   }
+
+  .figma-light .input-group-text {
+    background-color: #FFFFFF;
+  }
+
+  .figma-dark .input-group-text {
+    background-color: #2C2C2C;
+  }
+
 
   .input-group>.input-group-prepend>.input-group-text {
     border-top-right-radius: 0;
