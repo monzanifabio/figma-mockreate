@@ -83,3 +83,13 @@ h1, h2, h3, h4, h5, h5 {
   text-decoration: underline;
   text-decoration-color: #0D99FF;
 }
+
+@media (max-width: 768px) {
+  .jumbotron h1 {
+    font-size: 4rem;
+  }
+
+  body {
+    height: unset;
+  }
+}

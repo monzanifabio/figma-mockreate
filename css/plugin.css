@@ -115,6 +115,9 @@ h5 {
   border: none;
   border-radius: 0;
   outline: none;
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+  appearance: auto;
 }
 
 .form-control {
