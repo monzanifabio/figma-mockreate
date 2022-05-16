@@ -5,6 +5,10 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -13,246 +17,266 @@
   <!-- Plugin CSS -->
   <link rel="stylesheet" href="css/plugin.css">
 
-  <title>Hello, world!</title>
+  <title>Mockreate</title>
 </head>
 
 <body>
-  <div class="container py-4 h-100 d-flex align-items-center">
-    <div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container py-4 d-flex align-items-start justify-content-between">
+    <div class="mb-4 rounded-3">
       <div class="plugin-view">
-        <h5>Dataset</h5>
-        <div class="form-group">
-          <select name="" id="datasetSelector" class="form-control" onchange="datasetController(this)">
-            <option value="null" selected disabled>Select dataset</option>
-            <option value="names" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/first-names.json">First name</option>
-            <option value="surnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/last-names.json">Last name</option>
-            <option value="fullnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/full-names.json">Full name</option>
-            <option value="usernames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/usernames.json">Username</option>
-            <option value="emails" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/emails.json">Email</option>
-            <option value="phones">Phone number</option>
-            <option value="dates">Date</option>
-            <option value="times">Time</option>
-            <option value="numbers">Number range</option>
-            <option value="money">Money</option>
-            <option value="creditcards">Credit card</option>
-            <option value="custom">Custom</option>
-          </select>
-          <div id="formHelper" class="form-helper">Select a dataset to get started.<br>Each dataset has different options that you can customise to your liking.</div>
+        <div class="plugin-header d-flex align-items-center justify-content-between">
+          <div class="d-flex">
+            <img src="img/logo.svg" height="16" alt="">
+            <p>Mockreate</p>
+          </div>
+          <img src="img/close.svg" height="12" alt="">
         </div>
-        <!-- FIRST NAMES -->
-        <section id="section-names" style="display: none;">
-          <h5>Gender</h5>
+        <div class="plugin-body">
+          <h5>Dataset</h5>
           <div class="form-group">
-            <select id="genderSelection" class="form-control" name="" onchange="generate();">
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="both" selected>Both</option>
+            <select name="" id="datasetSelector" class="form-control" onchange="datasetController(this)">
+              <option value="null" selected disabled>Select dataset</option>
+              <option value="names" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/first-names.json">First name</option>
+              <option value="surnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/last-names.json">Last name</option>
+              <option value="fullnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/full-names.json">Full name</option>
+              <option value="usernames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/usernames.json">Username</option>
+              <option value="emails" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/emails.json">Email</option>
+              <option value="phones">Phone number</option>
+              <option value="dates">Date</option>
+              <option value="times">Time</option>
+              <option value="numbers">Number range</option>
+              <option value="money">Money</option>
+              <option value="creditcards">Credit card</option>
+              <option value="custom">Custom</option>
             </select>
+            <div id="formHelper" class="form-helper">Select a dataset to get started.<br>Each dataset has different options that you can customise to your liking.</div>
           </div>
-
-        </section>
-        <!-- LAST NAMES -->
-        <section id="section-surnames" style="display: none;"></section>
-
-        <!-- FULL NAMES -->
-        <section id="section-fullnames" style="display: none;"></section>
-
-        <!--  USERNAMES -->
-        <section id="section-usernames" style="display: none;"></section>
-
-        <!--  EMAILS -->
-        <section id="section-emails" style="display: none;"></section>
-
-        <!--  PHONE NUMBERS -->
-        <section id="section-phones" style="display: none;">
-          <div class="layout-options">
-            <div class="input-group me-1">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/plus.svg" width="20" height="20" alt="">
-                </span>
-              </div>
-              <input class="form-control" id="phonePrefix" type="number" placeholder="Phone prefix e.g.41" onchange="generate()">
-            </div>
-
-            <div class="input-group ms-1">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/phone-number.svg" width="20" height="20" alt="">
-                </span>
-              </div>
-              <input class="form-control" id="phoneDigits" type="number" min="0" placeholder="Number of digits" onchange="generate()">
-            </div>
-          </div>
-        </section>
-
-        <!--  DATES -->
-        <section id="section-dates" style="display: none;">
-          <div class="layout-options">
-            <div class="input-group me-1">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/calendar.svg" width="20" height="20" alt="">
-                </span>
-              </div>
-              <input class="form-control" id="selectedYear" type="number" min="1900" max="2099" step="1" value="2022" onchange="generate()">
-            </div>
-
-            <div class="input-group ms-1">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/format-slash.svg" width="20" height="20" alt="">
-                </span>
-              </div>
-              <select class="form-control" id="dateFormat" onchange="generate()">
-                <option value="0" selected disabled>Select date format</option>
-                <option value="1">26/08/1988</option>
-                <option value="2">26-08-1988</option>
-                <option value="3">26 08 1988</option>
-                <option value="4">26 Aug 1988</option>
+          <!-- FIRST NAMES -->
+          <section id="section-names" style="display: none;">
+            <h5>Gender</h5>
+            <div class="form-group">
+              <select id="genderSelection" class="form-control" name="" onchange="generate();">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="both" selected>Both</option>
               </select>
             </div>
-          </div>
-        </section>
 
-        <!--  TIME -->
-        <section id="section-times" style="display: none;">
-          <div class="layout-options">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/clock.svg" width="20" height="20" alt="">
-                </span>
+          </section>
+          <!-- LAST NAMES -->
+          <section id="section-surnames" style="display: none;"></section>
+
+          <!-- FULL NAMES -->
+          <section id="section-fullnames" style="display: none;"></section>
+
+          <!--  USERNAMES -->
+          <section id="section-usernames" style="display: none;"></section>
+
+          <!--  EMAILS -->
+          <section id="section-emails" style="display: none;"></section>
+
+          <!--  PHONE NUMBERS -->
+          <section id="section-phones" style="display: none;">
+            <div class="layout-options">
+              <div class="input-group me-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/plus.svg" width="20" height="20" alt="">
+                  </span>
+                </div>
+                <input class="form-control" id="phonePrefix" type="number" placeholder="Phone prefix e.g.41" onchange="generate()">
               </div>
-              <select class="form-control" id="timeFormat" onchange="generate()">
-                <option value="0" selected disabled>Select time format</option>
-                <option value="1">24h - hh:mm - 15:30</option>
-                <option value="2">12h - h:mm am/pm - 4:30pm</option>
-              </select>
-            </div>
-          </div>
-        </section>
 
-        <!-- NUMBERS -->
-        <section id="section-numbers" style="display: none;">
-          <div class="layout-options">
-            <div class="input-group me-1">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="">
-                </span>
+              <div class="input-group ms-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/phone-number.svg" width="20" height="20" alt="">
+                  </span>
+                </div>
+                <input class="form-control" id="phoneDigits" type="number" min="0" placeholder="Number of digits" onchange="generate()">
               </div>
-              <input class="form-control" id="numberFrom" type="number" min="0" value="0" onchange="generate()">
             </div>
+          </section>
 
-            <div class="input-group ms-1">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="">
-                </span>
+          <!--  DATES -->
+          <section id="section-dates" style="display: none;">
+            <div class="layout-options">
+              <div class="input-group me-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/calendar.svg" width="20" height="20" alt="">
+                  </span>
+                </div>
+                <input class="form-control" id="selectedYear" type="number" min="1900" max="2099" step="1" value="2022" onchange="generate()">
               </div>
-              <input class="form-control" id="numberTo" type="number" min="0" value="50" onchange="generate()">
-            </div>
-          </div>
-        </section>
 
-        <!-- MONEY -->
-        <section id="section-money" style="display: none;">
-          <div class="layout-options">
-            <div class="input-group me-1">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="">
-                </span>
+              <div class="input-group ms-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/format-slash.svg" width="20" height="20" alt="">
+                  </span>
+                </div>
+                <select class="form-control" id="dateFormat" onchange="generate()">
+                  <option value="0" selected disabled>Select date format</option>
+                  <option value="1">26/08/1988</option>
+                  <option value="2">26-08-1988</option>
+                  <option value="3">26 08 1988</option>
+                  <option value="4">26 Aug 1988</option>
+                </select>
               </div>
-              <input class="form-control" id="moneyFrom" type="number" min="0" value="0" onchange="generate()">
             </div>
+          </section>
 
-            <div class="input-group ms-1">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="">
-                </span>
+          <!--  TIME -->
+          <section id="section-times" style="display: none;">
+            <div class="layout-options">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/clock.svg" width="20" height="20" alt="">
+                  </span>
+                </div>
+                <select class="form-control" id="timeFormat" onchange="generate()">
+                  <option value="0" selected disabled>Select time format</option>
+                  <option value="1">24h - hh:mm - 15:30</option>
+                  <option value="2">12h - h:mm am/pm - 4:30pm</option>
+                </select>
               </div>
-              <input class="form-control" id="moneyTo" type="number" min="0" value="50" onchange="generate()">
             </div>
+          </section>
 
-            <div class="input-group ms-1">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/coin-currency.svg" width="20" height="20" alt="">
-                </span>
+          <!-- NUMBERS -->
+          <section id="section-numbers" style="display: none;">
+            <div class="layout-options">
+              <div class="input-group me-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="">
+                  </span>
+                </div>
+                <input class="form-control" id="numberFrom" type="number" min="0" value="0" onchange="generate()">
               </div>
-              <input class="form-control" id="moneyCurrency" type="text" value="$" onchange="generate()">
-            </div>
-          </div>
-        </section>
 
-        <!--  CREDIT CARDS -->
-        <section id="section-creditcards" style="display: none;"></section>
-
-        <!--  CUSTOM  -->
-        <section id="section-custom" style="display: none;">
-          <div class="form-group">
-            <h5>Custom dataset</h5>
-            <input class="form-control" id="customDataset" type="url" placeholder="Link to your JSON dataset" onchange="generate();">
-          </div>
-
-          <div class="form-group">
-            <h5>Key</h5>
-            <input class="form-control" id="customDatasetKey" type="text" placeholder="e.g. names" onchange="generate();">
-          </div>
-
-        </section>
-
-
-
-        <div id="options" style="display: none;">
-
-          <div class="form-group">
-            <h5>Number of results</h5>
-            <input class="form-control" id="count" min="0" type="number" value="5" onchange="generate();">
-          </div>
-
-
-          <h5>Layout options</h5>
-
-          <div class="layout-options">
-            <div class="input-group me-1">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/text-size-button.svg" width="20" height="20" alt="">
-                </span>
+              <div class="input-group ms-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="">
+                  </span>
+                </div>
+                <input class="form-control" id="numberTo" type="number" min="0" value="50" onchange="generate()">
               </div>
-              <input class="form-control" id="fontSize" type="number" min="0" value="16">
             </div>
+          </section>
 
-            <div class="input-group ms-1">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/text-line-spacing.svg" width="20" height="20" alt="">
-                </span>
+          <!-- MONEY -->
+          <section id="section-money" style="display: none;">
+            <div class="layout-options">
+              <div class="input-group me-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="">
+                  </span>
+                </div>
+                <input class="form-control" id="moneyFrom" type="number" min="0" value="0" onchange="generate()">
               </div>
-              <input class="form-control" id="textSpacing" type="number" min="0" value="16">
+
+              <div class="input-group ms-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="">
+                  </span>
+                </div>
+                <input class="form-control" id="moneyTo" type="number" min="0" value="50" onchange="generate()">
+              </div>
+
+              <div class="input-group ms-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/coin-currency.svg" width="20" height="20" alt="">
+                  </span>
+                </div>
+                <input class="form-control" id="moneyCurrency" type="text" value="$" onchange="generate()">
+              </div>
+            </div>
+          </section>
+
+          <!--  CREDIT CARDS -->
+          <section id="section-creditcards" style="display: none;"></section>
+
+          <!--  CUSTOM  -->
+          <section id="section-custom" style="display: none;">
+            <div class="form-group">
+              <h5>Custom dataset</h5>
+              <input class="form-control" id="customDataset" type="url" placeholder="Link to your JSON dataset" onchange="generate();">
             </div>
 
+            <div class="form-group">
+              <h5>Key</h5>
+              <input class="form-control" id="customDatasetKey" type="text" placeholder="e.g. names" onchange="generate();">
+            </div>
+
+          </section>
+
+
+
+          <div id="options" style="display: none;">
+
+            <div class="form-group">
+              <h5>Number of results</h5>
+              <input class="form-control" id="count" min="0" type="number" value="5" onchange="generate();">
+            </div>
+
+
+            <h5>Layout options</h5>
+
+            <div class="layout-options">
+              <div class="input-group me-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/text-size-button.svg" width="20" height="20" alt="">
+                  </span>
+                </div>
+                <input class="form-control" id="fontSize" type="number" min="0" value="16">
+              </div>
+
+              <div class="input-group ms-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/text-line-spacing.svg" width="20" height="20" alt="">
+                  </span>
+                </div>
+                <input class="form-control" id="textSpacing" type="number" min="0" value="16">
+              </div>
+
+            </div>
+
+            <h5>Preview</h5>
+
+            <div class="" id="outputPreview">
+              Randomly generated data will appear here...
+            </div>
+
+
+            <button id="create" class="btn btn-primary btn-block mt-1">Generate</button>
           </div>
-
-          <h5>Preview</h5>
-
-          <div class="" id="outputPreview">
-            Randomly generated data will appear here...
-          </div>
-
-
-          <button id="create" class="btn btn-primary btn-block mt-1">Generate</button>
         </div>
+      </div>
+    </div>
 
-        <footer>
-          <div>
-            <a href="https://twitter.com/monzanifabio" class="arrow" target="_blank">Support and suggestions</a>
-          </div>
-        </footer>
+    <div class="d-flex flex-column align-items-start">
+      <div class="jumbotron d-flex">
+        <div class="m-4">
+          <img src="img/logo.svg" height="110" alt="">
+        </div>
+        <div class="m-4">
+          <h1>Mockreate</h1>
+          <p>Generate and customise random data for your designs</p>
+          <a class="btn btn-primary" href="https://www.figma.com/community/plugin/1096384653667384513" target="_blank"><img class="me-2" src="img/figma-logo.svg" height="20" alt="">Install on Figma</a>
+        </div>
+      </div>
+
+      <div id="results">
+
       </div>
     </div>
   </div>

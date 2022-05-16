@@ -10,6 +10,10 @@
   margin-top: 1rem;
 }
 
+.plugin-view h5 {
+  font-size: 0.83em;
+}
+
 .plugin-view h4,
 h5 {
   margin-bottom: 0.5rem;
@@ -109,34 +113,25 @@ h5 {
   line-height: 1.5;
   background-clip: padding-box;
   border: none;
+  border-radius: 0;
+  outline: none;
 }
 
-.figma-light .form-control {
+.form-control {
   color: #495057;
   background-color: #FFFFFF;
-  border-bottom: 1px solid #E5E5E5;
-}
-
-.figma-dark .form-control {
-  color: #FFFFFF;
-  background-color: #2C2C2C;
-  border-bottom: 1px solid #444444;
+  border-bottom: 1px solid #E5E5E5 !important;
 }
 
 .form-control:focus {
-  outline: 0;
+  outline: 0 !important;
+  box-shadow: none;
 }
 
-.figma-light .form-control:focus {
+.form-control:focus {
   color: #495057;
   background-color: #FFFFFF;
-  border-color: #00B763;
-}
-
-.figma-dark .form-control:focus {
-  color: #FFFFFF;
-  background-color: #2C2C2C;
-  border-color: #00B763;
+  border-color: #00B763 !important;
 }
 
 label {
@@ -212,6 +207,7 @@ footer {
   background-color: #FFFFFF;
   white-space: nowrap;
   border-radius: 0.25rem;
+  border: none;
 }
 
 .figma-light .input-group-text {
