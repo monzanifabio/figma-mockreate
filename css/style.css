@@ -21,7 +21,7 @@ body {
     radial-gradient(at 54% 15%, hsla(143, 100%, 79%, 0.33) 0px, transparent 50%),
     radial-gradient(at 85% 39%, hsla(175, 100%, 36%, 0.15) 0px, transparent 50%),
     url('../img/bg.svg');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -77,7 +77,23 @@ h1, h2, h3, h4, h5, h5 {
 
 .tryme {
   position: relative;
-  top: -16px;
+  top: -12px;
+  right: 25px;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+
+  50% {
+    transform: translatey(-10px);
+  }
+
+  100% {
+    transform: translatey(0px);
+  }
 }
 
 .result-border {
