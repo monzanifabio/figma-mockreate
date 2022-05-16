@@ -79,7 +79,8 @@ h1, h2, h3, h4, h5, h5 {
   position: relative;
   top: -12px;
   right: 25px;
-  animation: float 2s ease-in-out infinite;
+  animation: wander 5s ease-in-out infinite;
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.1));
 }
 
 @keyframes float {
@@ -93,6 +94,24 @@ h1, h2, h3, h4, h5, h5 {
 
   100% {
     transform: translatey(0px);
+  }
+}
+
+@keyframes wander {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  25% {
+    transform: translate(-29px, -22px);
+  }
+
+  50% {
+    transform: translate(13px, -54px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
   }
 }
 
