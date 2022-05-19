@@ -276,6 +276,7 @@
     <option value="times">Time</option>
     <option value="numbers">Number range</option>
     <option value="money">Money</option>
+    <option value="licenseplates">License plates (EU)</option>
     <option value="creditcards">Credit card</option>
     <option value="custom">Custom</option>
   </select>
@@ -429,6 +430,10 @@
     </div>
   </div>
 </section>
+
+<!--  LICENSE PLATES -->
+<section id="section-licenseplates" style="display: none;"></section>
+
 
 <!--  CREDIT CARDS -->
 <section id="section-creditcards" style="display: none;"></section>
@@ -650,6 +655,22 @@
     //Display money section if money is selected
     if (el.value == "money") {
       let section = document.getElementById('section-money');
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName('section');
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+        btnCreate.removeAttribute('disabled');
+      } else {
+        section.style.display = "none";
+      }
+      generate()
+    }
+
+    //Display license plates section if credit cards is selected
+    if (el.value == "licenseplates") {
+      let section = document.getElementById('section-licenseplates');
       if (section.style.display == "none") {
         let sections = document.getElementsByTagName('section');
         for (var i = 0; i < sections.length; i++) {
@@ -919,6 +940,20 @@
         x = currency + (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString();
         console.log(x);
         genStorage.push(x);
+        outputPreview.innerHTML = genStorage.join('<br>');
+      }
+      console.log('------------------')
+    }
+
+    if (dataSelection == "licenseplates") {
+      btnCreate.removeAttribute('disabled');
+      for (var i = 0; i < count; i++) {
+        a = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 2).toUpperCase();
+        b = (Math.floor(Math.random() * (999 - 123 + 1)) + 123).toString();
+        c = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 2).toUpperCase();
+
+        console.log(a + " " + b + " " + c);
+        genStorage.push(a + " " + b + " " + c);
         outputPreview.innerHTML = genStorage.join('<br>');
       }
       console.log('------------------')
