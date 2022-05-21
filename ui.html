@@ -114,6 +114,23 @@
     cursor: default;
   }
 
+  .btn-radio:checked+.btn {
+    background-color: #444444;
+    border-color: #444444;
+  }
+
+  input[type=radio] {
+    opacity: 0;
+    margin: 0;
+    height: 1px;
+    width: 1px;
+  }
+
+  input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+
   .btn-block {
     width: 100%;
   }
@@ -176,7 +193,7 @@
   }
 
   .btn-group {
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
     border-radius: 0.25rem;
@@ -198,7 +215,6 @@
     width: 100%;
     text-align: center;
   }
-
 
   footer {
     width: 100%;
@@ -429,6 +445,18 @@
       <input class="form-control" id="moneyCurrency" type="text" value="$" onchange="generate()">
     </div>
   </div>
+  <div class="form-group">
+    <h5>Symbol position</h5>
+    <label for="symbol-prepend">
+      <input class="btn-radio" type="radio" id="symbol-prepend" name="symbol-position" value="prepend" checked onchange="generate()">
+      <img class="btn" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/feature/money-symbol-position/img/prepend.svg" alt="" width="20" height="20">
+    </label>
+    <label for="symbol-append">
+      <input class="btn-radio" type="radio" id="symbol-append" name="symbol-position" value="append" onchange="generate()">
+      <img class="btn" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/feature/money-symbol-position/img/append.svg" alt="" width="20" height="20">
+    </label>
+  </div>
+
 </section>
 
 <!--  LICENSE PLATES -->
@@ -936,11 +964,22 @@
     if (dataSelection == "money" && moneyFrom !== "" && moneyTo !== "") {
       btnCreate.removeAttribute('disabled');
 
-      for (var i = 0; i < count; i++) {
-        x = currency + (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString();
-        console.log(x);
-        genStorage.push(x);
-        outputPreview.innerHTML = genStorage.join('<br>');
+      if (document.getElementById('symbol-prepend').checked) {
+        console.log('prepend');
+        for (var i = 0; i < count; i++) {
+          x = currency + (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString();
+          console.log(x);
+          genStorage.push(x);
+          outputPreview.innerHTML = genStorage.join('<br>');
+        }
+      } else if (document.getElementById('symbol-append').checked) {
+        console.log('append');
+        for (var i = 0; i < count; i++) {
+          x = (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString() + currency;
+          console.log(x);
+          genStorage.push(x);
+          outputPreview.innerHTML = genStorage.join('<br>');
+        }
       }
       console.log('------------------')
     }
