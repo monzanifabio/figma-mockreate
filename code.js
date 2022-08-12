@@ -23,6 +23,17 @@ figma.ui.onmessage = msg => {
 
     const nodes = [];
     let spacing = 0;
+
+    //Create the table header if existing
+    if (msg.colHeader != "") {
+      const header = figma.createText();
+      header.fontSize = msg.fontSize;
+      header.characters = msg.colHeader;
+      header.x = figma.viewport.center.x;
+      header.y = msg.textSpacing - (msg.textSpacing * 2) - msg.fontSize;
+      nodes.push(header);
+    }
+    
     //Loop through the text nodes
     for (let i = 0; i < msg.count; i++) {
       const text = figma.createText();

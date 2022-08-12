@@ -510,6 +510,17 @@
       </div>
       <input class="form-control" id="textSpacing" type="number" min="0" value="16">
     </div>
+  </div>
+
+  <div class="layout-options">
+    <div class="input-group me-1">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/header.svg" width="20" height="20" alt="">
+        </span>
+      </div>
+      <input class="form-control" id="colHeader" type="text" placeholder="Column header (optional)">
+    </div>
 
   </div>
 
@@ -525,7 +536,7 @@
 
 <footer>
   <div>
-    <a href="https://twitter.com/monzanifabio" class="arrow" target="_blank">Support and suggestions</a>
+    <a href="mailto:monzani.fabio@icloud.com" class="arrow" target="_blank">Support and suggestions</a>
   </div>
 </footer>
 <script>
@@ -1038,13 +1049,16 @@
 
     const fontSize = parseInt(document.getElementById('fontSize').value);
     const textSpacing = parseInt(document.getElementById('textSpacing').value);
+    const colHeader = document.getElementById('colHeader').value;
+
     parent.postMessage({
       pluginMessage: {
         type: 'create-random-text',
         genStorage,
         count,
         fontSize,
-        textSpacing
+        textSpacing,
+        colHeader
       }
     }, '*')
   }
