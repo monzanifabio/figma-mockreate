@@ -294,6 +294,7 @@
     <option value="money">Money</option>
     <option value="licenseplates">License plates (EU)</option>
     <option value="creditcards">Credit card</option>
+    <option value="ethereum">Ethereum Address</option>
     <option value="custom">Custom</option>
   </select>
   <div id="formHelper" class="form-helper">Select a dataset to get started.<br>Each dataset has different options that you can customise to your liking.</div>
@@ -465,6 +466,9 @@
 
 <!--  CREDIT CARDS -->
 <section id="section-creditcards" style="display: none;"></section>
+
+<!-- ETHEREUM ADDRESS -->
+<section id="section-ethereum" style="display: none;"></section>
 
 <!--  CUSTOM  -->
 <section id="section-custom" style="display: none;">
@@ -726,6 +730,22 @@
     //Display credit cards section if credit cards is selected
     if (el.value == "creditcards") {
       let section = document.getElementById('section-creditcards');
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName('section');
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+        btnCreate.removeAttribute('disabled');
+      } else {
+        section.style.display = "none";
+      }
+      generate()
+    }
+
+    //Display ethereum address section if credit cards is selected
+    if (el.value == "ethereum") {
+      let section = document.getElementById('section-ethereum');
       if (section.style.display == "none") {
         let sections = document.getElementsByTagName('section');
         for (var i = 0; i < sections.length; i++) {
@@ -1006,6 +1026,21 @@
         genStorage.push(a + " " + b + " " + c);
         outputPreview.innerHTML = genStorage.join('<br>');
       }
+      console.log('------------------')
+    }
+
+    if (dataSelection == "ethereum") {
+      btnCreate.removeAttribute('disabled');
+      let address = "";
+      let hexChar = "0123456789abcdefABCDEF";
+      for (var i = 0; i < count; i++) {
+        for (var a = 0; a < 40; a++) {
+          address += hexChar.charAt(Math.floor(Math.random() * hexChar.length));
+        }
+        genStorage.push("0x" + address);
+        outputPreview.innerHTML = genStorage.join('<br>');
+        address = "";
+      }  
       console.log('------------------')
     }
 
