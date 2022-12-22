@@ -2,7 +2,7 @@
   * {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
   body {
@@ -14,7 +14,7 @@
   }
 
   .figma-dark body {
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
   .ms-1 {
@@ -35,14 +35,14 @@
   }
 
   a {
-    color: #00B763;
+    color: #00b763;
     text-decoration: none;
   }
 
   #outputPreview {
     font-family: "Roboto Mono", monospace;
     font-size: 0.8rem;
-    color: #AAAAAA;
+    color: #aaaaaa;
     min-height: 85px;
     max-height: 130px;
     overflow: scroll;
@@ -59,7 +59,7 @@
   .arrow::after {
     content: " ";
     display: inline-block;
-    background-image: url('https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/arrow.svg');
+    background-image: url("https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/arrow.svg");
     width: 15px;
     height: 15px;
     margin-left: -5px;
@@ -88,45 +88,45 @@
   }
 
   .btn-primary {
-    background-color: #00B763;
-    border-color: #00B763;
-    color: #FFFFFF;
+    background-color: #00b763;
+    border-color: #00b763;
+    color: #ffffff;
   }
 
   .btn-primary:hover {
-    background-color: #009B4E;
-    border-color: #009B4E;
-    color: #FFFFFF;
+    background-color: #009b4e;
+    border-color: #009b4e;
+    color: #ffffff;
   }
 
   .btn-primary:focus {
-    background-color: #008D47;
-    border-color: #008D47;
-    color: #FFFFFF;
+    background-color: #008d47;
+    border-color: #008d47;
+    color: #ffffff;
     box-shadow: 0 0 0 0.2rem rgb(0 183 99 / 50%);
   }
 
   .btn-primary:disabled,
   .btn-primary[disabled] {
-    background-color: #A5D0BC;
-    border-color: #A5D0BC;
-    color: #FFFFFF;
+    background-color: #a5d0bc;
+    border-color: #a5d0bc;
+    color: #ffffff;
     cursor: default;
   }
 
-  .btn-radio:checked+.btn {
+  .btn-radio:checked + .btn {
     background-color: #444444;
     border-color: #444444;
   }
 
-  input[type=radio] {
+  input[type="radio"] {
     opacity: 0;
     margin: 0;
     height: 1px;
     width: 1px;
   }
 
-  input[type=radio] {
+  input[type="radio"] {
     box-sizing: border-box;
     padding: 0;
   }
@@ -149,13 +149,13 @@
 
   .figma-light .form-control {
     color: #495057;
-    background-color: #FFFFFF;
-    border-bottom: 1px solid #E5E5E5;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
   }
 
   .figma-dark .form-control {
-    color: #FFFFFF;
-    background-color: #2C2C2C;
+    color: #ffffff;
+    background-color: #2c2c2c;
     border-bottom: 1px solid #444444;
   }
 
@@ -165,16 +165,15 @@
 
   .figma-light .form-control:focus {
     color: #495057;
-    background-color: #FFFFFF;
-    border-color: #00B763;
+    background-color: #ffffff;
+    border-color: #00b763;
   }
 
   .figma-dark .form-control:focus {
-    color: #FFFFFF;
-    background-color: #2C2C2C;
-    border-color: #00B763;
+    color: #ffffff;
+    background-color: #2c2c2c;
+    border-color: #00b763;
   }
-
 
   label {
     display: inline-block;
@@ -200,11 +199,11 @@
   }
 
   .figma-light .btn-group {
-    background-color: #E5E5E5;
+    background-color: #e5e5e5;
   }
 
   .figma-dark .btn-group {
-    background-color: #2C2C2C;
+    background-color: #2c2c2c;
   }
 
   .btn-group label {
@@ -246,33 +245,32 @@
     font-weight: 400;
     line-height: 1.5;
     text-align: center;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     white-space: nowrap;
     border-radius: 0.25rem;
   }
 
   .figma-light .input-group-text {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
   }
 
   .figma-dark .input-group-text {
-    background-color: #2C2C2C;
+    background-color: #2c2c2c;
   }
 
-
-  .input-group>.input-group-prepend>.input-group-text {
+  .input-group > .input-group-prepend > .input-group-text {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
 
-  .input-group>.form-control {
+  .input-group > .form-control {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
 
   .form-helper {
     margin-top: 0.5rem;
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: #6c757d;
     line-height: 1.4;
   }
@@ -282,11 +280,21 @@
 <div class="form-group">
   <select name="" id="datasetSelector" class="form-control" onchange="datasetController(this)">
     <option value="null" selected disabled>Select dataset</option>
-    <option value="names" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/first-names.json">First name</option>
-    <option value="surnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/last-names.json">Last name</option>
-    <option value="fullnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/full-names.json">Full name</option>
-    <option value="usernames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/usernames.json">Username</option>
-    <option value="emails" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/emails.json">Email</option>
+    <option value="names" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/first-names.json">
+      First name
+    </option>
+    <option value="surnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/last-names.json">
+      Last name
+    </option>
+    <option value="fullnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/full-names.json">
+      Full name
+    </option>
+    <option value="usernames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/usernames.json">
+      Username
+    </option>
+    <option value="emails" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/emails.json">
+      Email
+    </option>
     <option value="phones">Phone number</option>
     <option value="dates">Date</option>
     <option value="times">Time</option>
@@ -297,10 +305,12 @@
     <option value="ethereum">Ethereum Address</option>
     <option value="custom">Custom</option>
   </select>
-  <div id="formHelper" class="form-helper">Select a dataset to get started.<br>Each dataset has different options that you can customise to your liking.</div>
+  <div id="formHelper" class="form-helper">
+    Select a dataset to get started.<br />Each dataset has different options that you can customise to your liking.
+  </div>
 </div>
 <!-- FIRST NAMES -->
-<section id="section-names" style="display: none;">
+<section id="section-names" style="display: none">
   <h5>Gender</h5>
   <div class="form-group">
     <select id="genderSelection" class="form-control" name="" onchange="generate();">
@@ -309,59 +319,68 @@
       <option value="both" selected>Both</option>
     </select>
   </div>
-
 </section>
 <!-- LAST NAMES -->
-<section id="section-surnames" style="display: none;"></section>
+<section id="section-surnames" style="display: none"></section>
 
 <!-- FULL NAMES -->
-<section id="section-fullnames" style="display: none;"></section>
+<section id="section-fullnames" style="display: none"></section>
 
 <!--  USERNAMES -->
-<section id="section-usernames" style="display: none;"></section>
+<section id="section-usernames" style="display: none"></section>
 
 <!--  EMAILS -->
-<section id="section-emails" style="display: none;"></section>
+<section id="section-emails" style="display: none"></section>
 
 <!--  PHONE NUMBERS -->
-<section id="section-phones" style="display: none;">
+<section id="section-phones" style="display: none">
   <div class="layout-options">
     <div class="input-group me-1">
       <div class="input-group-prepend">
         <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/plus.svg" width="20" height="20" alt="">
+          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/plus.svg" width="20" height="20" alt="" />
         </span>
       </div>
-      <input class="form-control" id="phonePrefix" type="number" placeholder="Phone prefix e.g.41" onchange="generate()">
+      <input class="form-control" id="phonePrefix" type="number" placeholder="Phone prefix e.g.41" onchange="generate()" />
     </div>
 
     <div class="input-group ms-1">
       <div class="input-group-prepend">
         <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/phone-number.svg" width="20" height="20" alt="">
+          <img
+            src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/phone-number.svg"
+            width="20"
+            height="20"
+            alt=""
+          />
         </span>
       </div>
-      <input class="form-control" id="phoneDigits" type="number" min="0" placeholder="Number of digits" onchange="generate()">
+      <input class="form-control" id="phoneDigits" type="number" min="0" placeholder="Number of digits" onchange="generate()" />
     </div>
   </div>
 </section>
 
 <!--  DATES -->
-<section id="section-dates" style="display: none;">
+<section id="section-dates" style="display: none">
   <div class="layout-options">
     <div class="input-group me-1">
       <div class="input-group-prepend">
         <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/calendar.svg" width="20" height="20" alt="">
+          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/calendar.svg" width="20" height="20" alt="" />
         </span>
       </div>
-      <input class="form-control" id="selectedYear" type="number" min="1900" max="2099" step="1" value="2022" onchange="generate()">
+      <input class="form-control" id="selectedYear" type="number" min="1900" max="2099" step="1" value="2022" onchange="generate()" />
     </div>
 
     <div class="input-group ms-1">
       <div class="input-group-prepend">
         <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/format-slash.svg" width="20" height="20" alt="">
+          <img
+            src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/format-slash.svg"
+            width="20"
+            height="20"
+            alt=""
+          />
         </span>
       </div>
       <select class="form-control" id="dateFormat" onchange="generate()">
@@ -376,12 +395,12 @@
 </section>
 
 <!--  TIME -->
-<section id="section-times" style="display: none;">
+<section id="section-times" style="display: none">
   <div class="layout-options">
     <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/clock.svg" width="20" height="20" alt="">
+          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/clock.svg" width="20" height="20" alt="" />
         </span>
       </div>
       <select class="form-control" id="timeFormat" onchange="generate()">
@@ -394,105 +413,115 @@
 </section>
 
 <!-- NUMBERS -->
-<section id="section-numbers" style="display: none;">
+<section id="section-numbers" style="display: none">
   <div class="layout-options">
     <div class="input-group me-1">
       <div class="input-group-prepend">
         <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="">
+          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="" />
         </span>
       </div>
-      <input class="form-control" id="numberFrom" type="number" min="0" value="0" onchange="generate()">
+      <input class="form-control" id="numberFrom" type="number" min="0" value="0" onchange="generate()" />
     </div>
 
     <div class="input-group ms-1">
       <div class="input-group-prepend">
         <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="">
+          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="" />
         </span>
       </div>
-      <input class="form-control" id="numberTo" type="number" min="0" value="50" onchange="generate()">
+      <input class="form-control" id="numberTo" type="number" min="0" value="50" onchange="generate()" />
     </div>
   </div>
 </section>
 
 <!-- MONEY -->
-<section id="section-money" style="display: none;">
+<section id="section-money" style="display: none">
   <div class="layout-options">
     <div class="input-group me-1">
       <div class="input-group-prepend">
         <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="">
+          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="" />
         </span>
       </div>
-      <input class="form-control" id="moneyFrom" type="number" min="0" value="0" onchange="generate()">
+      <input class="form-control" id="moneyFrom" type="number" min="0" value="0" onchange="generate()" />
     </div>
 
     <div class="input-group ms-1">
       <div class="input-group-prepend">
         <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="">
+          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="" />
         </span>
       </div>
-      <input class="form-control" id="moneyTo" type="number" min="0" value="50" onchange="generate()">
+      <input class="form-control" id="moneyTo" type="number" min="0" value="50" onchange="generate()" />
     </div>
 
     <div class="input-group ms-1">
       <div class="input-group-prepend">
         <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/coin-currency.svg" width="20" height="20" alt="">
+          <img
+            src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/coin-currency.svg"
+            width="20"
+            height="20"
+            alt=""
+          />
         </span>
       </div>
-      <input class="form-control" id="moneyCurrency" type="text" value="$" onchange="generate()">
+      <input class="form-control" id="moneyCurrency" type="text" value="$" onchange="generate()" />
     </div>
   </div>
   <div class="form-group">
     <h5>Symbol position</h5>
     <label for="symbol-prepend">
-      <input class="btn-radio" type="radio" id="symbol-prepend" name="symbol-position" value="prepend" checked onchange="generate()">
-      <img class="btn" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/prepend.svg" alt="" width="20" height="20">
+      <input class="btn-radio" type="radio" id="symbol-prepend" name="symbol-position" value="prepend" checked onchange="generate()" />
+      <img
+        class="btn"
+        src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/prepend.svg"
+        alt=""
+        width="20"
+        height="20"
+      />
     </label>
     <label for="symbol-append">
-      <input class="btn-radio" type="radio" id="symbol-append" name="symbol-position" value="append" onchange="generate()">
-      <img class="btn" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/append.svg" alt="" width="20" height="20">
+      <input class="btn-radio" type="radio" id="symbol-append" name="symbol-position" value="append" onchange="generate()" />
+      <img
+        class="btn"
+        src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/append.svg"
+        alt=""
+        width="20"
+        height="20"
+      />
     </label>
   </div>
-
 </section>
 
 <!--  LICENSE PLATES -->
-<section id="section-licenseplates" style="display: none;"></section>
-
+<section id="section-licenseplates" style="display: none"></section>
 
 <!--  CREDIT CARDS -->
-<section id="section-creditcards" style="display: none;"></section>
+<section id="section-creditcards" style="display: none"></section>
 
 <!-- ETHEREUM ADDRESS -->
-<section id="section-ethereum" style="display: none;"></section>
+<section id="section-ethereum" style="display: none"></section>
 
 <!--  CUSTOM  -->
-<section id="section-custom" style="display: none;">
+<section id="section-custom" style="display: none">
   <div class="form-group">
     <h5>Custom dataset</h5>
-    <input class="form-control" id="customDataset" type="url" placeholder="Link to your JSON dataset" onchange="generate();">
+    <input class="form-control" id="customDataset" type="url" placeholder="Link to your JSON dataset" onchange="generate();" />
   </div>
 
   <div class="form-group">
     <h5>Key</h5>
-    <input class="form-control" id="customDatasetKey" type="text" placeholder="e.g. names" onchange="generate();">
+    <input class="form-control" id="customDatasetKey" type="text" placeholder="e.g. names" onchange="generate();" />
   </div>
-
 </section>
 
-
-
-<div id="options" style="display: none;">
-
+<div id="options" style="display: none">
   <div class="form-group">
     <h5>Number of results</h5>
-    <input class="form-control" id="count" min="0" type="number" value="5" onchange="generate();">
+    <input class="form-control" id="count" min="0" type="number" value="5" onchange="generate();" />
   </div>
-
 
   <h5>Layout options</h5>
 
@@ -500,19 +529,29 @@
     <div class="input-group me-1">
       <div class="input-group-prepend">
         <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/text-size-button.svg" width="20" height="20" alt="">
+          <img
+            src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/text-size-button.svg"
+            width="20"
+            height="20"
+            alt=""
+          />
         </span>
       </div>
-      <input class="form-control" id="fontSize" type="number" min="0" value="16">
+      <input class="form-control" id="fontSize" type="number" min="0" value="16" />
     </div>
 
     <div class="input-group ms-1">
       <div class="input-group-prepend">
         <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/text-line-spacing.svg" width="20" height="20" alt="">
+          <img
+            src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/text-line-spacing.svg"
+            width="20"
+            height="20"
+            alt=""
+          />
         </span>
       </div>
-      <input class="form-control" id="textSpacing" type="number" min="0" value="16">
+      <input class="form-control" id="textSpacing" type="number" min="0" value="16" />
     </div>
   </div>
 
@@ -520,52 +559,53 @@
     <div class="input-group me-1">
       <div class="input-group-prepend">
         <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/header.svg" width="20" height="20" alt="">
+          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/header.svg" width="20" height="20" alt="" />
         </span>
       </div>
-      <input class="form-control" id="colHeader" type="text" placeholder="Column header (optional)">
+      <input class="form-control" id="colHeader" type="text" placeholder="Column header (optional)" />
     </div>
-
   </div>
 
   <h5>Preview</h5>
 
-  <div class="" id="outputPreview">
-    Randomly generated data will appear here...
-  </div>
-
+  <div class="" id="outputPreview">Randomly generated data will appear here...</div>
 
   <button id="create" class="btn btn-primary btn-block mt-1">Generate</button>
 </div>
 
 <footer>
   <div>
-    <a href="mailto:monzani.fabio@icloud.com" class="arrow" target="_blank">Support and suggestions</a>
+    <a
+      href="https://www.producthunt.com/products/mockreate-figma-plugin/reviews?utm_source=badge-product_review&utm_medium=badge&utm_souce=badge-mockreate&#0045;figma&#0045;plugin"
+      class="arrow"
+      target="_blank"
+      >Leave a review</a
+    >
   </div>
 </footer>
 <script>
-  const btnCreate = document.getElementById('create');
-  const outputPreview = document.getElementById('outputPreview');
+  const btnCreate = document.getElementById("create");
+  const outputPreview = document.getElementById("outputPreview");
 
   function datasetController(el) {
     //Layout options startup
     if (el.value !== "null") {
-      let options = document.getElementById('options');
+      let options = document.getElementById("options");
       options.style.display = "block";
-      let helper = document.getElementById('formHelper');
+      let helper = document.getElementById("formHelper");
       helper.style.display = "none";
     }
 
     //Display names section if names is selected
     if (el.value == "names") {
-      let section = document.getElementById('section-names');
+      let section = document.getElementById("section-names");
       if (section.style.display == "none") {
-        let sections = document.getElementsByTagName('section');
+        let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute('disabled', '');
+        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
@@ -573,206 +613,206 @@
     }
     //Display surnames section if surname is selected
     if (el.value == "surnames") {
-      let section = document.getElementById('section-surnames');
+      let section = document.getElementById("section-surnames");
       if (section.style.display == "none") {
-        let sections = document.getElementsByTagName('section');
+        let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute('disabled', '');
+        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate()
+      generate();
     }
     //Display full names section if full names is selected
     if (el.value == "fullnames") {
-      let section = document.getElementById('section-fullnames');
+      let section = document.getElementById("section-fullnames");
       if (section.style.display == "none") {
-        let sections = document.getElementsByTagName('section');
+        let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute('disabled', '');
+        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate()
+      generate();
     }
     //Display  usernames section if usernames is selected
     if (el.value == "usernames") {
-      let section = document.getElementById('section-usernames');
+      let section = document.getElementById("section-usernames");
       if (section.style.display == "none") {
-        let sections = document.getElementsByTagName('section');
+        let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute('disabled', '');
+        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate()
+      generate();
     }
     //Display  emails section if emails is selected
     if (el.value == "emails") {
-      let section = document.getElementById('section-emails');
+      let section = document.getElementById("section-emails");
       if (section.style.display == "none") {
-        let sections = document.getElementsByTagName('section');
+        let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute('disabled', '');
+        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate()
+      generate();
     }
     //Display  phone numbers section if phone numbers is selected
     if (el.value == "phones") {
-      let section = document.getElementById('section-phones');
+      let section = document.getElementById("section-phones");
       if (section.style.display == "none") {
-        let sections = document.getElementsByTagName('section');
+        let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute('disabled', '');
+        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate()
+      generate();
     }
 
     //Display dates section if dates is selected
     if (el.value == "dates") {
-      let section = document.getElementById('section-dates');
+      let section = document.getElementById("section-dates");
       if (section.style.display == "none") {
-        let sections = document.getElementsByTagName('section');
+        let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute('disabled', '');
+        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate()
+      generate();
     }
 
     //Display times section if times is selected
     if (el.value == "times") {
-      let section = document.getElementById('section-times');
+      let section = document.getElementById("section-times");
       if (section.style.display == "none") {
-        let sections = document.getElementsByTagName('section');
+        let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute('disabled', '');
+        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate()
+      generate();
     }
 
     //Display numbers section if numbers is selected
     if (el.value == "numbers") {
-      let section = document.getElementById('section-numbers');
+      let section = document.getElementById("section-numbers");
       if (section.style.display == "none") {
-        let sections = document.getElementsByTagName('section');
+        let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.removeAttribute('disabled');
+        btnCreate.removeAttribute("disabled");
       } else {
         section.style.display = "none";
       }
-      generate()
+      generate();
     }
 
     //Display money section if money is selected
     if (el.value == "money") {
-      let section = document.getElementById('section-money');
+      let section = document.getElementById("section-money");
       if (section.style.display == "none") {
-        let sections = document.getElementsByTagName('section');
+        let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.removeAttribute('disabled');
+        btnCreate.removeAttribute("disabled");
       } else {
         section.style.display = "none";
       }
-      generate()
+      generate();
     }
 
     //Display license plates section if credit cards is selected
     if (el.value == "licenseplates") {
-      let section = document.getElementById('section-licenseplates');
+      let section = document.getElementById("section-licenseplates");
       if (section.style.display == "none") {
-        let sections = document.getElementsByTagName('section');
+        let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.removeAttribute('disabled');
+        btnCreate.removeAttribute("disabled");
       } else {
         section.style.display = "none";
       }
-      generate()
+      generate();
     }
 
     //Display credit cards section if credit cards is selected
     if (el.value == "creditcards") {
-      let section = document.getElementById('section-creditcards');
+      let section = document.getElementById("section-creditcards");
       if (section.style.display == "none") {
-        let sections = document.getElementsByTagName('section');
+        let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.removeAttribute('disabled');
+        btnCreate.removeAttribute("disabled");
       } else {
         section.style.display = "none";
       }
-      generate()
+      generate();
     }
 
     //Display ethereum address section if credit cards is selected
     if (el.value == "ethereum") {
-      let section = document.getElementById('section-ethereum');
+      let section = document.getElementById("section-ethereum");
       if (section.style.display == "none") {
-        let sections = document.getElementsByTagName('section');
+        let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.removeAttribute('disabled');
+        btnCreate.removeAttribute("disabled");
       } else {
         section.style.display = "none";
       }
-      generate()
+      generate();
     }
 
     //Display custom section if custom is selected
     if (el.value == "custom") {
-      let section = document.getElementById('section-custom');
+      let section = document.getElementById("section-custom");
       if (section.style.display == "none") {
-        let sections = document.getElementsByTagName('section');
+        let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute('disabled', '');
+        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate()
+      generate();
     }
   }
   //Define array to store the generated results
@@ -783,16 +823,15 @@
   async function generate() {
     //Empty the array on a new generation
     genStorage.length = 0;
-    count = parseInt(document.getElementById('count').value);
-    genderSelection = document.getElementById('genderSelection').value;
-    const dataSelection = document.getElementById('datasetSelector').value;
+    count = parseInt(document.getElementById("count").value);
+    genderSelection = document.getElementById("genderSelection").value;
+    const dataSelection = document.getElementById("datasetSelector").value;
 
     // const requestURL = 'https://cryptofonts.com/first-names.json';
 
-
     if (dataSelection == "names") {
-      btnCreate.removeAttribute('disabled');
-      const requestURL = document.getElementById('datasetSelector').options[datasetSelector.selectedIndex].getAttribute('data-url');
+      btnCreate.removeAttribute("disabled");
+      const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
       console.log(requestURL);
 
       const request = new Request(requestURL);
@@ -804,24 +843,24 @@
         x = Math.floor(Math.random() * items.length);
         if (genderSelection === "both") {
           console.log(items[x].name, items[x].gender);
-          genStorage.push(items[x].name)
-          outputPreview.innerHTML = genStorage.join('<br>');
+          genStorage.push(items[x].name);
+          outputPreview.innerHTML = genStorage.join("<br>");
         } else if (items[x].gender === genderSelection) {
-          console.log(items[x].name, items[x].gender)
-          genStorage.push(items[x].name)
-          outputPreview.innerHTML = genStorage.join('<br>');
+          console.log(items[x].name, items[x].gender);
+          genStorage.push(items[x].name);
+          outputPreview.innerHTML = genStorage.join("<br>");
         } else {
-          console.log(items[x + 1].name, items[x].gender)
-          genStorage.push(items[x].name)
-          outputPreview.innerHTML = genStorage.join('<br>');
+          console.log(items[x + 1].name, items[x].gender);
+          genStorage.push(items[x].name);
+          outputPreview.innerHTML = genStorage.join("<br>");
         }
       }
-      console.log('------------------')
+      console.log("------------------");
     }
 
     if (dataSelection == "surnames") {
-      btnCreate.removeAttribute('disabled');
-      const requestURL = document.getElementById('datasetSelector').options[datasetSelector.selectedIndex].getAttribute('data-url');
+      btnCreate.removeAttribute("disabled");
+      const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
       console.log(requestURL);
 
       const request = new Request(requestURL);
@@ -832,15 +871,15 @@
       for (var i = 0; i < count; i++) {
         x = Math.floor(Math.random() * items.length);
         console.log(items[x]);
-        genStorage.push(items[x])
-        outputPreview.innerHTML = genStorage.join('<br>');
+        genStorage.push(items[x]);
+        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log('------------------')
+      console.log("------------------");
     }
 
     if (dataSelection == "fullnames") {
-      btnCreate.removeAttribute('disabled');
-      const requestURL = document.getElementById('datasetSelector').options[datasetSelector.selectedIndex].getAttribute('data-url');
+      btnCreate.removeAttribute("disabled");
+      const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
       console.log(requestURL);
 
       const request = new Request(requestURL);
@@ -851,15 +890,15 @@
       for (var i = 0; i < count; i++) {
         x = Math.floor(Math.random() * items.length);
         console.log(items[x].full_name);
-        genStorage.push(items[x].full_name)
-        outputPreview.innerHTML = genStorage.join('<br>');
+        genStorage.push(items[x].full_name);
+        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log('------------------')
+      console.log("------------------");
     }
 
     if (dataSelection == "usernames") {
-      btnCreate.removeAttribute('disabled');
-      const requestURL = document.getElementById('datasetSelector').options[datasetSelector.selectedIndex].getAttribute('data-url');
+      btnCreate.removeAttribute("disabled");
+      const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
       console.log(requestURL);
 
       const request = new Request(requestURL);
@@ -870,15 +909,15 @@
       for (var i = 0; i < count; i++) {
         x = Math.floor(Math.random() * items.length);
         console.log(items[x].username);
-        genStorage.push(items[x].username)
-        outputPreview.innerHTML = genStorage.join('<br>');
+        genStorage.push(items[x].username);
+        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log('------------------')
+      console.log("------------------");
     }
 
     if (dataSelection == "emails") {
-      btnCreate.removeAttribute('disabled');
-      const requestURL = document.getElementById('datasetSelector').options[datasetSelector.selectedIndex].getAttribute('data-url');
+      btnCreate.removeAttribute("disabled");
+      const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
       console.log(requestURL);
 
       const request = new Request(requestURL);
@@ -889,64 +928,64 @@
       for (var i = 0; i < count; i++) {
         x = Math.floor(Math.random() * items.length);
         console.log(items[x].email);
-        genStorage.push(items[x].email)
-        outputPreview.innerHTML = genStorage.join('<br>');
+        genStorage.push(items[x].email);
+        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log('------------------')
+      console.log("------------------");
     }
 
-    let phonePrefix = document.getElementById('phonePrefix').value;
-    let phoneDigits = document.getElementById('phoneDigits').value;
+    let phonePrefix = document.getElementById("phonePrefix").value;
+    let phoneDigits = document.getElementById("phoneDigits").value;
 
     if (dataSelection == "phones" && phonePrefix !== "" && phoneDigits !== "") {
-      btnCreate.removeAttribute('disabled');
+      btnCreate.removeAttribute("disabled");
       for (var i = 0; i < count; i++) {
-        x = (Math.floor(Math.pow(10, phoneDigits - 1) + Math.random() * 9 * Math.pow(10, phoneDigits - 1))).toString();
-        console.log('+' + phonePrefix + ' ' + x);
-        genStorage.push('+' + phonePrefix + ' ' + x);
-        outputPreview.innerHTML = genStorage.join('<br>');
+        x = Math.floor(Math.pow(10, phoneDigits - 1) + Math.random() * 9 * Math.pow(10, phoneDigits - 1)).toString();
+        console.log("+" + phonePrefix + " " + x);
+        genStorage.push("+" + phonePrefix + " " + x);
+        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log('------------------')
+      console.log("------------------");
     }
 
-    let selectedYear = document.getElementById('selectedYear').value;
-    let dateFormat = document.getElementById('dateFormat').value;
+    let selectedYear = document.getElementById("selectedYear").value;
+    let dateFormat = document.getElementById("dateFormat").value;
 
     if (dataSelection == "dates" && selectedYear !== "" && dateFormat != 0) {
-      btnCreate.removeAttribute('disabled');
+      btnCreate.removeAttribute("disabled");
       for (var i = 0; i < count; i++) {
         d = (Math.floor(Math.random() * (31 - 1 + 1)) + 1).toString();
         m = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
         let separator = ["_", "/", "-", " ", " "];
-        let mm = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        let mm = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         if (dateFormat == 1) {
           console.log(d + "/" + m + "/" + selectedYear);
           genStorage.push(d + "/" + m + "/" + selectedYear);
-          outputPreview.innerHTML = genStorage.join('<br>');
+          outputPreview.innerHTML = genStorage.join("<br>");
         }
         if (dateFormat == 2) {
           console.log(d + "-" + m + "-" + selectedYear);
           genStorage.push(d + "-" + m + "-" + selectedYear);
-          outputPreview.innerHTML = genStorage.join('<br>');
+          outputPreview.innerHTML = genStorage.join("<br>");
         }
         if (dateFormat == 3) {
           console.log(d + " " + m + " " + selectedYear);
           genStorage.push(d + " " + m + " " + selectedYear);
-          outputPreview.innerHTML = genStorage.join('<br>');
+          outputPreview.innerHTML = genStorage.join("<br>");
         }
         if (dateFormat == 4) {
           console.log(d + " " + mm[m] + " " + selectedYear);
           genStorage.push(d + " " + mm[m] + " " + selectedYear);
-          outputPreview.innerHTML = genStorage.join('<br>');
+          outputPreview.innerHTML = genStorage.join("<br>");
         }
       }
-      console.log('------------------')
+      console.log("------------------");
     }
 
-    let timeFormat = document.getElementById('timeFormat').value;
+    let timeFormat = document.getElementById("timeFormat").value;
 
     if (dataSelection == "times" && timeFormat != 0) {
-      btnCreate.removeAttribute('disabled');
+      btnCreate.removeAttribute("disabled");
       for (var i = 0; i < count; i++) {
         hh = (Math.floor(Math.random() * (23 - 1 + 1)) + 1).toString();
         h = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
@@ -958,79 +997,87 @@
           m = "0" + m;
         }
         let time = ["am", "pm"];
-        x = Math.floor(Math.random() * time.length)
+        x = Math.floor(Math.random() * time.length);
         if (timeFormat == 1) {
           console.log(hh + ":" + m);
           genStorage.push(hh + ":" + m);
-          outputPreview.innerHTML = genStorage.join('<br>');
+          outputPreview.innerHTML = genStorage.join("<br>");
         }
         if (timeFormat == 2) {
           console.log(h + ":" + m + time[x]);
           genStorage.push(h + ":" + m + time[x]);
-          outputPreview.innerHTML = genStorage.join('<br>');
+          outputPreview.innerHTML = genStorage.join("<br>");
         }
       }
-      console.log('------------------')
+      console.log("------------------");
     }
 
-    let numberFrom = parseInt(document.getElementById('numberFrom').value);
-    let numberTo = parseInt(document.getElementById('numberTo').value);
+    let numberFrom = parseInt(document.getElementById("numberFrom").value);
+    let numberTo = parseInt(document.getElementById("numberTo").value);
 
     if (dataSelection == "numbers" && numberFrom !== "" && numberTo !== "") {
-      btnCreate.removeAttribute('disabled');
+      btnCreate.removeAttribute("disabled");
 
       for (var i = 0; i < count; i++) {
         x = (Math.floor(Math.random() * (numberTo - numberFrom + 1)) + numberFrom).toString();
         console.log(x);
         genStorage.push(x);
-        outputPreview.innerHTML = genStorage.join('<br>');
+        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log('------------------')
+      console.log("------------------");
     }
 
-    let moneyFrom = parseInt(document.getElementById('moneyFrom').value);
-    let moneyTo = parseInt(document.getElementById('moneyTo').value);
-    let currency = document.getElementById('moneyCurrency').value;
+    let moneyFrom = parseInt(document.getElementById("moneyFrom").value);
+    let moneyTo = parseInt(document.getElementById("moneyTo").value);
+    let currency = document.getElementById("moneyCurrency").value;
 
     if (dataSelection == "money" && moneyFrom !== "" && moneyTo !== "") {
-      btnCreate.removeAttribute('disabled');
+      btnCreate.removeAttribute("disabled");
 
-      if (document.getElementById('symbol-prepend').checked) {
-        console.log('prepend');
+      if (document.getElementById("symbol-prepend").checked) {
+        console.log("prepend");
         for (var i = 0; i < count; i++) {
           x = currency + (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString();
           console.log(x);
           genStorage.push(x);
-          outputPreview.innerHTML = genStorage.join('<br>');
+          outputPreview.innerHTML = genStorage.join("<br>");
         }
-      } else if (document.getElementById('symbol-append').checked) {
-        console.log('append');
+      } else if (document.getElementById("symbol-append").checked) {
+        console.log("append");
         for (var i = 0; i < count; i++) {
           x = (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString() + currency;
           console.log(x);
           genStorage.push(x);
-          outputPreview.innerHTML = genStorage.join('<br>');
+          outputPreview.innerHTML = genStorage.join("<br>");
         }
       }
-      console.log('------------------')
+      console.log("------------------");
     }
 
     if (dataSelection == "licenseplates") {
-      btnCreate.removeAttribute('disabled');
+      btnCreate.removeAttribute("disabled");
       for (var i = 0; i < count; i++) {
-        a = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 2).toUpperCase();
+        a = Math.random()
+          .toString(36)
+          .replace(/[^a-z]+/g, "")
+          .substr(0, 2)
+          .toUpperCase();
         b = (Math.floor(Math.random() * (999 - 123 + 1)) + 123).toString();
-        c = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 2).toUpperCase();
+        c = Math.random()
+          .toString(36)
+          .replace(/[^a-z]+/g, "")
+          .substr(0, 2)
+          .toUpperCase();
 
         console.log(a + " " + b + " " + c);
         genStorage.push(a + " " + b + " " + c);
-        outputPreview.innerHTML = genStorage.join('<br>');
+        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log('------------------')
+      console.log("------------------");
     }
 
     if (dataSelection == "ethereum") {
-      btnCreate.removeAttribute('disabled');
+      btnCreate.removeAttribute("disabled");
       let address = "";
       let hexChar = "0123456789abcdefABCDEF";
       for (var i = 0; i < count; i++) {
@@ -1038,30 +1085,32 @@
           address += hexChar.charAt(Math.floor(Math.random() * hexChar.length));
         }
         genStorage.push("0x" + address);
-        outputPreview.innerHTML = genStorage.join('<br>');
+        outputPreview.innerHTML = genStorage.join("<br>");
         address = "";
-      }  
-      console.log('------------------')
+      }
+      console.log("------------------");
     }
 
     if (dataSelection == "creditcards") {
-      btnCreate.removeAttribute('disabled');
+      btnCreate.removeAttribute("disabled");
       for (var i = 0; i < count; i++) {
-        x = (Math.floor(Math.random() * (9999999999999999 - 1234567890123456 + 1)) + 1234567890123456).toString().replace(/\d{4}(?=.)/g, '$& ');
+        x = (Math.floor(Math.random() * (9999999999999999 - 1234567890123456 + 1)) + 1234567890123456)
+          .toString()
+          .replace(/\d{4}(?=.)/g, "$& ");
         console.log(x);
         genStorage.push(x);
-        outputPreview.innerHTML = genStorage.join('<br>');
+        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log('------------------')
+      console.log("------------------");
     }
 
-    const customDataset = document.getElementById('customDataset');
-    const customDatasetKey = document.getElementById('customDatasetKey').value.toString();
+    const customDataset = document.getElementById("customDataset");
+    const customDatasetKey = document.getElementById("customDatasetKey").value.toString();
 
     if (dataSelection == "custom" && customDataset != "" && customDatasetKey != "") {
-      btnCreate.removeAttribute('disabled');
+      btnCreate.removeAttribute("disabled");
 
-      const requestURL = document.getElementById('customDataset').value;
+      const requestURL = document.getElementById("customDataset").value;
       console.log(requestURL);
 
       const request = new Request(requestURL);
@@ -1073,28 +1122,29 @@
         x = Math.floor(Math.random() * items.length);
         console.log(items[x][customDatasetKey]);
         genStorage.push(items[x][customDatasetKey]);
-        outputPreview.innerHTML = genStorage.join('<br>');
+        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log('------------------')
+      console.log("------------------");
     }
-
   }
 
-  document.getElementById('create').onclick = () => {
+  document.getElementById("create").onclick = () => {
+    const fontSize = parseInt(document.getElementById("fontSize").value);
+    const textSpacing = parseInt(document.getElementById("textSpacing").value);
+    const colHeader = document.getElementById("colHeader").value;
 
-    const fontSize = parseInt(document.getElementById('fontSize').value);
-    const textSpacing = parseInt(document.getElementById('textSpacing').value);
-    const colHeader = document.getElementById('colHeader').value;
-
-    parent.postMessage({
-      pluginMessage: {
-        type: 'create-random-text',
-        genStorage,
-        count,
-        fontSize,
-        textSpacing,
-        colHeader
-      }
-    }, '*')
-  }
+    parent.postMessage(
+      {
+        pluginMessage: {
+          type: "create-random-text",
+          genStorage,
+          count,
+          fontSize,
+          textSpacing,
+          colHeader,
+        },
+      },
+      "*"
+    );
+  };
 </script>
