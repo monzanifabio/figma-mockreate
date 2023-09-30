@@ -559,7 +559,7 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
+        // btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
@@ -774,6 +774,7 @@
   // const count = "";
   let genderSelection;
 
+  // Get the state of the selection
   onmessage = (event) => {
     count = event.data.pluginMessage.type;
     selection = event.data.pluginMessage.selected;
@@ -782,8 +783,8 @@
     } else {
       btnCreate.setAttribute("disabled", "");
     }
-    console.log(event.data.pluginMessage.selected);
-    console.log(event.data.pluginMessage.type);
+    // console.log(event.data.pluginMessage.selected);
+    // console.log(event.data.pluginMessage.type);
   };
 
   async function generate() {

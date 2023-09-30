@@ -41,7 +41,7 @@ figma.ui.onmessage = (msg) => {
       console.log(msg.genStorage[i]);
     }
 
-    const nodes = [];
+    // const nodes = [];
     // let spacing = 0;
 
     //Create the table header if existing
