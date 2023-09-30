@@ -369,7 +369,7 @@
         </span>
       </div>
       <select class="form-control" id="dateFormat" onchange="generate()">
-        <option value="0" selected disabled>Select date format</option>
+        <option value="0" selected disabled>Date format</option>
         <option value="1">26/08/1988</option>
         <option value="2">26-08-1988</option>
         <option value="3">26 08 1988</option>
@@ -771,7 +771,7 @@
   }
   //Define array to store the generated results
   let genStorage = [];
-  // const count = "";
+  let count = 0;
   let genderSelection;
 
   // Get the state of the selection
@@ -786,6 +786,10 @@
     // console.log(event.data.pluginMessage.selected);
     // console.log(event.data.pluginMessage.type);
   };
+
+  ////////////////////////////////////////////////////////////////////////////////////
+  // GENERATE
+  ////////////////////////////////////////////////////////////////////////////////////
 
   async function generate() {
     //Empty the array on a new generation
@@ -1076,7 +1080,7 @@
       btnCreate.removeAttribute("disabled");
 
       const requestURL = document.getElementById("customDataset").value;
-      console.log(requestURL);
+      // console.log(requestURL);
 
       const request = new Request(requestURL);
 

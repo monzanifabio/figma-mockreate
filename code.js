@@ -3,7 +3,7 @@
 // full browser environment (see documentation).
 
 // This shows the HTML page in "ui.html".
-figma.showUI(__html__, { themeColors: true, width: 360, height: 640 });
+figma.showUI(__html__, { themeColors: true, width: 380, height: 400 });
 
 // Function for loading all the needed fonts
 const loadFonts = async () => {
@@ -14,6 +14,9 @@ const loadFonts = async () => {
 loadFonts().then(() => {
   console.log("Fonts fetched and ready to go!");
 });
+
+// Trigger detectSelection on start to avoid errors if text is already selected before the plugin is launched
+detectSelection();
 
 // Trigger on selection change
 figma.on("selectionchange", () => {
@@ -37,9 +40,9 @@ function detectSelection() {
 
 figma.ui.onmessage = (msg) => {
   if (msg.type === "create-random-text") {
-    for (var i = 0; i < msg.genStorage.length; i++) {
-      console.log(msg.genStorage[i]);
-    }
+    // for (var i = 0; i < msg.genStorage.length; i++) {
+    //   console.log(msg.genStorage[i]);
+    // }
 
     // const nodes = [];
     // let spacing = 0;
@@ -59,7 +62,7 @@ figma.ui.onmessage = (msg) => {
 
     //Loop through the text nodes
     for (let i = 0; i < count; i++) {
-      console.log(msg.genStorage[i]);
+      // console.log(msg.genStorage[i]);
       selection[i].characters = msg.genStorage[i];
       // const text = figma.createText();
       // text.fontSize = msg.fontSize;
