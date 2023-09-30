@@ -15,20 +15,20 @@ loadFonts().then(() => {
   console.log("Fonts fetched and ready to go!");
 });
 
+// Trigger on selection change
 figma.on("selectionchange", () => {
   detectSelection();
 });
 
+// Check if the selection is of type text
 function detectSelection() {
   const selection = figma.currentPage.selection;
   if (selection.length) {
-    figma.ui.postMessage({ type: selection.length, selected: true });
-    // for (let i = 0; i < selection.length; i++) {
-    //   if (selection[i].type == "TEXT") {
-    //     console.log(selection[i]);
-    //     console.log(selection[i].characters);
-    //   }
-    // }
+    for (let i = 0; i < selection.length; i++) {
+      if (selection[i].type == "TEXT") {
+        figma.ui.postMessage({ type: selection.length, selected: true });
+      }
+    }
   } else {
     figma.ui.postMessage({ selected: false });
     console.log("No selection");
@@ -42,7 +42,7 @@ figma.ui.onmessage = (msg) => {
     }
 
     const nodes = [];
-    let spacing = 0;
+    // let spacing = 0;
 
     //Create the table header if existing
     // if (msg.colHeader != "") {

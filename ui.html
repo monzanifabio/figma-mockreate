@@ -777,9 +777,13 @@
   onmessage = (event) => {
     count = event.data.pluginMessage.type;
     selection = event.data.pluginMessage.selected;
+    if (selection == true) {
+      btnCreate.removeAttribute("disabled");
+    } else {
+      btnCreate.setAttribute("disabled", "");
+    }
     console.log(event.data.pluginMessage.selected);
     console.log(event.data.pluginMessage.type);
-    generate();
   };
 
   async function generate() {
@@ -804,96 +808,96 @@
       for (var i = 0; i < count; i++) {
         x = Math.floor(Math.random() * items.length);
         if (genderSelection === "both") {
-          console.log(items[x].name, items[x].gender);
+          // console.log(items[x].name, items[x].gender);
           genStorage.push(items[x].name);
           // outputPreview.innerHTML = genStorage.join("<br>");
         } else if (items[x].gender === genderSelection) {
-          console.log(items[x].name, items[x].gender);
+          // console.log(items[x].name, items[x].gender);
           genStorage.push(items[x].name);
           // outputPreview.innerHTML = genStorage.join("<br>");
         } else {
-          console.log(items[x + 1].name, items[x].gender);
+          // console.log(items[x + 1].name, items[x].gender);
           genStorage.push(items[x].name);
           // outputPreview.innerHTML = genStorage.join("<br>");
         }
       }
-      console.log("------------------");
+      // console.log("------------------");
     }
 
     if (dataSelection == "surnames") {
       btnCreate.removeAttribute("disabled");
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
-      console.log(requestURL);
+      // console.log(requestURL);
 
       const request = new Request(requestURL);
 
       const response = await fetch(request);
       const items = await response.json();
 
-      // for (var i = 0; i < count; i++) {
-      //   x = Math.floor(Math.random() * items.length);
-      //   console.log(items[x]);
-      //   genStorage.push(items[x]);
-      //   outputPreview.innerHTML = genStorage.join("<br>");
-      // }
-      console.log("------------------");
+      for (var i = 0; i < count; i++) {
+        x = Math.floor(Math.random() * items.length);
+        // console.log(items[x]);
+        genStorage.push(items[x]);
+        // outputPreview.innerHTML = genStorage.join("<br>");
+      }
+      // console.log("------------------");
     }
 
     if (dataSelection == "fullnames") {
       btnCreate.removeAttribute("disabled");
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
-      console.log(requestURL);
+      // console.log(requestURL);
 
       const request = new Request(requestURL);
 
       const response = await fetch(request);
       const items = await response.json();
 
-      // for (var i = 0; i < count; i++) {
-      //   x = Math.floor(Math.random() * items.length);
-      //   console.log(items[x].full_name);
-      //   genStorage.push(items[x].full_name);
-      //   outputPreview.innerHTML = genStorage.join("<br>");
-      // }
-      console.log("------------------");
+      for (var i = 0; i < count; i++) {
+        x = Math.floor(Math.random() * items.length);
+        // console.log(items[x].full_name);
+        genStorage.push(items[x].full_name);
+        // outputPreview.innerHTML = genStorage.join("<br>");
+      }
+      // console.log("------------------");
     }
 
     if (dataSelection == "usernames") {
       btnCreate.removeAttribute("disabled");
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
-      console.log(requestURL);
+      // console.log(requestURL);
 
       const request = new Request(requestURL);
 
       const response = await fetch(request);
       const items = await response.json();
 
-      // for (var i = 0; i < count; i++) {
-      //   x = Math.floor(Math.random() * items.length);
-      //   console.log(items[x].username);
-      //   genStorage.push(items[x].username);
-      //   outputPreview.innerHTML = genStorage.join("<br>");
-      // }
-      console.log("------------------");
+      for (var i = 0; i < count; i++) {
+        x = Math.floor(Math.random() * items.length);
+        // console.log(items[x].username);
+        genStorage.push(items[x].username);
+        // outputPreview.innerHTML = genStorage.join("<br>");
+      }
+      // console.log("------------------");
     }
 
     if (dataSelection == "emails") {
       btnCreate.removeAttribute("disabled");
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
-      console.log(requestURL);
+      // console.log(requestURL);
 
       const request = new Request(requestURL);
 
       const response = await fetch(request);
       const items = await response.json();
 
-      // for (var i = 0; i < count; i++) {
-      //   x = Math.floor(Math.random() * items.length);
-      //   console.log(items[x].email);
-      //   genStorage.push(items[x].email);
-      //   outputPreview.innerHTML = genStorage.join("<br>");
-      // }
-      console.log("------------------");
+      for (var i = 0; i < count; i++) {
+        x = Math.floor(Math.random() * items.length);
+        // console.log(items[x].email);
+        genStorage.push(items[x].email);
+        // outputPreview.innerHTML = genStorage.join("<br>");
+      }
+      // console.log("------------------");
     }
 
     let phonePrefix = document.getElementById("phonePrefix").value;
@@ -901,13 +905,13 @@
 
     if (dataSelection == "phones" && phonePrefix !== "" && phoneDigits !== "") {
       btnCreate.removeAttribute("disabled");
-      // for (var i = 0; i < count; i++) {
-      //   x = Math.floor(Math.pow(10, phoneDigits - 1) + Math.random() * 9 * Math.pow(10, phoneDigits - 1)).toString();
-      //   console.log("+" + phonePrefix + " " + x);
-      //   genStorage.push("+" + phonePrefix + " " + x);
-      //   outputPreview.innerHTML = genStorage.join("<br>");
-      // }
-      console.log("------------------");
+      for (var i = 0; i < count; i++) {
+        x = Math.floor(Math.pow(10, phoneDigits - 1) + Math.random() * 9 * Math.pow(10, phoneDigits - 1)).toString();
+        // console.log("+" + phonePrefix + " " + x);
+        genStorage.push("+" + phonePrefix + " " + x);
+        // outputPreview.innerHTML = genStorage.join("<br>");
+      }
+      // console.log("------------------");
     }
 
     let selectedYear = document.getElementById("selectedYear").value;
@@ -915,63 +919,63 @@
 
     if (dataSelection == "dates" && selectedYear !== "" && dateFormat != 0) {
       btnCreate.removeAttribute("disabled");
-      // for (var i = 0; i < count; i++) {
-      //   d = (Math.floor(Math.random() * (31 - 1 + 1)) + 1).toString();
-      //   m = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
-      //   let separator = ["_", "/", "-", " ", " "];
-      //   let mm = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-      //   if (dateFormat == 1) {
-      //     console.log(d + "/" + m + "/" + selectedYear);
-      //     genStorage.push(d + "/" + m + "/" + selectedYear);
-      //     outputPreview.innerHTML = genStorage.join("<br>");
-      //   }
-      //   if (dateFormat == 2) {
-      //     console.log(d + "-" + m + "-" + selectedYear);
-      //     genStorage.push(d + "-" + m + "-" + selectedYear);
-      //     outputPreview.innerHTML = genStorage.join("<br>");
-      //   }
-      //   if (dateFormat == 3) {
-      //     console.log(d + " " + m + " " + selectedYear);
-      //     genStorage.push(d + " " + m + " " + selectedYear);
-      //     outputPreview.innerHTML = genStorage.join("<br>");
-      //   }
-      //   if (dateFormat == 4) {
-      //     console.log(d + " " + mm[m] + " " + selectedYear);
-      //     genStorage.push(d + " " + mm[m] + " " + selectedYear);
-      //     outputPreview.innerHTML = genStorage.join("<br>");
-      //   }
-      // }
-      console.log("------------------");
+      for (var i = 0; i < count; i++) {
+        d = (Math.floor(Math.random() * (31 - 1 + 1)) + 1).toString();
+        m = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
+        let separator = ["_", "/", "-", " ", " "];
+        let mm = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        if (dateFormat == 1) {
+          // console.log(d + "/" + m + "/" + selectedYear);
+          genStorage.push(d + "/" + m + "/" + selectedYear);
+          // outputPreview.innerHTML = genStorage.join("<br>");
+        }
+        if (dateFormat == 2) {
+          // console.log(d + "-" + m + "-" + selectedYear);
+          genStorage.push(d + "-" + m + "-" + selectedYear);
+          // outputPreview.innerHTML = genStorage.join("<br>");
+        }
+        if (dateFormat == 3) {
+          // console.log(d + " " + m + " " + selectedYear);
+          genStorage.push(d + " " + m + " " + selectedYear);
+          // outputPreview.innerHTML = genStorage.join("<br>");
+        }
+        if (dateFormat == 4) {
+          // console.log(d + " " + mm[m] + " " + selectedYear);
+          genStorage.push(d + " " + mm[m] + " " + selectedYear);
+          // outputPreview.innerHTML = genStorage.join("<br>");
+        }
+      }
+      // console.log("------------------");
     }
 
     let timeFormat = document.getElementById("timeFormat").value;
 
     if (dataSelection == "times" && timeFormat != 0) {
       btnCreate.removeAttribute("disabled");
-      // for (var i = 0; i < count; i++) {
-      //   hh = (Math.floor(Math.random() * (23 - 1 + 1)) + 1).toString();
-      //   h = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
-      //   m = (Math.floor(Math.random() * (60 - 1 + 1)) + 1).toString();
-      //   if (hh < 10) {
-      //     hh = "0" + hh;
-      //   }
-      //   if (m < 10) {
-      //     m = "0" + m;
-      //   }
-      //   let time = ["am", "pm"];
-      //   x = Math.floor(Math.random() * time.length);
-      //   if (timeFormat == 1) {
-      //     console.log(hh + ":" + m);
-      //     genStorage.push(hh + ":" + m);
-      //     outputPreview.innerHTML = genStorage.join("<br>");
-      //   }
-      //   if (timeFormat == 2) {
-      //     console.log(h + ":" + m + time[x]);
-      //     genStorage.push(h + ":" + m + time[x]);
-      //     outputPreview.innerHTML = genStorage.join("<br>");
-      //   }
-      // }
-      console.log("------------------");
+      for (var i = 0; i < count; i++) {
+        hh = (Math.floor(Math.random() * (23 - 1 + 1)) + 1).toString();
+        h = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
+        m = (Math.floor(Math.random() * (60 - 1 + 1)) + 1).toString();
+        if (hh < 10) {
+          hh = "0" + hh;
+        }
+        if (m < 10) {
+          m = "0" + m;
+        }
+        let time = ["am", "pm"];
+        x = Math.floor(Math.random() * time.length);
+        if (timeFormat == 1) {
+          // console.log(hh + ":" + m);
+          genStorage.push(hh + ":" + m);
+          // outputPreview.innerHTML = genStorage.join("<br>");
+        }
+        if (timeFormat == 2) {
+          // console.log(h + ":" + m + time[x]);
+          genStorage.push(h + ":" + m + time[x]);
+          // outputPreview.innerHTML = genStorage.join("<br>");
+        }
+      }
+      // console.log("------------------");
     }
 
     let numberFrom = parseInt(document.getElementById("numberFrom").value);
@@ -980,13 +984,13 @@
     if (dataSelection == "numbers" && numberFrom !== "" && numberTo !== "") {
       btnCreate.removeAttribute("disabled");
 
-      // for (var i = 0; i < count; i++) {
-      //   x = (Math.floor(Math.random() * (numberTo - numberFrom + 1)) + numberFrom).toString();
-      //   console.log(x);
-      //   genStorage.push(x);
-      //   outputPreview.innerHTML = genStorage.join("<br>");
-      // }
-      console.log("------------------");
+      for (var i = 0; i < count; i++) {
+        x = (Math.floor(Math.random() * (numberTo - numberFrom + 1)) + numberFrom).toString();
+        // console.log(x);
+        genStorage.push(x);
+        // outputPreview.innerHTML = genStorage.join("<br>");
+      }
+      // console.log("------------------");
     }
 
     let moneyFrom = parseInt(document.getElementById("moneyFrom").value);
@@ -998,70 +1002,70 @@
 
       if (document.getElementById("symbol-prepend").checked) {
         console.log("prepend");
-        //   for (var i = 0; i < count; i++) {
-        //     x = currency + (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString();
-        //     console.log(x);
-        //     genStorage.push(x);
-        //     outputPreview.innerHTML = genStorage.join("<br>");
-        //   }
-        // } else if (document.getElementById("symbol-append").checked) {
-        //   console.log("append");
-        //   for (var i = 0; i < count; i++) {
-        //     x = (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString() + currency;
-        //     console.log(x);
-        //     genStorage.push(x);
-        //     outputPreview.innerHTML = genStorage.join("<br>");
-        //   }
+        for (var i = 0; i < count; i++) {
+          x = currency + (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString();
+          // console.log(x);
+          genStorage.push(x);
+          // outputPreview.innerHTML = genStorage.join("<br>");
+        }
+      } else if (document.getElementById("symbol-append").checked) {
+        console.log("append");
+        for (var i = 0; i < count; i++) {
+          x = (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString() + currency;
+          // console.log(x);
+          genStorage.push(x);
+          // outputPreview.innerHTML = genStorage.join("<br>");
+        }
       }
-      console.log("------------------");
+      // console.log("------------------");
     }
 
     if (dataSelection == "licenseplates") {
       btnCreate.removeAttribute("disabled");
-      // for (var i = 0; i < count; i++) {
-      //   a = Math.random()
-      //     .toString(36)
-      //     .replace(/[^a-z]+/g, "")
-      //     .substr(0, 2)
-      //     .toUpperCase();
-      //   b = (Math.floor(Math.random() * (999 - 123 + 1)) + 123).toString();
-      //   c = Math.random()
-      //     .toString(36)
-      //     .replace(/[^a-z]+/g, "")
-      //     .substr(0, 2)
-      //     .toUpperCase();
+      for (var i = 0; i < count; i++) {
+        a = Math.random()
+          .toString(36)
+          .replace(/[^a-z]+/g, "")
+          .substr(0, 2)
+          .toUpperCase();
+        b = (Math.floor(Math.random() * (999 - 123 + 1)) + 123).toString();
+        c = Math.random()
+          .toString(36)
+          .replace(/[^a-z]+/g, "")
+          .substr(0, 2)
+          .toUpperCase();
 
-      //   console.log(a + " " + b + " " + c);
-      //   genStorage.push(a + " " + b + " " + c);
-      //   outputPreview.innerHTML = genStorage.join("<br>");
-      // }
-      console.log("------------------");
+        // console.log(a + " " + b + " " + c);
+        genStorage.push(a + " " + b + " " + c);
+        // outputPreview.innerHTML = genStorage.join("<br>");
+      }
+      // console.log("------------------");
     }
 
     if (dataSelection == "ethereum") {
       btnCreate.removeAttribute("disabled");
       let address = "";
       let hexChar = "0123456789abcdefABCDEF";
-      // for (var i = 0; i < count; i++) {
-      //   for (var a = 0; a < 40; a++) {
-      //     address += hexChar.charAt(Math.floor(Math.random() * hexChar.length));
-      //   }
-      //   genStorage.push("0x" + address);
-      //   outputPreview.innerHTML = genStorage.join("<br>");
-      //   address = "";
-      // }
-      console.log("------------------");
+      for (var i = 0; i < count; i++) {
+        for (var a = 0; a < 40; a++) {
+          address += hexChar.charAt(Math.floor(Math.random() * hexChar.length));
+        }
+        genStorage.push("0x" + address);
+        // outputPreview.innerHTML = genStorage.join("<br>");
+        address = "";
+      }
+      // console.log("------------------");
     }
 
     if (dataSelection == "creditcards") {
       btnCreate.removeAttribute("disabled");
-      // for (var i = 0; i < count; i++) {
-      //   x = (Math.floor(Math.random() * (9999999999999999 - 1234567890123456 + 1)) + 1234567890123456).toString().replace(/\d{4}(?=.)/g, "$& ");
-      //   console.log(x);
-      //   genStorage.push(x);
-      //   outputPreview.innerHTML = genStorage.join("<br>");
-      // }
-      console.log("------------------");
+      for (var i = 0; i < count; i++) {
+        x = (Math.floor(Math.random() * (9999999999999999 - 1234567890123456 + 1)) + 1234567890123456).toString().replace(/\d{4}(?=.)/g, "$& ");
+        // console.log(x);
+        genStorage.push(x);
+        // outputPreview.innerHTML = genStorage.join("<br>");
+      }
+      // console.log("------------------");
     }
 
     const customDataset = document.getElementById("customDataset");
@@ -1078,13 +1082,13 @@
       const response = await fetch(request);
       const items = await response.json();
 
-      // for (var i = 0; i < count; i++) {
-      //   x = Math.floor(Math.random() * items.length);
-      //   console.log(items[x][customDatasetKey]);
-      //   genStorage.push(items[x][customDatasetKey]);
-      //   outputPreview.innerHTML = genStorage.join("<br>");
-      // }
-      console.log("------------------");
+      for (var i = 0; i < count; i++) {
+        x = Math.floor(Math.random() * items.length);
+        // console.log(items[x][customDatasetKey]);
+        genStorage.push(items[x][customDatasetKey]);
+        // outputPreview.innerHTML = genStorage.join("<br>");
+      }
+      // console.log("------------------");
     }
   }
 
