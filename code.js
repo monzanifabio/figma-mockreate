@@ -3,7 +3,7 @@
 // full browser environment (see documentation).
 
 // This shows the HTML page in "ui.html".
-figma.showUI(__html__, { themeColors: true, width: 380, height: 400 });
+figma.showUI(__html__, { themeColors: true, width: 320, height: 400 });
 
 // Function for loading all the needed fonts
 const loadFonts = async () => {
