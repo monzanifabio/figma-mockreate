@@ -29,6 +29,10 @@
     margin-top: 1rem;
   }
 
+  .mb-1 {
+    margin-bottom: 1rem;
+  }
+
   h4,
   h5 {
     margin-bottom: 0.5rem;
@@ -43,6 +47,16 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
     border-color: #009b4e;
+  }
+
+  .d-flex {
+    display: flex;
+  }
+  .flex-row {
+    flex-direction: row;
+  }
+  .flex-column {
+    flex-direction: column;
   }
 
   #outputPreview {
@@ -145,7 +159,7 @@
     display: block;
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
-    padding: 0.375rem 0.75rem;
+    padding: 0.375rem 0rem;
     font-size: 0.85rem;
     font-weight: 400;
     line-height: 1.5;
@@ -189,7 +203,6 @@
 
   .layout-options {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
   }
 
@@ -252,7 +265,7 @@
   .input-group-text {
     display: flex;
     align-items: center;
-    padding: 0.375rem 0.75rem;
+    padding: 0.375rem 0.375rem;
     margin-bottom: 0;
     font-size: 1rem;
     font-weight: 400;
@@ -287,6 +300,17 @@
     color: #6c757d;
     line-height: 1.4;
   }
+
+  .text-white {
+    color: #ffffff;
+  }
+
+  .card {
+    padding: 12px;
+    border-radius: 12px;
+    background-color: #43494e;
+    border: 1px solid #50585e;
+  }
 </style>
 <!-- <h2>Random Generator</h2> -->
 <h5>Dataset</h5>
@@ -309,9 +333,12 @@
     <option value="custom">Custom</option>
   </select>
   <div id="formHelper" class="form-helper">
-    Select a dataset to get started.<br />Each dataset has different options that you can customise to your liking.
-    <hr />
-    <h1 class="mt-1 mb-1">New in v11.0</h1>
+    <p class="mb-1">Select a dataset to get started.<br />Each dataset has different options that you can customise to your liking.</p>
+    <div class="card text-white">
+      <h2>✨ What's new in v11.0</h2>
+      <p>This new version uses AI generated content to achieve a higher variety of responses.<br />You can now select and replace existing text and multiple text elements.</p>
+      <a href="#" class="btn btn-primary mt-1">How to use Mockreate</a>
+    </div>
   </div>
 </div>
 <!-- FIRST NAMES -->
@@ -339,31 +366,34 @@
 
 <!--  PHONE NUMBERS -->
 <section id="section-phones" style="display: none">
-  <div class="layout-options">
-    <div class="input-group me-1">
+  <div class="layout-options flex-column">
+    <h5>Phone prefix</h5>
+    <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">
           <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/plus.svg" width="20" height="20" alt="" />
         </span>
       </div>
-      <input class="form-control" id="phonePrefix" type="number" placeholder="Phone prefix e.g.41" onchange="generate()" />
+      <input class="form-control" id="phonePrefix" type="number" value="44" placeholder="Phone prefix e.g.41" />
     </div>
 
-    <div class="input-group ms-1">
+    <h5>Number of digits</h5>
+    <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">
           <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/phone-number.svg" width="20" height="20" alt="" />
         </span>
       </div>
-      <input class="form-control" id="phoneDigits" type="number" min="0" placeholder="Number of digits" onchange="generate()" />
+      <input class="form-control" id="phoneDigits" type="number" min="0" value="9" placeholder="Number of digits" />
     </div>
   </div>
 </section>
 
 <!--  DATES -->
 <section id="section-dates" style="display: none">
-  <div class="layout-options">
-    <div class="input-group me-1">
+  <div class="layout-options flex-column">
+    <h5>Year</h5>
+    <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">
           <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/calendar.svg" width="20" height="20" alt="" />
@@ -372,15 +402,16 @@
       <input class="form-control" id="selectedYear" type="number" min="1900" max="2099" step="1" value="2022" onchange="generate()" />
     </div>
 
-    <div class="input-group ms-1">
+    <h5>Date format</h5>
+    <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">
           <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/format-slash.svg" width="20" height="20" alt="" />
         </span>
       </div>
       <select class="form-control" id="dateFormat" onchange="generate()">
-        <option value="0" selected disabled>Date format</option>
-        <option value="1">26/08/1988</option>
+        <option value="0" disabled>Date format</option>
+        <option value="1" selected>26/08/1988</option>
         <option value="2">26-08-1988</option>
         <option value="3">26 08 1988</option>
         <option value="4">26 Aug 1988</option>
@@ -391,7 +422,8 @@
 
 <!--  TIME -->
 <section id="section-times" style="display: none">
-  <div class="layout-options">
+  <div class="layout-options flex-column">
+    <h5>Time format</h5>
     <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">
@@ -399,8 +431,8 @@
         </span>
       </div>
       <select class="form-control" id="timeFormat" onchange="generate()">
-        <option value="0" selected disabled>Select time format</option>
-        <option value="1">24h - hh:mm - 15:30</option>
+        <option value="0" disabled>Select time format</option>
+        <option value="1" selected>24h - hh:mm - 15:30</option>
         <option value="2">12h - h:mm am/pm - 4:30pm</option>
       </select>
     </div>
@@ -551,6 +583,17 @@
   const btnCreate = document.getElementById("create");
   const outputPreview = document.getElementById("outputPreview");
 
+  // Get every numeric input and prevent to ever be 0
+  const numInputs = document.querySelectorAll("input[type=number]");
+
+  numInputs.forEach(function (input) {
+    input.addEventListener("change", function (e) {
+      if (e.target.value == "") {
+        e.target.value = 0;
+      }
+    });
+  });
+
   function datasetController(el) {
     //Layout options startup
     if (el.value !== "null") {
@@ -584,11 +627,11 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
+        // btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
+      // generate();
     }
     //Display full names section if full names is selected
     if (el.value == "fullnames") {
@@ -599,11 +642,11 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
+        // btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
+      // generate();
     }
     //Display  usernames section if usernames is selected
     if (el.value == "usernames") {
@@ -614,11 +657,11 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
+        // btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
+      // generate();
     }
     //Display  emails section if emails is selected
     if (el.value == "emails") {
@@ -629,11 +672,11 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
+        // btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
+      // generate();
     }
     //Display  phone numbers section if phone numbers is selected
     if (el.value == "phones") {
@@ -644,11 +687,11 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
+        // btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
+      // generate();
     }
 
     //Display dates section if dates is selected
@@ -660,11 +703,11 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
+        // btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
+      // generate();
     }
 
     //Display times section if times is selected
@@ -676,11 +719,11 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
+        // btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
+      // generate();
     }
 
     //Display numbers section if numbers is selected
@@ -692,11 +735,11 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.removeAttribute("disabled");
+        // btnCreate.removeAttribute("disabled");
       } else {
         section.style.display = "none";
       }
-      generate();
+      // generate();
     }
 
     //Display money section if money is selected
@@ -708,11 +751,11 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.removeAttribute("disabled");
+        // btnCreate.removeAttribute("disabled");
       } else {
         section.style.display = "none";
       }
-      generate();
+      // generate();
     }
 
     //Display license plates section if credit cards is selected
@@ -724,11 +767,11 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.removeAttribute("disabled");
+        // btnCreate.removeAttribute("disabled");
       } else {
         section.style.display = "none";
       }
-      generate();
+      // generate();
     }
 
     //Display credit cards section if credit cards is selected
@@ -740,11 +783,11 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.removeAttribute("disabled");
+        // btnCreate.removeAttribute("disabled");
       } else {
         section.style.display = "none";
       }
-      generate();
+      // generate();
     }
 
     //Display ethereum address section if credit cards is selected
@@ -756,11 +799,11 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.removeAttribute("disabled");
+        // btnCreate.removeAttribute("disabled");
       } else {
         section.style.display = "none";
       }
-      generate();
+      // generate();
     }
 
     //Display custom section if custom is selected
@@ -772,11 +815,11 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
+        // btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
+      // generate();
     }
   }
   //Define array to store the generated results
@@ -811,7 +854,7 @@
     // const requestURL = 'https://cryptofonts.com/first-names.json';
 
     if (dataSelection == "names") {
-      btnCreate.removeAttribute("disabled");
+      // btnCreate.removeAttribute("disabled");
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
       // console.log(requestURL);
 
@@ -840,7 +883,7 @@
     }
 
     if (dataSelection == "surnames") {
-      btnCreate.removeAttribute("disabled");
+      // btnCreate.removeAttribute("disabled");
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
       // console.log(requestURL);
 
@@ -859,7 +902,7 @@
     }
 
     if (dataSelection == "fullnames") {
-      btnCreate.removeAttribute("disabled");
+      // btnCreate.removeAttribute("disabled");
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
       // console.log(requestURL);
 
@@ -878,7 +921,7 @@
     }
 
     if (dataSelection == "usernames") {
-      btnCreate.removeAttribute("disabled");
+      // btnCreate.removeAttribute("disabled");
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
       // console.log(requestURL);
 
@@ -897,7 +940,7 @@
     }
 
     if (dataSelection == "emails") {
-      btnCreate.removeAttribute("disabled");
+      // btnCreate.removeAttribute("disabled");
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
       // console.log(requestURL);
 
@@ -919,7 +962,7 @@
     let phoneDigits = document.getElementById("phoneDigits").value;
 
     if (dataSelection == "phones" && phonePrefix !== "" && phoneDigits !== "") {
-      btnCreate.removeAttribute("disabled");
+      // btnCreate.removeAttribute("disabled");
       for (var i = 0; i < count; i++) {
         x = Math.floor(Math.pow(10, phoneDigits - 1) + Math.random() * 9 * Math.pow(10, phoneDigits - 1)).toString();
         // console.log("+" + phonePrefix + " " + x);
@@ -927,13 +970,15 @@
         // outputPreview.innerHTML = genStorage.join("<br>");
       }
       // console.log("------------------");
+    } else {
+      console.log("Select some shit");
     }
 
     let selectedYear = document.getElementById("selectedYear").value;
     let dateFormat = document.getElementById("dateFormat").value;
 
     if (dataSelection == "dates" && selectedYear !== "" && dateFormat != 0) {
-      btnCreate.removeAttribute("disabled");
+      // btnCreate.removeAttribute("disabled");
       for (var i = 0; i < count; i++) {
         d = (Math.floor(Math.random() * (31 - 1 + 1)) + 1).toString();
         m = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
@@ -966,7 +1011,7 @@
     let timeFormat = document.getElementById("timeFormat").value;
 
     if (dataSelection == "times" && timeFormat != 0) {
-      btnCreate.removeAttribute("disabled");
+      // btnCreate.removeAttribute("disabled");
       for (var i = 0; i < count; i++) {
         hh = (Math.floor(Math.random() * (23 - 1 + 1)) + 1).toString();
         h = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
@@ -997,7 +1042,7 @@
     let numberTo = parseInt(document.getElementById("numberTo").value);
 
     if (dataSelection == "numbers" && numberFrom !== "" && numberTo !== "") {
-      btnCreate.removeAttribute("disabled");
+      // btnCreate.removeAttribute("disabled");
 
       for (var i = 0; i < count; i++) {
         x = (Math.floor(Math.random() * (numberTo - numberFrom + 1)) + numberFrom).toString();
@@ -1013,7 +1058,7 @@
     let currency = document.getElementById("moneyCurrency").value;
 
     if (dataSelection == "money" && moneyFrom !== "" && moneyTo !== "") {
-      btnCreate.removeAttribute("disabled");
+      // btnCreate.removeAttribute("disabled");
 
       if (document.getElementById("symbol-prepend").checked) {
         console.log("prepend");
@@ -1036,7 +1081,7 @@
     }
 
     if (dataSelection == "licenseplates") {
-      btnCreate.removeAttribute("disabled");
+      // btnCreate.removeAttribute("disabled");
       for (var i = 0; i < count; i++) {
         a = Math.random()
           .toString(36)
@@ -1058,7 +1103,7 @@
     }
 
     if (dataSelection == "ethereum") {
-      btnCreate.removeAttribute("disabled");
+      // btnCreate.removeAttribute("disabled");
       let address = "";
       let hexChar = "0123456789abcdefABCDEF";
       for (var i = 0; i < count; i++) {
@@ -1073,7 +1118,7 @@
     }
 
     if (dataSelection == "creditcards") {
-      btnCreate.removeAttribute("disabled");
+      // btnCreate.removeAttribute("disabled");
       for (var i = 0; i < count; i++) {
         x = (Math.floor(Math.random() * (9999999999999999 - 1234567890123456 + 1)) + 1234567890123456).toString().replace(/\d{4}(?=.)/g, "$& ");
         // console.log(x);
@@ -1087,7 +1132,7 @@
     const customDatasetKey = document.getElementById("customDatasetKey").value.toString();
 
     if (dataSelection == "custom" && customDataset != "" && customDatasetKey != "") {
-      btnCreate.removeAttribute("disabled");
+      // btnCreate.removeAttribute("disabled");
 
       const requestURL = document.getElementById("customDataset").value;
       // console.log(requestURL);
