@@ -126,7 +126,15 @@
     box-shadow: 0 0 0 0.2rem rgb(0 183 99 / 50%);
   }
 
-  .btn-primary:disabled,
+  .figma-light .btn-primary:disabled,
+  .btn-primary[disabled] {
+    background-color: #c0d0c9;
+    border-color: #c0d0c9;
+    color: #5f7665;
+    cursor: default;
+  }
+
+  .figma-dark .btn-primary:disabled,
   .btn-primary[disabled] {
     background-color: #2c463a;
     border-color: #2c463a;
@@ -301,18 +309,33 @@
     line-height: 1.4;
   }
 
-  .text-white {
-    color: #ffffff;
-  }
-
-  .card {
+  .figma-dark .card {
     padding: 12px;
     border-radius: 12px;
     background-color: #43494e;
     border: 1px solid #50585e;
   }
-  .card h2 {
+  .figma-light .card {
+    padding: 12px;
+    border-radius: 12px;
+    background-color: #dce2e7;
+    border: 1px solid #c3d5e2;
+  }
+
+  .figma-dark .card h2 {
     margin-bottom: 0.25rem;
+    color: #ffffff;
+  }
+  .figma-light .card h2 {
+    margin-bottom: 0.25rem;
+    color: #333333;
+  }
+
+  .figma-dark .card p {
+    color: #ffffff;
+  }
+  .figma-light .card p {
+    color: #333333;
   }
   .vertical-align-bottom {
     vertical-align: bottom;
@@ -347,7 +370,7 @@
     </select>
     <div id="formHelper" class="form-helper">
       <p class="mb-1">Select a dataset to get started.<br />Each dataset has different options that you can customise to your liking.</p>
-      <div class="card text-white">
+      <div class="card">
         <h2>✨ What's new in v11.0</h2>
         <p>This new version uses AI generated content to achieve a higher variety of responses.<br />You can now select and replace existing text and multiple text elements.</p>
         <a href="#" class="btn btn-primary mt-1">
