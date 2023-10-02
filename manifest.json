@@ -6,6 +6,7 @@
   "editorType": ["figma"],
   "ui": "ui.html",
   "networkAccess": {
-    "allowedDomains": ["https://github.com"]
+    "allowedDomains": ["*"],
+    "reasoning": "To allow custom script and dataset loading"
   }
 }
