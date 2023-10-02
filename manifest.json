@@ -1,10 +1,8 @@
 {
-  "name": "Mockreate",
+  "name": "Mockreate AI",
   "id": "1096384653667384513",
   "api": "1.0.0",
   "main": "code.js",
-  "editorType": [
-    "figma"
-  ],
+  "editorType": ["figma"],
   "ui": "ui.html"
 }
