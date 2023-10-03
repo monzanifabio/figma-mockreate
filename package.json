@@ -1,6 +1,6 @@
 {
   "name": "Mockreate AI",
-  "version": "11.0.0",
+  "version": "14.0.0",
   "description": "An AI random data plugin for Figma",
   "main": "code.js",
   "scripts": {

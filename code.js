@@ -1,5 +1,5 @@
 // This shows the HTML page in "ui.html".
-figma.showUI(__html__, { themeColors: true, width: 320, height: 400 });
+figma.showUI(__html__, { themeColors: true, width: 320, height: 420 });
 
 // Function for loading starter fonts
 const loadFonts = async () => {
