@@ -5,16 +5,16 @@
     font-family: "Inter", sans-serif;
   }
 
-  body {
-    margin: 15px;
-  }
-
   .figma-light body {
     color: #333333;
   }
 
   .figma-dark body {
     color: #ffffff;
+  }
+
+  .container {
+    margin: 15px;
   }
 
   .ms-1 {
@@ -29,6 +29,10 @@
     margin-top: 1rem;
   }
 
+  .mb-1 {
+    margin-bottom: 1rem;
+  }
+
   h4,
   h5 {
     margin-bottom: 0.5rem;
@@ -37,6 +41,22 @@
   a {
     color: #00b763;
     text-decoration: none;
+  }
+
+  hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-color: #009b4e;
+  }
+
+  .d-flex {
+    display: flex;
+  }
+  .flex-row {
+    flex-direction: row;
+  }
+  .flex-column {
+    flex-direction: column;
   }
 
   #outputPreview {
@@ -50,10 +70,6 @@
 
   footer a {
     font-size: 0.8rem;
-  }
-
-  footer div {
-    padding: 0 15px 15px 15px;
   }
 
   .arrow::after {
@@ -106,11 +122,19 @@
     box-shadow: 0 0 0 0.2rem rgb(0 183 99 / 50%);
   }
 
-  .btn-primary:disabled,
+  .figma-light .btn-primary:disabled,
   .btn-primary[disabled] {
-    background-color: #a5d0bc;
-    border-color: #a5d0bc;
-    color: #ffffff;
+    background-color: #c0d0c9;
+    border-color: #c0d0c9;
+    color: #5f7665;
+    cursor: default;
+  }
+
+  .figma-dark .btn-primary:disabled,
+  .btn-primary[disabled] {
+    background-color: #2c463a;
+    border-color: #2c463a;
+    color: #5f7665;
     cursor: default;
   }
 
@@ -139,7 +163,7 @@
     display: block;
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
-    padding: 0.375rem 0.75rem;
+    padding: 0.375rem 0rem;
     font-size: 0.85rem;
     font-weight: 400;
     line-height: 1.5;
@@ -183,7 +207,6 @@
 
   .layout-options {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
   }
 
@@ -192,6 +215,18 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .footer-version {
+    display: flex;
+    justify-content: end;
+    padding-bottom: 0;
+  }
+  .footer-version p {
+    color: #495057;
+    font-size: 12px;
   }
 
   .form-group {
@@ -246,7 +281,7 @@
   .input-group-text {
     display: flex;
     align-items: center;
-    padding: 0.375rem 0.75rem;
+    padding: 0.375rem 0.375rem;
     margin-bottom: 0;
     font-size: 1rem;
     font-weight: 400;
@@ -281,265 +316,292 @@
     color: #6c757d;
     line-height: 1.4;
   }
+
+  .figma-dark .card {
+    padding: 12px;
+    border-radius: 12px;
+    background-color: #43494e;
+    border: 1px solid #50585e;
+  }
+  .figma-light .card {
+    padding: 12px;
+    border-radius: 12px;
+    background-color: #dce2e7;
+    border: 1px solid #c3d5e2;
+  }
+
+  .figma-dark .card h2 {
+    margin-bottom: 0.25rem;
+    color: #ffffff;
+  }
+  .figma-light .card h2 {
+    margin-bottom: 0.25rem;
+    color: #333333;
+  }
+
+  .figma-dark .card p {
+    color: #ffffff;
+  }
+  .figma-light .card p {
+    color: #333333;
+  }
+  .vertical-align-bottom {
+    vertical-align: bottom;
+  }
+
+  .mini-banner {
+    height: 4px;
+    background-color: #00b763;
+    width: 100%;
+  }
 </style>
-<!-- <h2>Random Generator</h2> -->
-<h5>Dataset</h5>
-<div class="form-group">
-  <select name="" id="datasetSelector" class="form-control" onchange="datasetController(this)">
-    <option value="null" selected disabled>Select dataset</option>
-    <option value="names" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/first-names.json">First name</option>
-    <option value="surnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/last-names.json">Last name</option>
-    <option value="fullnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/full-names.json">Full name</option>
-    <option value="usernames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/usernames.json">Username</option>
-    <option value="emails" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/emails.json">Email</option>
-    <option value="phones">Phone number</option>
-    <option value="dates">Date</option>
-    <option value="times">Time</option>
-    <option value="numbers">Number range</option>
-    <option value="money">Money</option>
-    <option value="licenseplates">License plates (EU)</option>
-    <option value="creditcards">Credit card</option>
-    <option value="ethereum">Ethereum Address</option>
-    <option value="custom">Custom</option>
-  </select>
-  <div id="formHelper" class="form-helper">Select a dataset to get started.<br />Each dataset has different options that you can customise to your liking.</div>
-</div>
-<!-- FIRST NAMES -->
-<section id="section-names" style="display: none">
-  <h5>Gender</h5>
+<div class="mini-banner"></div>
+<div class="container">
+  <h5>Dataset</h5>
   <div class="form-group">
-    <select id="genderSelection" class="form-control" name="" onchange="generate();">
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-      <option value="both" selected>Both</option>
+    <select name="" id="datasetSelector" class="form-control" onchange="datasetController(this)">
+      <option value="null" selected disabled>Select dataset</option>
+      <option value="names" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/first-names.json">First name</option>
+      <option value="surnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/last-names.json">Last name</option>
+      <option value="fullnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/full-names.json">Full name</option>
+      <option value="usernames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/usernames.json">Username</option>
+      <option value="emails" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/emails.json">Email</option>
+      <option value="phones">Phone number</option>
+      <option value="dates">Date</option>
+      <option value="times">Time</option>
+      <option value="numbers">Number range</option>
+      <option value="money">Money</option>
+      <option value="licenseplates">License plates (EU)</option>
+      <option value="creditcards">Credit card</option>
+      <option value="ethereum">Ethereum Address</option>
+      <option value="custom">Custom</option>
     </select>
-  </div>
-</section>
-<!-- LAST NAMES -->
-<section id="section-surnames" style="display: none"></section>
-
-<!-- FULL NAMES -->
-<section id="section-fullnames" style="display: none"></section>
-
-<!--  USERNAMES -->
-<section id="section-usernames" style="display: none"></section>
-
-<!--  EMAILS -->
-<section id="section-emails" style="display: none"></section>
-
-<!--  PHONE NUMBERS -->
-<section id="section-phones" style="display: none">
-  <div class="layout-options">
-    <div class="input-group me-1">
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/plus.svg" width="20" height="20" alt="" />
-        </span>
+    <div id="formHelper" class="form-helper">
+      <p class="mb-1">Select a dataset to get started.<br />Each dataset has different options that you can customise to your liking.</p>
+      <div class="card">
+        <h2>✨ What's new in v11.0</h2>
+        <p>This new version uses AI generated content to achieve a higher variety of responses.<br />You can now select and replace existing text and multiple text elements.</p>
+        <a href="https://www.loom.com/share/af90c8ef179842fdb8ed1a662e280fb2?sid=f6ebf442-6de8-47dc-8634-38aeceebdfea" target="_blank" class="btn btn-primary mt-1">
+          <img class="vertical-align-bottom" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/v11/img/video.svg" width="24" height="24" alt="" />
+          How to use Mockreate
+        </a>
       </div>
-      <input class="form-control" id="phonePrefix" type="number" placeholder="Phone prefix e.g.41" onchange="generate()" />
-    </div>
-
-    <div class="input-group ms-1">
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/phone-number.svg" width="20" height="20" alt="" />
-        </span>
-      </div>
-      <input class="form-control" id="phoneDigits" type="number" min="0" placeholder="Number of digits" onchange="generate()" />
     </div>
   </div>
-</section>
-
-<!--  DATES -->
-<section id="section-dates" style="display: none">
-  <div class="layout-options">
-    <div class="input-group me-1">
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/calendar.svg" width="20" height="20" alt="" />
-        </span>
-      </div>
-      <input class="form-control" id="selectedYear" type="number" min="1900" max="2099" step="1" value="2022" onchange="generate()" />
-    </div>
-
-    <div class="input-group ms-1">
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/format-slash.svg" width="20" height="20" alt="" />
-        </span>
-      </div>
-      <select class="form-control" id="dateFormat" onchange="generate()">
-        <option value="0" selected disabled>Select date format</option>
-        <option value="1">26/08/1988</option>
-        <option value="2">26-08-1988</option>
-        <option value="3">26 08 1988</option>
-        <option value="4">26 Aug 1988</option>
+  <!-- FIRST NAMES -->
+  <section id="section-names" style="display: none">
+    <h5>Gender</h5>
+    <div class="form-group">
+      <select id="genderSelection" class="form-control" name="" onchange="generate();">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="both" selected>Both</option>
       </select>
     </div>
-  </div>
-</section>
+  </section>
+  <!-- LAST NAMES -->
+  <section id="section-surnames" style="display: none"></section>
 
-<!--  TIME -->
-<section id="section-times" style="display: none">
-  <div class="layout-options">
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/clock.svg" width="20" height="20" alt="" />
-        </span>
+  <!-- FULL NAMES -->
+  <section id="section-fullnames" style="display: none"></section>
+
+  <!--  USERNAMES -->
+  <section id="section-usernames" style="display: none"></section>
+
+  <!--  EMAILS -->
+  <section id="section-emails" style="display: none"></section>
+
+  <!--  PHONE NUMBERS -->
+  <section id="section-phones" style="display: none">
+    <div class="layout-options flex-column">
+      <h5>Phone prefix</h5>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/plus.svg" width="20" height="20" alt="" />
+          </span>
+        </div>
+        <input class="form-control" id="phonePrefix" type="number" value="44" placeholder="Phone prefix e.g.41" />
       </div>
-      <select class="form-control" id="timeFormat" onchange="generate()">
-        <option value="0" selected disabled>Select time format</option>
-        <option value="1">24h - hh:mm - 15:30</option>
-        <option value="2">12h - h:mm am/pm - 4:30pm</option>
-      </select>
-    </div>
-  </div>
-</section>
 
-<!-- NUMBERS -->
-<section id="section-numbers" style="display: none">
-  <div class="layout-options">
-    <div class="input-group me-1">
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="" />
-        </span>
+      <h5>Number of digits</h5>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/phone-number.svg" width="20" height="20" alt="" />
+          </span>
+        </div>
+        <input class="form-control" id="phoneDigits" type="number" min="0" value="9" placeholder="Number of digits" />
       </div>
-      <input class="form-control" id="numberFrom" type="number" min="0" value="0" onchange="generate()" />
     </div>
+  </section>
 
-    <div class="input-group ms-1">
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="" />
-        </span>
+  <!--  DATES -->
+  <section id="section-dates" style="display: none">
+    <div class="layout-options flex-column">
+      <h5>Year</h5>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/calendar.svg" width="20" height="20" alt="" />
+          </span>
+        </div>
+        <input class="form-control" id="selectedYear" type="number" min="1900" max="2099" step="1" value="2023" onchange="generate()" />
       </div>
-      <input class="form-control" id="numberTo" type="number" min="0" value="50" onchange="generate()" />
-    </div>
-  </div>
-</section>
 
-<!-- MONEY -->
-<section id="section-money" style="display: none">
-  <div class="layout-options">
-    <div class="input-group me-1">
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="" />
-        </span>
+      <h5>Date format</h5>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/format-slash.svg" width="20" height="20" alt="" />
+          </span>
+        </div>
+        <select class="form-control" id="dateFormat" onchange="generate()">
+          <option value="0" disabled>Date format</option>
+          <option value="1" selected>26/08/1988</option>
+          <option value="2">26-08-1988</option>
+          <option value="3">26 08 1988</option>
+          <option value="4">26 Aug 1988</option>
+        </select>
       </div>
-      <input class="form-control" id="moneyFrom" type="number" min="0" value="0" onchange="generate()" />
     </div>
+  </section>
 
-    <div class="input-group ms-1">
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="" />
-        </span>
+  <!--  TIME -->
+  <section id="section-times" style="display: none">
+    <div class="layout-options flex-column">
+      <h5>Time format</h5>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/clock.svg" width="20" height="20" alt="" />
+          </span>
+        </div>
+        <select class="form-control" id="timeFormat" onchange="generate()">
+          <option value="0" disabled>Select time format</option>
+          <option value="1" selected>24h - hh:mm - 15:30</option>
+          <option value="2">12h - h:mm am/pm - 4:30pm</option>
+        </select>
       </div>
-      <input class="form-control" id="moneyTo" type="number" min="0" value="50" onchange="generate()" />
     </div>
+  </section>
 
-    <div class="input-group ms-1">
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/coin-currency.svg" width="20" height="20" alt="" />
-        </span>
+  <!-- NUMBERS -->
+  <section id="section-numbers" style="display: none">
+    <div class="layout-options">
+      <div class="input-group me-1">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="" />
+          </span>
+        </div>
+        <input class="form-control" id="numberFrom" type="number" min="0" value="0" onchange="generate()" />
       </div>
-      <input class="form-control" id="moneyCurrency" type="text" value="$" onchange="generate()" />
-    </div>
-  </div>
-  <div class="form-group">
-    <h5>Symbol position</h5>
-    <label for="symbol-prepend">
-      <input class="btn-radio" type="radio" id="symbol-prepend" name="symbol-position" value="prepend" checked onchange="generate()" />
-      <img class="btn" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/prepend.svg" alt="" width="20" height="20" />
-    </label>
-    <label for="symbol-append">
-      <input class="btn-radio" type="radio" id="symbol-append" name="symbol-position" value="append" onchange="generate()" />
-      <img class="btn" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/append.svg" alt="" width="20" height="20" />
-    </label>
-  </div>
-</section>
 
-<!--  LICENSE PLATES -->
-<section id="section-licenseplates" style="display: none"></section>
-
-<!--  CREDIT CARDS -->
-<section id="section-creditcards" style="display: none"></section>
-
-<!-- ETHEREUM ADDRESS -->
-<section id="section-ethereum" style="display: none"></section>
-
-<!--  CUSTOM  -->
-<section id="section-custom" style="display: none">
-  <div class="form-group">
-    <h5>Custom dataset</h5>
-    <input class="form-control" id="customDataset" type="url" placeholder="Link to your JSON dataset" onchange="generate();" />
-  </div>
-
-  <div class="form-group">
-    <h5>Key</h5>
-    <input class="form-control" id="customDatasetKey" type="text" placeholder="e.g. names" onchange="generate();" />
-  </div>
-</section>
-
-<div id="options" style="display: none">
-  <div class="form-group">
-    <h5>Number of results</h5>
-    <input class="form-control" id="count" min="0" type="number" value="5" onchange="generate();" />
-  </div>
-
-  <h5>Layout options</h5>
-
-  <div class="layout-options">
-    <div class="input-group me-1">
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/text-size-button.svg" width="20" height="20" alt="" />
-        </span>
+      <div class="input-group ms-1">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="" />
+          </span>
+        </div>
+        <input class="form-control" id="numberTo" type="number" min="0" value="50" onchange="generate()" />
       </div>
-      <input class="form-control" id="fontSize" type="number" min="0" value="16" />
+    </div>
+  </section>
+
+  <!-- MONEY -->
+  <section id="section-money" style="display: none">
+    <div class="layout-options">
+      <div class="input-group me-1">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="" />
+          </span>
+        </div>
+        <input class="form-control" id="moneyFrom" type="number" min="0" value="0" onchange="generate()" />
+      </div>
+
+      <div class="input-group ms-1">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="" />
+          </span>
+        </div>
+        <input class="form-control" id="moneyTo" type="number" min="0" value="50" onchange="generate()" />
+      </div>
+
+      <div class="input-group ms-1">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/coin-currency.svg" width="20" height="20" alt="" />
+          </span>
+        </div>
+        <input class="form-control" id="moneyCurrency" type="text" value="$" onchange="generate()" />
+      </div>
+    </div>
+    <div class="form-group">
+      <h5>Symbol position</h5>
+      <label for="symbol-prepend">
+        <input class="btn-radio" type="radio" id="symbol-prepend" name="symbol-position" value="prepend" checked onchange="generate()" />
+        <img class="btn" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/prepend.svg" alt="" width="20" height="20" />
+      </label>
+      <label for="symbol-append">
+        <input class="btn-radio" type="radio" id="symbol-append" name="symbol-position" value="append" onchange="generate()" />
+        <img class="btn" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/append.svg" alt="" width="20" height="20" />
+      </label>
+    </div>
+  </section>
+
+  <!--  LICENSE PLATES -->
+  <section id="section-licenseplates" style="display: none"></section>
+
+  <!--  CREDIT CARDS -->
+  <section id="section-creditcards" style="display: none"></section>
+
+  <!-- ETHEREUM ADDRESS -->
+  <section id="section-ethereum" style="display: none"></section>
+
+  <!--  CUSTOM  -->
+  <section id="section-custom" style="display: none">
+    <div class="form-group">
+      <h5>Custom dataset</h5>
+      <input class="form-control" id="customDataset" type="url" placeholder="Link to your JSON dataset" onchange="generate();" />
     </div>
 
-    <div class="input-group ms-1">
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/text-line-spacing.svg" width="20" height="20" alt="" />
-        </span>
-      </div>
-      <input class="form-control" id="textSpacing" type="number" min="0" value="16" />
+    <div class="form-group">
+      <h5>Key</h5>
+      <input class="form-control" id="customDatasetKey" type="text" placeholder="e.g. names" onchange="generate();" />
     </div>
+  </section>
+
+  <div id="options" style="display: none">
+    <button id="create" class="btn btn-primary btn-block mt-1">Generate</button>
   </div>
 
-  <div class="layout-options">
-    <div class="input-group me-1">
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/header.svg" width="20" height="20" alt="" />
-        </span>
-      </div>
-      <input class="form-control" id="colHeader" type="text" placeholder="Column header (optional)" />
+  <footer>
+    <div class="footer-section">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSddC4rEmdPbmHlw156Gy2J5l98Nyxee_4GRoMSFdMc60WjqHQ/viewform" class="arrow" target="_blank"><img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/feedback.svg" alt="" width="18" height="18" style="vertical-align: bottom" /> Feedback?</a>
+      <a href="https://www.buymeacoffee.com/monzanifabio" class="arrow" target="_blank">Buy me a coffee</a>
     </div>
-  </div>
-
-  <h5>Preview</h5>
-
-  <div class="" id="outputPreview">Randomly generated data will appear here...</div>
-
-  <button id="create" class="btn btn-primary btn-block mt-1">Generate</button>
+    <div class="footer-version">
+      <p>v13</p>
+    </div>
+  </footer>
 </div>
-
-<footer>
-  <div class="footer-section">
-    <a href="https://www.producthunt.com/products/mockreate-figma-plugin/reviews?utm_source=badge-product_review&utm_medium=badge&utm_souce=badge-mockreate&#0045;figma&#0045;plugin" class="arrow" target="_blank">Leave a review</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSddC4rEmdPbmHlw156Gy2J5l98Nyxee_4GRoMSFdMc60WjqHQ/viewform" class="arrow" target="_blank"><img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/feedback.svg" alt="" width="18" height="18" style="vertical-align: bottom" /> Feedback?</a>
-  </div>
-</footer>
 <script>
   const btnCreate = document.getElementById("create");
   const outputPreview = document.getElementById("outputPreview");
+
+  // Get every numeric input and prevent to ever be 0
+  const numInputs = document.querySelectorAll("input[type=number]");
+
+  numInputs.forEach(function (input) {
+    input.addEventListener("change", function (e) {
+      if (e.target.value == "") {
+        e.target.value = 0;
+      }
+    });
+  });
 
   function datasetController(el) {
     //Layout options startup
@@ -559,11 +621,9 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
     }
     //Display surnames section if surname is selected
     if (el.value == "surnames") {
@@ -574,11 +634,9 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
     }
     //Display full names section if full names is selected
     if (el.value == "fullnames") {
@@ -589,11 +647,9 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
     }
     //Display  usernames section if usernames is selected
     if (el.value == "usernames") {
@@ -604,11 +660,9 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
     }
     //Display  emails section if emails is selected
     if (el.value == "emails") {
@@ -619,11 +673,9 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
     }
     //Display  phone numbers section if phone numbers is selected
     if (el.value == "phones") {
@@ -634,11 +686,9 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
     }
 
     //Display dates section if dates is selected
@@ -650,11 +700,9 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
     }
 
     //Display times section if times is selected
@@ -666,11 +714,9 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
     }
 
     //Display numbers section if numbers is selected
@@ -682,11 +728,9 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.removeAttribute("disabled");
       } else {
         section.style.display = "none";
       }
-      generate();
     }
 
     //Display money section if money is selected
@@ -698,11 +742,9 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.removeAttribute("disabled");
       } else {
         section.style.display = "none";
       }
-      generate();
     }
 
     //Display license plates section if credit cards is selected
@@ -714,11 +756,9 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.removeAttribute("disabled");
       } else {
         section.style.display = "none";
       }
-      generate();
     }
 
     //Display credit cards section if credit cards is selected
@@ -730,11 +770,9 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.removeAttribute("disabled");
       } else {
         section.style.display = "none";
       }
-      generate();
     }
 
     //Display ethereum address section if credit cards is selected
@@ -746,11 +784,9 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.removeAttribute("disabled");
       } else {
         section.style.display = "none";
       }
-      generate();
     }
 
     //Display custom section if custom is selected
@@ -762,31 +798,39 @@
           sections[i].style.display = "none";
         }
         section.style.display = "block";
-        btnCreate.setAttribute("disabled", "");
       } else {
         section.style.display = "none";
       }
-      generate();
     }
   }
   //Define array to store the generated results
   let genStorage = [];
-  let count;
+  let count = 0;
   let genderSelection;
+
+  // Get the state of the selection
+  onmessage = (event) => {
+    count = event.data.pluginMessage.type;
+    selection = event.data.pluginMessage.selected;
+    if (selection == true) {
+      btnCreate.removeAttribute("disabled");
+    } else {
+      btnCreate.setAttribute("disabled", "");
+    }
+  };
+
+  ////////////////////////////////////////////////////////////////////////////////////
+  // GENERATE
+  ////////////////////////////////////////////////////////////////////////////////////
 
   async function generate() {
     //Empty the array on a new generation
     genStorage.length = 0;
-    count = parseInt(document.getElementById("count").value);
     genderSelection = document.getElementById("genderSelection").value;
     const dataSelection = document.getElementById("datasetSelector").value;
 
-    // const requestURL = 'https://cryptofonts.com/first-names.json';
-
     if (dataSelection == "names") {
-      btnCreate.removeAttribute("disabled");
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
-      console.log(requestURL);
 
       const request = new Request(requestURL);
 
@@ -796,26 +840,17 @@
       for (var i = 0; i < count; i++) {
         x = Math.floor(Math.random() * items.length);
         if (genderSelection === "both") {
-          console.log(items[x].name, items[x].gender);
           genStorage.push(items[x].name);
-          outputPreview.innerHTML = genStorage.join("<br>");
         } else if (items[x].gender === genderSelection) {
-          console.log(items[x].name, items[x].gender);
           genStorage.push(items[x].name);
-          outputPreview.innerHTML = genStorage.join("<br>");
         } else {
-          console.log(items[x + 1].name, items[x].gender);
           genStorage.push(items[x].name);
-          outputPreview.innerHTML = genStorage.join("<br>");
         }
       }
-      console.log("------------------");
     }
 
     if (dataSelection == "surnames") {
-      btnCreate.removeAttribute("disabled");
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
-      console.log(requestURL);
 
       const request = new Request(requestURL);
 
@@ -824,122 +859,83 @@
 
       for (var i = 0; i < count; i++) {
         x = Math.floor(Math.random() * items.length);
-        console.log(items[x]);
         genStorage.push(items[x]);
-        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log("------------------");
     }
 
     if (dataSelection == "fullnames") {
-      btnCreate.removeAttribute("disabled");
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
-      console.log(requestURL);
-
       const request = new Request(requestURL);
-
       const response = await fetch(request);
       const items = await response.json();
 
       for (var i = 0; i < count; i++) {
         x = Math.floor(Math.random() * items.length);
-        console.log(items[x].full_name);
         genStorage.push(items[x].full_name);
-        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log("------------------");
     }
 
     if (dataSelection == "usernames") {
-      btnCreate.removeAttribute("disabled");
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
-      console.log(requestURL);
-
       const request = new Request(requestURL);
-
       const response = await fetch(request);
       const items = await response.json();
 
       for (var i = 0; i < count; i++) {
         x = Math.floor(Math.random() * items.length);
-        console.log(items[x].username);
         genStorage.push(items[x].username);
-        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log("------------------");
     }
 
     if (dataSelection == "emails") {
-      btnCreate.removeAttribute("disabled");
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
-      console.log(requestURL);
-
       const request = new Request(requestURL);
-
       const response = await fetch(request);
       const items = await response.json();
 
       for (var i = 0; i < count; i++) {
         x = Math.floor(Math.random() * items.length);
-        console.log(items[x].email);
         genStorage.push(items[x].email);
-        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log("------------------");
     }
 
     let phonePrefix = document.getElementById("phonePrefix").value;
     let phoneDigits = document.getElementById("phoneDigits").value;
 
     if (dataSelection == "phones" && phonePrefix !== "" && phoneDigits !== "") {
-      btnCreate.removeAttribute("disabled");
       for (var i = 0; i < count; i++) {
         x = Math.floor(Math.pow(10, phoneDigits - 1) + Math.random() * 9 * Math.pow(10, phoneDigits - 1)).toString();
-        console.log("+" + phonePrefix + " " + x);
         genStorage.push("+" + phonePrefix + " " + x);
-        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log("------------------");
     }
 
     let selectedYear = document.getElementById("selectedYear").value;
     let dateFormat = document.getElementById("dateFormat").value;
 
     if (dataSelection == "dates" && selectedYear !== "" && dateFormat != 0) {
-      btnCreate.removeAttribute("disabled");
       for (var i = 0; i < count; i++) {
         d = (Math.floor(Math.random() * (31 - 1 + 1)) + 1).toString();
         m = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
         let separator = ["_", "/", "-", " ", " "];
         let mm = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         if (dateFormat == 1) {
-          console.log(d + "/" + m + "/" + selectedYear);
           genStorage.push(d + "/" + m + "/" + selectedYear);
-          outputPreview.innerHTML = genStorage.join("<br>");
         }
         if (dateFormat == 2) {
-          console.log(d + "-" + m + "-" + selectedYear);
           genStorage.push(d + "-" + m + "-" + selectedYear);
-          outputPreview.innerHTML = genStorage.join("<br>");
         }
         if (dateFormat == 3) {
-          console.log(d + " " + m + " " + selectedYear);
           genStorage.push(d + " " + m + " " + selectedYear);
-          outputPreview.innerHTML = genStorage.join("<br>");
         }
         if (dateFormat == 4) {
-          console.log(d + " " + mm[m] + " " + selectedYear);
           genStorage.push(d + " " + mm[m] + " " + selectedYear);
-          outputPreview.innerHTML = genStorage.join("<br>");
         }
       }
-      console.log("------------------");
     }
 
     let timeFormat = document.getElementById("timeFormat").value;
 
     if (dataSelection == "times" && timeFormat != 0) {
-      btnCreate.removeAttribute("disabled");
       for (var i = 0; i < count; i++) {
         hh = (Math.floor(Math.random() * (23 - 1 + 1)) + 1).toString();
         h = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
@@ -953,32 +949,22 @@
         let time = ["am", "pm"];
         x = Math.floor(Math.random() * time.length);
         if (timeFormat == 1) {
-          console.log(hh + ":" + m);
           genStorage.push(hh + ":" + m);
-          outputPreview.innerHTML = genStorage.join("<br>");
         }
         if (timeFormat == 2) {
-          console.log(h + ":" + m + time[x]);
           genStorage.push(h + ":" + m + time[x]);
-          outputPreview.innerHTML = genStorage.join("<br>");
         }
       }
-      console.log("------------------");
     }
 
     let numberFrom = parseInt(document.getElementById("numberFrom").value);
     let numberTo = parseInt(document.getElementById("numberTo").value);
 
     if (dataSelection == "numbers" && numberFrom !== "" && numberTo !== "") {
-      btnCreate.removeAttribute("disabled");
-
       for (var i = 0; i < count; i++) {
         x = (Math.floor(Math.random() * (numberTo - numberFrom + 1)) + numberFrom).toString();
-        console.log(x);
         genStorage.push(x);
-        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log("------------------");
     }
 
     let moneyFrom = parseInt(document.getElementById("moneyFrom").value);
@@ -986,30 +972,23 @@
     let currency = document.getElementById("moneyCurrency").value;
 
     if (dataSelection == "money" && moneyFrom !== "" && moneyTo !== "") {
-      btnCreate.removeAttribute("disabled");
-
       if (document.getElementById("symbol-prepend").checked) {
         console.log("prepend");
         for (var i = 0; i < count; i++) {
           x = currency + (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString();
-          console.log(x);
           genStorage.push(x);
-          outputPreview.innerHTML = genStorage.join("<br>");
         }
       } else if (document.getElementById("symbol-append").checked) {
         console.log("append");
         for (var i = 0; i < count; i++) {
           x = (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString() + currency;
-          console.log(x);
           genStorage.push(x);
-          outputPreview.innerHTML = genStorage.join("<br>");
         }
       }
-      console.log("------------------");
     }
 
     if (dataSelection == "licenseplates") {
-      btnCreate.removeAttribute("disabled");
+      // btnCreate.removeAttribute("disabled");
       for (var i = 0; i < count; i++) {
         a = Math.random()
           .toString(36)
@@ -1023,15 +1002,11 @@
           .substr(0, 2)
           .toUpperCase();
 
-        console.log(a + " " + b + " " + c);
         genStorage.push(a + " " + b + " " + c);
-        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log("------------------");
     }
 
     if (dataSelection == "ethereum") {
-      btnCreate.removeAttribute("disabled");
       let address = "";
       let hexChar = "0123456789abcdefABCDEF";
       for (var i = 0; i < count; i++) {
@@ -1039,61 +1014,41 @@
           address += hexChar.charAt(Math.floor(Math.random() * hexChar.length));
         }
         genStorage.push("0x" + address);
-        outputPreview.innerHTML = genStorage.join("<br>");
         address = "";
       }
-      console.log("------------------");
     }
 
     if (dataSelection == "creditcards") {
-      btnCreate.removeAttribute("disabled");
       for (var i = 0; i < count; i++) {
         x = (Math.floor(Math.random() * (9999999999999999 - 1234567890123456 + 1)) + 1234567890123456).toString().replace(/\d{4}(?=.)/g, "$& ");
-        console.log(x);
         genStorage.push(x);
-        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log("------------------");
     }
 
     const customDataset = document.getElementById("customDataset");
     const customDatasetKey = document.getElementById("customDatasetKey").value.toString();
 
     if (dataSelection == "custom" && customDataset != "" && customDatasetKey != "") {
-      btnCreate.removeAttribute("disabled");
-
       const requestURL = document.getElementById("customDataset").value;
-      console.log(requestURL);
-
       const request = new Request(requestURL);
-
       const response = await fetch(request);
       const items = await response.json();
 
       for (var i = 0; i < count; i++) {
         x = Math.floor(Math.random() * items.length);
-        console.log(items[x][customDatasetKey]);
         genStorage.push(items[x][customDatasetKey]);
-        outputPreview.innerHTML = genStorage.join("<br>");
       }
-      console.log("------------------");
     }
   }
 
-  document.getElementById("create").onclick = () => {
-    const fontSize = parseInt(document.getElementById("fontSize").value);
-    const textSpacing = parseInt(document.getElementById("textSpacing").value);
-    const colHeader = document.getElementById("colHeader").value;
+  btnCreate.onclick = async () => {
+    await generate();
 
     parent.postMessage(
       {
         pluginMessage: {
           type: "create-random-text",
           genStorage,
-          count,
-          fontSize,
-          textSpacing,
-          colHeader,
         },
       },
       "*"
