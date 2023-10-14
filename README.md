@@ -8,7 +8,7 @@ Mockreate is a Figma plugin to generate random data quickly to fill tables and d
 
 Mockreate allows you to generate random data from default datasets, random math and import your custom JSON data. (Watch the demo video below)
 
-[![Click for video demo](https://s3-alpha-sig.figma.com/plugins/1096384653667384513/31513/cd6c8d54-3137-4b8d-8449-aa28a1fb9c81-cover?Expires=1652054400&Signature=I33PLrJwUHumdn7rNViKO0K0So5GYR4sE2I9bsD0CHiQYswAxHn3LPEgGSq~oljkUqHlYz-Zlf-4P8mPRrHRBHOmY5cN2uYyDvsUsEbHGa9KRLTrgQBh8ucmcwiJNZtUUk0iMMIShkPwHW9emE3MtSmULB54q5Fgwx4RLGcAg0UME8HJddj5pVZLCerp9xrT6uOc74GBqkPW93pDIQA-dU39w4ubT6iB2DR-WB7azEFYG7aUrVCpBoWZa3C3LaYvK5CPQ7TX~Po00F3buYE1sv3Qck7dyEzQr2AZ-NYHTYrOZnIL72Om63LY1~WKuXFGQfLRQLu3RgrLWoMruL6T9g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA)](https://youtu.be/O7czyKd25BY)
+[![Click for video demo](https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/cover.png)](https://www.loom.com/share/af90c8ef179842fdb8ed1a662e280fb2?sid=f6ebf442-6de8-47dc-8634-38aeceebdfea)
 <sup>Click image for demo video</sup>
 
 **Features and datasets:**
