@@ -379,10 +379,13 @@
     <div id="formHelper" class="form-helper">
       <p class="mb-1">Select a dataset to get started.<br />Each dataset has different options that you can customise to your liking.</p>
       <div class="card">
-        <h2>✨ What's new in v11.0</h2>
-        <p>This new version uses AI generated content to achieve a higher variety of responses.<br />You can now select and replace existing text and multiple text elements.</p>
+        <h2>✨ What's new in v14.0</h2>
+        <p>
+          This version brings improvements to the phone number generator.<br />
+          You can now pick a number format from a list of a few countries or create a custom pattern to follow. 📞
+        </p>
         <a href="https://www.loom.com/share/af90c8ef179842fdb8ed1a662e280fb2?sid=f6ebf442-6de8-47dc-8634-38aeceebdfea" target="_blank" class="btn btn-primary mt-1">
-          <img class="vertical-align-bottom" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/v11/img/video.svg" width="24" height="24" alt="" />
+          <img class="vertical-align-bottom" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/video.svg" width="24" height="24" alt="" />
           How to use Mockreate
         </a>
       </div>
@@ -424,14 +427,29 @@
         <input class="form-control" id="phonePrefix" type="number" value="44" placeholder="Phone prefix e.g.41" />
       </div>
 
-      <h5>Number of digits</h5>
+      <h5>Format</h5>
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">
             <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/phone-number.svg" width="20" height="20" alt="" />
           </span>
         </div>
-        <input class="form-control" id="phoneDigits" type="number" min="0" value="9" placeholder="Number of digits" />
+        <select name="phone" id="phoneFormat" class="form-control" onchange="checkFormatSelected(this)">
+          <option value="null" selected disabled>Select format</option>
+          <option value="custom">Custom</option>
+          <option value="04xx xxx xxx">Australia</option>
+          <option value="13x xxxx xxxx">China</option>
+          <option value="0x xx xx xx xx">France</option>
+          <option value="xxxx xxxxxx">India</option>
+          <option value="xxx xxxxxxx">Italy</option>
+          <option value="6xx xxx xxx">Spain</option>
+          <option value="xxxx xxxxxx">United Kingdom</option>
+          <option value="212 xxx xxx">United States</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <input class="form-control" id="phoneDigits" type="hidden" value="xx-xxxx-xxx" placeholder="e.g. xx-xxxx-xxx" hidden />
       </div>
     </div>
   </section>
@@ -584,7 +602,7 @@
       <a href="https://www.buymeacoffee.com/monzanifabio" class="arrow" target="_blank">Buy me a coffee</a>
     </div>
     <div class="footer-version">
-      <p>v13</p>
+      <p>v14</p>
     </div>
   </footer>
 </div>
@@ -602,6 +620,14 @@
       }
     });
   });
+
+  function checkFormatSelected(el) {
+    if (el.value == "custom") {
+      document.getElementById("phoneDigits").type = "text";
+    } else {
+      document.getElementById("phoneDigits").type = "hidden";
+    }
+  }
 
   function datasetController(el) {
     //Layout options startup
@@ -901,11 +927,43 @@
 
     let phonePrefix = document.getElementById("phonePrefix").value;
     let phoneDigits = document.getElementById("phoneDigits").value;
+    let phoneFormat = document.getElementById("phoneFormat").value;
 
-    if (dataSelection == "phones" && phonePrefix !== "" && phoneDigits !== "") {
-      for (var i = 0; i < count; i++) {
-        x = Math.floor(Math.pow(10, phoneDigits - 1) + Math.random() * 9 * Math.pow(10, phoneDigits - 1)).toString();
-        genStorage.push("+" + phonePrefix + " " + x);
+    function generateRandomPattern(pattern) {
+      let result = "";
+
+      for (let i = 0; i < pattern.length; i++) {
+        if (pattern[i] === "x") {
+          const digit = Math.floor(Math.random() * 10);
+          result += digit;
+        } else {
+          result += pattern[i];
+        }
+      }
+
+      return result;
+    }
+
+    if (dataSelection == "phones" && phonePrefix !== "") {
+      if (phoneDigits == "") {
+        genStorage.push("Invalid format");
+      }
+      if (phoneFormat == "null") {
+        genStorage.push("Invalid format");
+      }
+
+      if (phoneFormat == "custom" && phoneDigits !== "") {
+        for (var i = 0; i < count; i++) {
+          x = generateRandomPattern(phoneDigits);
+          genStorage.push("+" + phonePrefix + " " + x);
+        }
+      }
+
+      if (phoneFormat !== "null" && phoneFormat !== "custom") {
+        for (var i = 0; i < count; i++) {
+          x = generateRandomPattern(phoneFormat);
+          genStorage.push("+" + phonePrefix + " " + x);
+        }
       }
     }
 
