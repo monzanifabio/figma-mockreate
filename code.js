@@ -22,12 +22,15 @@ figma.on("selectionchange", async () => {
 // Check if the selection is of type text
 async function detectSelection() {
   const selection = figma.currentPage.selection;
-  console.log(selection);
-  if (selection.length) {
+  if (selection.length > 0) {
+    console.log(selection[0].type);
+    console.log(selection.length);
     for (let i = 0; i < selection.length; i++) {
-      await figma.loadFontAsync(selection[i].fontName);
-      if (selection[i].type == "TEXT") {
+      if (selection[i].type === "TEXT") {
+        await figma.loadFontAsync(selection[i].fontName);
         figma.ui.postMessage({ type: selection.length, selected: true });
+      } else {
+        figma.ui.postMessage({ selected: false });
       }
     }
   } else {

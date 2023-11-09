@@ -366,6 +366,7 @@
       <option value="fullnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/full-names.json">Full name</option>
       <option value="usernames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/usernames.json">Username</option>
       <option value="emails" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/emails.json">Email</option>
+      <option value="companies" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/companies.json">Companies</option>
       <option value="phones">Phone number</option>
       <option value="dates">Date</option>
       <option value="times">Time</option>
@@ -379,10 +380,10 @@
     <div id="formHelper" class="form-helper">
       <p class="mb-1">Select a dataset to get started.<br />Each dataset has different options that you can customise to your liking.</p>
       <div class="card">
-        <h2>✨ What's new in v14.0</h2>
+        <h2>✨ What's new in v15.0</h2>
         <p>
-          This version brings improvements to the phone number generator.<br />
-          You can now pick a number format from a list of a few countries or create a custom pattern to follow. 📞
+          This version adds a new generative dataset for company names and some bug fixes.<br />
+          Select "Companies" from the available datasets and a random company name will be generated. 🏬
         </p>
         <a href="https://www.loom.com/share/af90c8ef179842fdb8ed1a662e280fb2?sid=f6ebf442-6de8-47dc-8634-38aeceebdfea" target="_blank" class="btn btn-primary mt-1">
           <img class="vertical-align-bottom" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/video.svg" width="24" height="24" alt="" />
@@ -413,6 +414,9 @@
 
   <!--  EMAILS -->
   <section id="section-emails" style="display: none"></section>
+
+  <!--  COMPANIES -->
+  <section id="section-companies" style="display: none"></section>
 
   <!--  PHONE NUMBERS -->
   <section id="section-phones" style="display: none">
@@ -593,7 +597,7 @@
   </section>
 
   <div id="options" style="display: none">
-    <button id="create" class="btn btn-primary btn-block mt-1">Generate</button>
+    <button id="create" class="btn btn-primary btn-block mt-1" disabled>Generate</button>
   </div>
 
   <footer>
@@ -602,7 +606,7 @@
       <a href="https://www.buymeacoffee.com/monzanifabio" class="arrow" target="_blank">Buy me a coffee</a>
     </div>
     <div class="footer-version">
-      <p>v14</p>
+      <p>v15</p>
     </div>
   </footer>
 </div>
@@ -703,6 +707,21 @@
         section.style.display = "none";
       }
     }
+
+    //Display companies section if companies is selected
+    if (el.value == "companies") {
+      let section = document.getElementById("section-companies");
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName("section");
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+    }
+
     //Display  phone numbers section if phone numbers is selected
     if (el.value == "phones") {
       let section = document.getElementById("section-phones");
@@ -838,6 +857,7 @@
   onmessage = (event) => {
     count = event.data.pluginMessage.type;
     selection = event.data.pluginMessage.selected;
+    console.log(selection);
     if (selection == true) {
       btnCreate.removeAttribute("disabled");
     } else {
@@ -922,6 +942,18 @@
       for (var i = 0; i < count; i++) {
         x = Math.floor(Math.random() * items.length);
         genStorage.push(items[x].email);
+      }
+    }
+
+    if (dataSelection == "companies") {
+      const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
+      const request = new Request(requestURL);
+      const response = await fetch(request);
+      const items = await response.json();
+
+      for (var i = 0; i < count; i++) {
+        x = Math.floor(Math.random() * items.length);
+        genStorage.push(items[x].company);
       }
     }
 
