@@ -375,6 +375,7 @@
       <option value="licenseplates">License plates (EU)</option>
       <option value="creditcards">Credit card</option>
       <option value="ethereum">Ethereum Address</option>
+      <option value="wifi" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/wifi.json">Wi-Fi Network</option>
       <option value="custom">Custom</option>
     </select>
     <div id="formHelper" class="form-helper">
@@ -582,6 +583,9 @@
 
   <!-- ETHEREUM ADDRESS -->
   <section id="section-ethereum" style="display: none"></section>
+
+  <!-- WIFI NETWORK -->
+  <section id="section-wifi" style="display: none"></section>
 
   <!--  CUSTOM  -->
   <section id="section-custom" style="display: none">
@@ -820,9 +824,23 @@
       }
     }
 
-    //Display ethereum address section if credit cards is selected
+    //Display ethereum address section if ethereum is selected
     if (el.value == "ethereum") {
       let section = document.getElementById("section-ethereum");
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName("section");
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+    }
+
+    //Display wifi network section if wifi is selected
+    if (el.value == "wifi") {
+      let section = document.getElementById("section-wifi");
       if (section.style.display == "none") {
         let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
@@ -1105,6 +1123,31 @@
         }
         genStorage.push("0x" + address);
         address = "";
+      }
+    }
+
+    if (dataSelection == "wifi") {
+      const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
+      const request = new Request(requestURL);
+      const response = await fetch(request);
+      const items = await response.json();
+
+      for (var j = 0; j < count; j++) {
+        x = Math.floor(Math.random() * items.length);
+        let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        let string = "";
+
+        for (var i = 0; i < 6; i++) {
+          if (i === 0 || i === 3 || i === 5) {
+            string += chars.charAt(Math.floor(Math.random() * 52)); // Random letter
+          } else if (i === 1 || i === 2 || i === 4) {
+            string += chars.charAt(52 + Math.floor(Math.random() * 10)); // Random number
+          }
+        }
+
+        let compose = items[x].wifi + "_" + string;
+        console.log(typeof compose);
+        genStorage.push(compose);
       }
     }
 
