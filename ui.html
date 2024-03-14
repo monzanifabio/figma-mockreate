@@ -361,31 +361,29 @@
   <div class="form-group">
     <select name="" id="datasetSelector" class="form-control" onchange="datasetController(this)">
       <option value="null" selected disabled>Select dataset</option>
-      <option value="names" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/first-names.json">First name</option>
-      <option value="surnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/last-names.json">Last name</option>
-      <option value="fullnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/full-names.json">Full name</option>
-      <option value="usernames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/usernames.json">Username</option>
-      <option value="emails" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/emails.json">Email</option>
-      <option value="companies" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/companies.json">Companies</option>
-      <option value="phones">Phone number</option>
-      <option value="dates">Date</option>
-      <option value="times">Time</option>
-      <option value="numbers">Number range</option>
-      <option value="money">Money</option>
-      <option value="licenseplates">License plates (EU)</option>
-      <option value="creditcards">Credit card</option>
-      <option value="ethereum">Ethereum Address</option>
-      <option value="wifi" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/wifi.json">Wi-Fi Network</option>
+      <option value="names" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/first-names.json">👤 First name</option>
+      <option value="surnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/last-names.json">👤 Last name</option>
+      <option value="fullnames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/full-names.json">👤 Full name</option>
+      <option value="usernames" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/usernames.json">👤 Username</option>
+      <option value="emails" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/emails.json">📧 Email</option>
+      <option value="companies" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/companies.json">🏢 Companies</option>
+      <option value="phones">☎️ Phone number</option>
+      <option value="address">🏘️ Address</option>
+      <option value="dates">📆 Date</option>
+      <option value="times">⏰ Time</option>
+      <option value="numbers">🔢 Number range</option>
+      <option value="money">💵 Money</option>
+      <option value="licenseplates">🚘 License plates (EU)</option>
+      <option value="creditcards">💳 Credit card</option>
+      <option value="ethereum">⛓️ Ethereum Address</option>
+      <option value="wifi" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/wifi.json">🛜 Wi-Fi Network</option>
       <option value="custom">Custom</option>
     </select>
     <div id="formHelper" class="form-helper">
       <p class="mb-1">Select a dataset to get started.<br />Each dataset has different options that you can customise to your liking.</p>
       <div class="card">
-        <h2>✨ What's new in v16.0</h2>
-        <p>
-          In version 16 we added a new dataset for Wi-Fi network names and some small general improvements.<br />
-          Select "Wi-Fi Network" from the available datasets and a random Wi-Fi name will be generated. 🛜
-        </p>
+        <h2>✨ What's new in v17.0</h2>
+        <p>Version 17 brings a long time awaited dataset for street addresses, currently available for 17 countries, some small UI improvements and minor fixes. Select "Address" to see the list of available countries.🌍</p>
         <a href="https://www.loom.com/share/af90c8ef179842fdb8ed1a662e280fb2?sid=f6ebf442-6de8-47dc-8634-38aeceebdfea" target="_blank" class="btn btn-primary mt-1">
           <img class="vertical-align-bottom" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/video.svg" width="24" height="24" alt="" />
           How to use Mockreate
@@ -455,6 +453,43 @@
 
       <div class="input-group">
         <input class="form-control" id="phoneDigits" type="hidden" value="xx-xxxx-xxx" placeholder="e.g. xx-xxxx-xxx" hidden />
+      </div>
+    </div>
+  </section>
+
+  <!-- ADDRESS -->
+  <section id="section-address" style="display: none">
+    <div class="layout-options flex-column">
+      <h5>Country</h5>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#B3B3B3" viewBox="0 0 256 256">
+              <path
+                d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm88,104a87.62,87.62,0,0,1-6.4,32.94l-44.7-27.49a15.92,15.92,0,0,0-6.24-2.23l-22.82-3.08a16.11,16.11,0,0,0-16,7.86h-8.72l-3.8-7.86a15.91,15.91,0,0,0-11-8.67l-8-1.73L96.14,104h16.71a16.06,16.06,0,0,0,7.73-2l12.25-6.76a16.62,16.62,0,0,0,3-2.14l26.91-24.34A15.93,15.93,0,0,0,166,49.1l-.36-.65A88.11,88.11,0,0,1,216,128ZM143.31,41.34,152,56.9,125.09,81.24,112.85,88H96.14a16,16,0,0,0-13.88,8l-8.73,15.23L63.38,84.19,74.32,58.32a87.87,87.87,0,0,1,69-17ZM40,128a87.53,87.53,0,0,1,8.54-37.8l11.34,30.27a16,16,0,0,0,11.62,10l21.43,4.61L96.74,143a16.09,16.09,0,0,0,14.4,9h1.48l-7.23,16.23a16,16,0,0,0,2.86,17.37l.14.14L128,205.94l-1.94,10A88.11,88.11,0,0,1,40,128Zm102.58,86.78,1.13-5.81a16.09,16.09,0,0,0-4-13.9,1.85,1.85,0,0,1-.14-.14L120,174.74,133.7,144l22.82,3.08,45.72,28.12A88.18,88.18,0,0,1,142.58,214.78Z"
+              ></path>
+            </svg>
+          </span>
+        </div>
+        <select name="country" id="countrySelector" class="form-control" onchange="checkFormatSelected(this)">
+          <option value="en_AU" selected>Australia</option>
+          <option value="en_CA">Canada</option>
+          <option value="zh_CN">China</option>
+          <option value="fr">France</option>
+          <option value="de">Germany</option>
+          <option value="el">Greece</option>
+          <option value="en_IE">Ireland</option>
+          <option value="it">Italy</option>
+          <option value="nl">Netherlands</option>
+          <option value="nb_NO">Norway</option>
+          <option value="ru">Russia</option>
+          <option value="ko">South Korea</option>
+          <option value="es">Spain</option>
+          <option value="sv">Sweden</option>
+          <option value="de_CH">Switzerland</option>
+          <option value="en_US">United States</option>
+          <option value="en_GB">United Kingdom</option>
+        </select>
       </div>
     </div>
   </section>
@@ -610,7 +645,7 @@
       <a href="https://www.buymeacoffee.com/monzanifabio" class="arrow" target="_blank">Buy me a coffee</a>
     </div>
     <div class="footer-version">
-      <p>v16</p>
+      <p>v17</p>
     </div>
   </footer>
 </div>
@@ -729,6 +764,20 @@
     //Display  phone numbers section if phone numbers is selected
     if (el.value == "phones") {
       let section = document.getElementById("section-phones");
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName("section");
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+    }
+
+    //Display address section if phone numbers is selected
+    if (el.value == "address") {
+      let section = document.getElementById("section-address");
       if (section.style.display == "none") {
         let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
@@ -1014,6 +1063,32 @@
           x = generateRandomPattern(phoneFormat);
           genStorage.push("+" + phonePrefix + " " + x);
         }
+      }
+    }
+
+    const countrySelector = document.getElementById("countrySelector");
+
+    if (dataSelection == "address" && countrySelector.value !== "null") {
+      const baseURL = "https://randommer.io/random-address?";
+      const number = "100";
+      const locale = countrySelector.value;
+      try {
+        const response = await fetch(baseURL + "number=" + number + "&culture=" + locale, {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+        });
+        const data = await response.json();
+        console.log(data);
+
+        for (var i = 0; i < count; i++) {
+          x = Math.floor(Math.random() * data.length);
+          console.log(data[x]);
+          genStorage.push(data[x]);
+        }
+      } catch (error) {
+        console.log(error);
       }
     }
 
