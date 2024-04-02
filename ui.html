@@ -11,10 +11,11 @@
 
   .figma-dark body {
     color: #ffffff;
+    background-color: #1e1e1e;
   }
 
   .container {
-    margin: 15px;
+    margin: 12px;
   }
 
   .ms-1 {
@@ -33,14 +34,32 @@
     margin-bottom: 1rem;
   }
 
+  .m-0 {
+    margin: 0 !important;
+  }
+
+  .w-100 {
+    width: 100% !important;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+  .small {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
   h4,
   h5 {
     margin-bottom: 0.5rem;
   }
 
   a {
-    color: #00b763;
-    text-decoration: none;
+    color: #a7acb1;
+  }
+  a:hover {
+    opacity: 0.8;
   }
 
   hr {
@@ -72,25 +91,6 @@
     font-size: 0.8rem;
   }
 
-  .arrow::after {
-    content: " ";
-    display: inline-block;
-    background-image: url("https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/arrow.svg");
-    width: 15px;
-    height: 15px;
-    margin-left: -5px;
-    opacity: 0;
-    transition: all 0.2s;
-    vertical-align: sub;
-  }
-
-  .arrow:hover::after {
-    opacity: 1;
-    transform: translate(10px, 0px);
-    transition: all 0.2s;
-    vertical-align: sub;
-  }
-
   .btn {
     display: inline-block;
     text-align: center;
@@ -107,6 +107,7 @@
     background-color: #00b763;
     border-color: #00b763;
     color: #ffffff;
+    text-decoration: none;
   }
 
   .btn-primary:hover {
@@ -140,7 +141,7 @@
 
   .btn-radio:checked + .btn {
     background-color: #444444;
-    border-color: #444444;
+    border-color: #008d47;
   }
 
   input[type="radio"] {
@@ -163,24 +164,23 @@
     display: block;
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
-    padding: 0.375rem 0rem;
+    padding: 0.375rem 0.5rem;
     font-size: 0.85rem;
     font-weight: 400;
     line-height: 1.5;
     background-clip: padding-box;
     border: none;
+    border-radius: 4px;
   }
 
   .figma-light .form-control {
     color: #495057;
     background-color: #ffffff;
-    border-bottom: 1px solid #e5e5e5;
   }
 
   .figma-dark .form-control {
     color: #ffffff;
-    background-color: #2c2c2c;
-    border-bottom: 1px solid #444444;
+    background-color: #444444;
   }
 
   .form-control:focus {
@@ -195,7 +195,7 @@
 
   .figma-dark .form-control:focus {
     color: #ffffff;
-    background-color: #2c2c2c;
+    background-color: #444444;
     border-color: #00b763;
   }
 
@@ -227,10 +227,6 @@
   .footer-version p {
     color: #495057;
     font-size: 12px;
-  }
-
-  .form-group {
-    margin-bottom: 1rem;
   }
 
   .btn-group {
@@ -270,7 +266,6 @@
     flex-wrap: nowrap;
     align-items: stretch;
     width: 100%;
-    margin-bottom: 1rem;
   }
 
   .input-group-prepend {
@@ -297,7 +292,7 @@
   }
 
   .figma-dark .input-group-text {
-    background-color: #2c2c2c;
+    background-color: #444444;
   }
 
   .input-group > .input-group-prepend > .input-group-text {
@@ -313,21 +308,21 @@
   .form-helper {
     margin-top: 0.5rem;
     font-size: 0.8rem;
-    color: #6c757d;
+    color: #a7acb1;
     line-height: 1.4;
   }
 
   .figma-dark .card {
     padding: 12px;
-    border-radius: 12px;
-    background-color: #43494e;
-    border: 1px solid #50585e;
+    border-radius: 8px;
+    background-color: #2c2c2c;
+    margin-bottom: 12px;
   }
   .figma-light .card {
     padding: 12px;
-    border-radius: 12px;
+    border-radius: 8px;
     background-color: #dce2e7;
-    border: 1px solid #c3d5e2;
+    margin-bottom: 12px;
   }
 
   .figma-dark .card h2 {
@@ -340,7 +335,7 @@
   }
 
   .figma-dark .card p {
-    color: #ffffff;
+    color: #a7acb1;
   }
   .figma-light .card p {
     color: #333333;
@@ -354,11 +349,55 @@
     background-color: #00b763;
     width: 100%;
   }
+
+  .form-check {
+    align-items: center;
+  }
+  .form-switch .form-check-input:checked {
+    background-position: right center;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+  }
+  .form-check-input:checked[type="checkbox"] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+  }
+  .form-switch .form-check-input {
+    width: 2em;
+    margin-left: -2.5em;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+    background-position: left center;
+    border-radius: 2em;
+    transition: background-position 0.15s ease-in-out;
+  }
+  .form-check-input:checked {
+    background-color: #00b763;
+    border-color: #00b763;
+  }
+  .form-check-input[type="checkbox"] {
+    border-radius: 1rem;
+  }
+  .form-check-input {
+    width: 1em;
+    height: 1em;
+    margin-top: 0.25em;
+    vertical-align: top;
+    background-color: #b3b3b3;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+    print-color-adjust: exact;
+  }
 </style>
 <div class="mini-banner"></div>
 <div class="container">
-  <h5>Dataset</h5>
-  <div class="form-group">
+  <div class="card">
+    <h5>Dataset</h5>
+    <!-- <div class="form-group"> -->
     <select name="" id="datasetSelector" class="form-control" onchange="datasetController(this)">
       <option value="null" selected disabled>Select dataset</option>
       <option value="names" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/first-names.json">👤 First name</option>
@@ -380,26 +419,31 @@
       <option value="custom">Custom</option>
     </select>
     <div id="formHelper" class="form-helper">
-      <p class="mb-1">Select a dataset to get started.<br />Each dataset has different options that you can customise to your liking.</p>
-      <div class="card">
-        <h2>✨ What's new in v17.0</h2>
-        <p>Version 17 brings a long time awaited dataset for street addresses, currently available for 17 countries, some small UI improvements and minor fixes. Select "Address" to see the list of available countries.🌍</p>
-        <a href="https://www.loom.com/share/af90c8ef179842fdb8ed1a662e280fb2?sid=f6ebf442-6de8-47dc-8634-38aeceebdfea" target="_blank" class="btn btn-primary mt-1">
-          <img class="vertical-align-bottom" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/video.svg" width="24" height="24" alt="" />
-          How to use Mockreate
-        </a>
-      </div>
+      <p>Select a dataset to get started.<br />Each dataset has different options that you can customise to your liking.</p>
     </div>
   </div>
+
+  <div class="card" id="changelog">
+    <h3>✨ What's new in v18.0</h3>
+    <p>In version 18 we have improved the UI of Mockreate, added support for decimal numbers in the number range dataset and added custom truncation for Ethereum addresses.</p>
+    <a href="https://www.loom.com/share/af90c8ef179842fdb8ed1a662e280fb2?sid=f6ebf442-6de8-47dc-8634-38aeceebdfea" target="_blank" class="btn btn-primary mt-1">
+      <img class="vertical-align-bottom" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/video.svg" width="24" height="24" alt="" />
+      How to use Mockreate
+    </a>
+  </div>
+  <!-- </div> -->
   <!-- FIRST NAMES -->
   <section id="section-names" style="display: none">
-    <h5>Gender</h5>
-    <div class="form-group">
-      <select id="genderSelection" class="form-control" name="" onchange="generate();">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="both" selected>Both</option>
-      </select>
+    <div class="card">
+      <h5>Options</h5>
+      <p class="small">Gender</p>
+      <div class="form-group">
+        <select id="genderSelection" class="form-control" name="" onchange="generate();">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="both" selected>Both</option>
+        </select>
+      </div>
     </div>
   </section>
   <!-- LAST NAMES -->
@@ -419,9 +463,10 @@
 
   <!--  PHONE NUMBERS -->
   <section id="section-phones" style="display: none">
-    <div class="layout-options flex-column">
-      <h5>Phone prefix</h5>
-      <div class="input-group">
+    <div class="card">
+      <h5>Options</h5>
+      <p class="small">Phone prefix</p>
+      <div class="input-group mb-1">
         <div class="input-group-prepend">
           <span class="input-group-text">
             <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/plus.svg" width="20" height="20" alt="" />
@@ -430,8 +475,8 @@
         <input class="form-control" id="phonePrefix" type="number" value="44" placeholder="Phone prefix e.g.41" />
       </div>
 
-      <h5>Format</h5>
-      <div class="input-group">
+      <p class="small">Format</p>
+      <div class="input-group mb-1">
         <div class="input-group-prepend">
           <span class="input-group-text">
             <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/phone-number.svg" width="20" height="20" alt="" />
@@ -451,7 +496,7 @@
         </select>
       </div>
 
-      <div class="input-group">
+      <div>
         <input class="form-control" id="phoneDigits" type="hidden" value="xx-xxxx-xxx" placeholder="e.g. xx-xxxx-xxx" hidden />
       </div>
     </div>
@@ -459,8 +504,9 @@
 
   <!-- ADDRESS -->
   <section id="section-address" style="display: none">
-    <div class="layout-options flex-column">
-      <h5>Country</h5>
+    <div class="card">
+      <h5>Options</h5>
+      <p class="small">Country</p>
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -496,18 +542,19 @@
 
   <!--  DATES -->
   <section id="section-dates" style="display: none">
-    <div class="layout-options flex-column">
-      <h5>Year</h5>
-      <div class="input-group">
+    <div class="card">
+      <h5>Options</h5>
+      <p class="small">Year</p>
+      <div class="input-group mb-1">
         <div class="input-group-prepend">
           <span class="input-group-text">
             <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/calendar.svg" width="20" height="20" alt="" />
           </span>
         </div>
-        <input class="form-control" id="selectedYear" type="number" min="1900" max="2099" step="1" value="2023" onchange="generate()" />
+        <input class="form-control" id="selectedYear" type="number" min="1900" max="2099" step="1" value="2024" onchange="generate()" />
       </div>
 
-      <h5>Date format</h5>
+      <p class="small">Date format</p>
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -527,8 +574,9 @@
 
   <!--  TIME -->
   <section id="section-times" style="display: none">
-    <div class="layout-options flex-column">
-      <h5>Time format</h5>
+    <div class="card">
+      <h5>Options</h5>
+      <p class="small">Time format</p>
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -546,67 +594,98 @@
 
   <!-- NUMBERS -->
   <section id="section-numbers" style="display: none">
-    <div class="layout-options">
-      <div class="input-group me-1">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="" />
-          </span>
+    <div class="card">
+      <h5>Options</h5>
+      <div class="layout-options mb-1">
+        <div>
+          <p class="small">From</p>
+          <div class="input-group me-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="" />
+              </span>
+            </div>
+            <input class="form-control" id="numberFrom" type="number" min="0" value="0" onchange="generate()" />
+          </div>
         </div>
-        <input class="form-control" id="numberFrom" type="number" min="0" value="0" onchange="generate()" />
+
+        <div class="ms-1">
+          <p class="small">To</p>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="" />
+              </span>
+            </div>
+            <input class="form-control" id="numberTo" type="number" min="0" value="50" onchange="generate()" />
+          </div>
+        </div>
       </div>
 
-      <div class="input-group ms-1">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="" />
-          </span>
-        </div>
-        <input class="form-control" id="numberTo" type="number" min="0" value="50" onchange="generate()" />
+      <div class="form-check form-switch layout-options">
+        <p class="small m-0">Decimals</p>
+        <input class="form-check-input" type="checkbox" role="switch" id="numberRangeDecimals" checked />
       </div>
     </div>
   </section>
 
   <!-- MONEY -->
   <section id="section-money" style="display: none">
-    <div class="layout-options">
-      <div class="input-group me-1">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="" />
-          </span>
+    <div class="card">
+      <h5>Options</h5>
+      <div class="layout-options mb-1">
+        <div class="me-1">
+          <p class="small">From</p>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="" />
+              </span>
+            </div>
+            <input class="form-control" id="moneyFrom" type="number" min="0" value="0" onchange="generate()" />
+          </div>
         </div>
-        <input class="form-control" id="moneyFrom" type="number" min="0" value="0" onchange="generate()" />
+
+        <div>
+          <p class="small">To</p>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="" />
+              </span>
+            </div>
+            <input class="form-control" id="moneyTo" type="number" min="0" value="50" onchange="generate()" />
+          </div>
+        </div>
       </div>
 
-      <div class="input-group ms-1">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="" />
-          </span>
+      <div class="layout-options">
+        <div class="w-100" style="margin-right: 4px">
+          <p class="small">Symbol</p>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/coin-currency.svg" width="20" height="20" alt="" />
+              </span>
+            </div>
+            <input class="form-control" id="moneyCurrency" type="text" value="$" onchange="generate()" />
+          </div>
         </div>
-        <input class="form-control" id="moneyTo" type="number" min="0" value="50" onchange="generate()" />
-      </div>
 
-      <div class="input-group ms-1">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/coin-currency.svg" width="20" height="20" alt="" />
-          </span>
+        <div class="w-100">
+          <p class="small">Symbol position</p>
+          <div class="input-group">
+            <label for="symbol-prepend">
+              <input class="btn-radio" type="radio" id="symbol-prepend" name="symbol-position" value="prepend" checked onchange="generate()" />
+              <img class="btn" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/prepend.svg" alt="" width="20" height="20" />
+            </label>
+            <label for="symbol-append">
+              <input class="btn-radio" type="radio" id="symbol-append" name="symbol-position" value="append" onchange="generate()" />
+              <img class="btn" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/append.svg" alt="" width="20" height="20" />
+            </label>
+          </div>
         </div>
-        <input class="form-control" id="moneyCurrency" type="text" value="$" onchange="generate()" />
       </div>
-    </div>
-    <div class="form-group">
-      <h5>Symbol position</h5>
-      <label for="symbol-prepend">
-        <input class="btn-radio" type="radio" id="symbol-prepend" name="symbol-position" value="prepend" checked onchange="generate()" />
-        <img class="btn" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/prepend.svg" alt="" width="20" height="20" />
-      </label>
-      <label for="symbol-append">
-        <input class="btn-radio" type="radio" id="symbol-append" name="symbol-position" value="append" onchange="generate()" />
-        <img class="btn" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/append.svg" alt="" width="20" height="20" />
-      </label>
     </div>
   </section>
 
@@ -617,35 +696,72 @@
   <section id="section-creditcards" style="display: none"></section>
 
   <!-- ETHEREUM ADDRESS -->
-  <section id="section-ethereum" style="display: none"></section>
+  <section id="section-ethereum" style="display: none">
+    <div class="card">
+      <h5>Options</h5>
+      <div class="form-check form-switch layout-options">
+        <p class="small m-0">Truncate</p>
+        <input class="form-check-input" type="checkbox" role="switch" id="addressTruncate" onchange="truncateAddress(this)" />
+      </div>
+      <div id="truncateInput" class="layout-options mt-1" style="display: none">
+        <div class="me-1">
+          <p class="small">Pre</p>
+          <input class="form-control" id="truncatePre" type="number" min="0" value="6" onchange="generate()" />
+        </div>
+        <div class="me-1">
+          <p class="small">Mid</p>
+          <input class="form-control" id="truncateMid" type="text" value="..." onchange="generate()" />
+        </div>
+        <div>
+          <p class="small">Post</p>
+          <input class="form-control" id="truncatePost" type="number" min="0" value="6" onchange="generate()" />
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- WIFI NETWORK -->
   <section id="section-wifi" style="display: none"></section>
 
   <!--  CUSTOM  -->
   <section id="section-custom" style="display: none">
-    <div class="form-group">
-      <h5>Custom dataset</h5>
-      <input class="form-control" id="customDataset" type="url" placeholder="Link to your JSON dataset" onchange="generate();" />
-    </div>
+    <div class="card">
+      <div class="form-group mb-1">
+        <h5>Custom dataset</h5>
+        <input class="form-control" id="customDataset" type="url" placeholder="Link to your JSON dataset" onchange="generate();" />
+      </div>
 
-    <div class="form-group">
-      <h5>Key</h5>
-      <input class="form-control" id="customDatasetKey" type="text" placeholder="e.g. names" onchange="generate();" />
+      <div class="form-group">
+        <h5>Key</h5>
+        <input class="form-control" id="customDatasetKey" type="text" placeholder="e.g. names" onchange="generate();" />
+      </div>
     </div>
   </section>
 
   <div id="options" style="display: none">
-    <button id="create" class="btn btn-primary btn-block mt-1" disabled>Generate</button>
+    <button id="create" class="btn btn-primary btn-block" disabled>Generate</button>
   </div>
 
   <footer>
     <div class="footer-section">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSddC4rEmdPbmHlw156Gy2J5l98Nyxee_4GRoMSFdMc60WjqHQ/viewform" class="arrow" target="_blank"><img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/feedback.svg" alt="" width="18" height="18" style="vertical-align: bottom" /> Feedback?</a>
-      <a href="https://www.buymeacoffee.com/monzanifabio" class="arrow" target="_blank">Buy me a coffee</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSddC4rEmdPbmHlw156Gy2J5l98Nyxee_4GRoMSFdMc60WjqHQ/viewform" target="_blank">Leave a feedback</a>
+      <a href="https://www.buymeacoffee.com/monzanifabio" target="_blank">Buy me a coffee</a>
+      <a href="https://monzanifabio.github.io/figma-mockreate/" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21.5999 0H2.39999C1.07451 0 0 1.07451 0 2.39999V21.5999C0 22.9254 1.07451 23.9999 2.39999 23.9999H21.5999C22.9254 23.9999 23.9999 22.9254 23.9999 21.5999V2.39999C23.9999 1.07451 22.9254 0 21.5999 0Z" fill="#6C757D" />
+          <path
+            d="M0 11.041C0.175763 11.0357 0.350547 11.0127 0.521698 10.9724C0.743332 10.9235 0.95414 10.8344 1.1437 10.7096C1.35005 10.5745 1.52743 10.3997 1.66549 10.1954C1.82161 9.95023 1.89866 9.66304 1.88619 9.37267V4.66539C1.87513 4.18563 1.97109 3.70944 2.16709 3.2714C2.33333 2.90535 2.56445 2.57242 2.84929 2.2887C3.09158 2.04671 3.37757 1.85285 3.69208 1.71741C3.93213 1.60801 4.19103 1.54594 4.45458 1.53461H18.2407C16.8829 3.5914 16.8829 20.5481 18.2407 22.6045H4.45458C4.19103 22.5932 3.93213 22.5311 3.69208 22.4217C3.37757 22.2863 3.09158 22.0924 2.84929 21.8504C2.56445 21.5667 2.33332 21.2338 2.16709 20.8677C1.97109 20.4297 1.87513 19.9535 1.88619 19.4737V14.9488C1.89781 14.6296 1.82146 14.3134 1.66549 14.0347C1.53484 13.8088 1.35687 13.6139 1.1438 13.4634C0.955193 13.3317 0.744532 13.235 0.521798 13.1777C0.351614 13.1307 0.176524 13.1039 9.99998e-05 13.0977L0 11.041ZM23.9999 13.0978C23.8168 13.1028 23.6349 13.1297 23.4581 13.1778C23.2386 13.2334 23.0289 13.322 22.836 13.4406C22.6299 13.5677 22.4551 13.7395 22.3243 13.9434C22.1746 14.1909 22.1013 14.4771 22.1136 14.7661V19.4737C22.1247 19.9535 22.0287 20.4297 21.8327 20.8677C21.6665 21.2338 21.4353 21.5667 21.1505 21.8504C20.9082 22.0924 20.6222 22.2863 20.3077 22.4217C20.0677 22.5311 19.8088 22.5932 19.5452 22.6045H5.75888C7.11667 20.5477 7.11667 3.591 5.75888 1.53461H19.5453C19.8089 1.54594 20.0678 1.60801 20.3078 1.71741C20.6223 1.85285 20.9083 2.04671 21.1506 2.2887C21.4354 2.57242 21.6666 2.90535 21.8328 3.2714C22.0288 3.70944 22.1248 4.18563 22.1137 4.66539V9.18987C22.1023 9.5078 22.175 9.82311 22.3244 10.104C22.4495 10.3307 22.6245 10.526 22.8361 10.6753C23.0247 10.8069 23.2354 10.9037 23.4582 10.961C23.635 11.009 23.8169 11.0359 24 11.041L23.9999 13.0978Z"
+            fill="#2C2C2C"
+          />
+          <path
+            d="M5.53833 7.63108H7.39922V8.87168H7.45092C7.59611 8.65861 7.75741 8.45698 7.93342 8.26858C8.10291 8.08706 8.29724 7.93044 8.51062 7.80338C8.73989 7.67008 8.98625 7.56865 9.24292 7.50188C9.55252 7.42307 9.87116 7.38542 10.1906 7.38988C10.7151 7.38616 11.2326 7.51035 11.6983 7.75168C12.158 7.98665 12.512 8.38672 12.6891 8.87168C12.997 8.43585 13.3896 8.06664 13.8436 7.78618C14.2801 7.52198 14.8258 7.38988 15.4805 7.38988C16.4224 7.38988 17.1547 7.61961 17.6774 8.07908C18.2 8.53854 18.4614 9.30817 18.4614 10.388V16.5394H16.4971V11.3358C16.4971 10.9796 16.4856 10.6551 16.4626 10.3623C16.4475 10.0989 16.3801 9.84115 16.2644 9.60407C16.1565 9.39276 15.9846 9.22089 15.7733 9.11297C15.4926 8.98518 15.1854 8.92611 14.8773 8.94067C14.211 8.94067 13.7286 9.14734 13.4299 9.56067C13.1312 9.974 12.9819 10.5598 12.9819 11.3182V16.5394H11.0177V10.8188C11.0177 10.1988 10.9057 9.73067 10.6817 9.41447C10.4577 9.09827 10.047 8.94047 9.44971 8.94107C9.19745 8.94099 8.94798 8.99382 8.71742 9.09617C8.48143 9.20004 8.27012 9.35272 8.09742 9.54417C7.90935 9.75586 7.76307 10.0012 7.66632 10.2674C7.55247 10.5821 7.49699 10.9149 7.50262 11.2496V16.5395H5.53833V7.63108Z"
+            fill="#6C757D"
+          />
+        </svg>
+      </a>
     </div>
     <div class="footer-version">
-      <p>v17</p>
+      <p>v18</p>
     </div>
   </footer>
 </div>
@@ -672,13 +788,23 @@
     }
   }
 
+  function truncateAddress(el) {
+    if (el.checked) {
+      document.getElementById("truncateInput").style.display = "flex";
+    } else {
+      document.getElementById("truncateInput").style.display = "none";
+    }
+  }
+
   function datasetController(el) {
     //Layout options startup
     if (el.value !== "null") {
       let options = document.getElementById("options");
       options.style.display = "block";
       let helper = document.getElementById("formHelper");
+      let changelog = document.getElementById("changelog");
       helper.style.display = "none";
+      changelog.style.display = "none";
     }
 
     //Display names section if names is selected
@@ -1142,11 +1268,19 @@
 
     let numberFrom = parseInt(document.getElementById("numberFrom").value);
     let numberTo = parseInt(document.getElementById("numberTo").value);
+    let decimalCheck = document.getElementById("numberRangeDecimals");
 
     if (dataSelection == "numbers" && numberFrom !== "" && numberTo !== "") {
-      for (var i = 0; i < count; i++) {
-        x = (Math.floor(Math.random() * (numberTo - numberFrom + 1)) + numberFrom).toString();
-        genStorage.push(x);
+      if (decimalCheck.checked) {
+        for (var i = 0; i < count; i++) {
+          x = (Math.random() * (numberTo - numberFrom + 1) + numberFrom).toFixed(2).toString();
+          genStorage.push(x);
+        }
+      } else {
+        for (var i = 0; i < count; i++) {
+          x = (Math.floor(Math.random() * (numberTo - numberFrom + 1)) + numberFrom).toString();
+          genStorage.push(x);
+        }
       }
     }
 
@@ -1190,14 +1324,31 @@
     }
 
     if (dataSelection == "ethereum") {
+      const truncateCheck = document.getElementById("addressTruncate");
       let address = "";
       let hexChar = "0123456789abcdefABCDEF";
-      for (var i = 0; i < count; i++) {
-        for (var a = 0; a < 40; a++) {
-          address += hexChar.charAt(Math.floor(Math.random() * hexChar.length));
+      if (truncateCheck.checked) {
+        let truncatePre = document.getElementById("truncatePre").value;
+        let truncateMid = document.getElementById("truncateMid").value;
+        let truncatePost = document.getElementById("truncatePost").value;
+        for (var i = 0; i < count; i++) {
+          for (var a = 0; a < 40; a++) {
+            address += hexChar.charAt(Math.floor(Math.random() * hexChar.length));
+          }
+          let addressPre = address.slice(2, truncatePre);
+          let addressPost = address.slice(-truncatePost);
+          address = addressPre + truncateMid + addressPost;
+          genStorage.push("0x" + address);
+          address = "";
         }
-        genStorage.push("0x" + address);
-        address = "";
+      } else {
+        for (var i = 0; i < count; i++) {
+          for (var a = 0; a < 40; a++) {
+            address += hexChar.charAt(Math.floor(Math.random() * hexChar.length));
+          }
+          genStorage.push("0x" + address);
+          address = "";
+        }
       }
     }
 
