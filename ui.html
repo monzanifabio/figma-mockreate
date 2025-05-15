@@ -11,7 +11,7 @@
 
   .figma-dark body {
     color: #ffffff;
-    background-color: #1e1e1e;
+    background-color: #2c2c2c;
   }
 
   .container {
@@ -37,7 +37,12 @@
   .m-0 {
     margin: 0 !important;
   }
-
+  .w-33 {
+    width: 33% !important;
+  }
+  .w-50 {
+    width: 50% !important;
+  }
   .w-100 {
     width: 100% !important;
   }
@@ -53,6 +58,7 @@
   h4,
   h5 {
     margin-bottom: 0.5rem;
+    font-weight: 500;
   }
 
   a {
@@ -173,6 +179,17 @@
     border-radius: 4px;
   }
 
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22iso-8859-1%22%3F%3E%3C!--%20Generator%3A%20Adobe%20Illustrator%2019.0.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200)%20%20--%3E%3C!--%20License%3A%20CC0.%20Made%20by%20SVG%20Repo%3A%20https%3A%2F%2Fwww.svgrepo.com%2Fsvg%2F183552%2Fchevron%20--%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%20512%20512%22%20style%3D%22enable-background%3Anew%200%200%20512%20512%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20style%3D%22fill%3A%23ffffff%3B%22%20d%3D%22M505.183%2C123.179c-9.087-9.087-23.824-9.089-32.912%2C0.002l-216.266%2C216.27L39.729%2C123.179c-9.087-9.087-23.824-9.089-32.912%2C0.002c-9.089%2C9.089-9.089%2C23.824%2C0%2C32.912L239.55%2C388.82c4.364%2C4.364%2C10.283%2C6.816%2C16.455%2C6.816c6.172%2C0%2C12.092-2.453%2C16.455-6.817l232.721-232.727C514.272%2C147.004%2C514.272%2C132.268%2C505.183%2C123.179z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem top 50%;
+    background-size: 0.65rem auto;
+  }
+
   .figma-light .form-control {
     color: #495057;
     background-color: #ffffff;
@@ -185,6 +202,7 @@
 
   .form-control:focus {
     outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 183, 99, 0.25);
   }
 
   .figma-light .form-control:focus {
@@ -210,6 +228,10 @@
     justify-content: space-between;
   }
 
+  .gap-8 {
+    gap: 8px;
+  }
+
   .footer-section {
     display: flex;
     flex-direction: row;
@@ -222,11 +244,12 @@
   .footer-version {
     display: flex;
     justify-content: end;
+    padding-right: 20px;
     padding-bottom: 0;
   }
   .footer-version p {
     color: #495057;
-    font-size: 12px;
+    font-size: 8px;
   }
 
   .btn-group {
@@ -313,15 +336,13 @@
   }
 
   .figma-dark .card {
-    padding: 12px;
-    border-radius: 8px;
-    background-color: #2c2c2c;
+    padding-top: 12px;
+    padding-bottom: 12px;
     margin-bottom: 12px;
   }
   .figma-light .card {
-    padding: 12px;
-    border-radius: 8px;
-    background-color: #dce2e7;
+    padding-top: 12px;
+    padding-bottom: 12px;
     margin-bottom: 12px;
   }
 
@@ -410,6 +431,7 @@
       <option value="address">🏘️ Address</option>
       <option value="dates">📆 Date</option>
       <option value="times">⏰ Time</option>
+      <option value="datetime">📅 Datetime</option>
       <option value="numbers">🔢 Number range</option>
       <option value="money">💵 Money</option>
       <option value="licenseplates">🚘 License plates (EU)</option>
@@ -424,8 +446,9 @@
   </div>
 
   <div class="card" id="changelog">
-    <h3>✨ What's new in v18.0</h3>
-    <p>In version 18 we have improved the UI of Mockreate, added support for decimal numbers in the number range dataset and added custom truncation for Ethereum addresses.</p>
+    <h3>✨ What's new in v19.0</h3>
+    <p class="small">15 May 2025</p>
+    <p>In version 19 we have added customisable random datetime, improved the UI of Mockreate, added new icons and fixed a few bugs.</p>
     <a href="https://www.loom.com/share/af90c8ef179842fdb8ed1a662e280fb2?sid=f6ebf442-6de8-47dc-8634-38aeceebdfea" target="_blank" class="btn btn-primary mt-1">
       <img class="vertical-align-bottom" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/video.svg" width="24" height="24" alt="" />
       How to use Mockreate
@@ -469,7 +492,7 @@
       <div class="input-group mb-1">
         <div class="input-group-prepend">
           <span class="input-group-text">
-            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/plus.svg" width="20" height="20" alt="" />
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0iI2UzZTNlMyIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxwYXRoIGQ9Ik0yMjQsMTI4YTgsOCwwLDAsMS04LDhIMTM2djgwYTgsOCwwLDAsMS0xNiwwVjEzNkg0MGE4LDgsMCwwLDEsMC0xNmg4MFY0MGE4LDgsMCwwLDEsMTYsMHY4MGg4MEE4LDgsMCwwLDEsMjI0LDEyOFoiPjwvcGF0aD48L3N2Zz4=" width="16" height="16" alt="" />
           </span>
         </div>
         <input class="form-control" id="phonePrefix" type="number" value="44" placeholder="Phone prefix e.g.41" />
@@ -479,7 +502,12 @@
       <div class="input-group mb-1">
         <div class="input-group-prepend">
           <span class="input-group-text">
-            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/phone-number.svg" width="20" height="20" alt="" />
+            <img
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0iI2UzZTNlMyIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxwYXRoIGQ9Ik0yMjIuMzcsMTU4LjQ2bC00Ny4xMS0yMS4xMS0uMTMtLjA2YTE2LDE2LDAsMCwwLTE1LjE3LDEuNCw4LjEyLDguMTIsMCwwLDAtLjc1LjU2TDEzNC44NywxNjBjLTE1LjQyLTcuNDktMzEuMzQtMjMuMjktMzguODMtMzguNTFsMjAuNzgtMjQuNzFjLjItLjI1LjM5LS41LjU3LS43N2ExNiwxNiwwLDAsMCwxLjMyLTE1LjA2bDAtLjEyTDk3LjU0LDMzLjY0YTE2LDE2LDAsMCwwLTE2LjYyLTkuNTJBNTYuMjYsNTYuMjYsMCwwLDAsMzIsODBjMCw3OS40LDY0LjYsMTQ0LDE0NCwxNDRhNTYuMjYsNTYuMjYsMCwwLDAsNTUuODgtNDguOTJBMTYsMTYsMCwwLDAsMjIyLjM3LDE1OC40NlpNMTc2LDIwOEExMjguMTQsMTI4LjE0LDAsMCwxLDQ4LDgwLDQwLjIsNDAuMiwwLDAsMSw4Mi44Nyw0MGEuNjEuNjEsMCwwLDAsMCwuMTJsMjEsNDdMODMuMiwxMTEuODZhNi4xMyw2LjEzLDAsMCwwLS41Ny43NywxNiwxNiwwLDAsMC0xLDE1LjdjOS4wNiwxOC41MywyNy43MywzNy4wNiw0Ni40Niw0Ni4xMWExNiwxNiwwLDAsMCwxNS43NS0xLjE0LDguNDQsOC40NCwwLDAsMCwuNzQtLjU2TDE2OC44OSwxNTJsNDcsMjEuMDVoMHMuMDgsMCwuMTEsMEE0MC4yMSw0MC4yMSwwLDAsMSwxNzYsMjA4WiI+PC9wYXRoPjwvc3ZnPg=="
+              width="16"
+              height="16"
+              alt=""
+            />
           </span>
         </div>
         <select name="phone" id="phoneFormat" class="form-control" onchange="checkFormatSelected(this)">
@@ -510,7 +538,7 @@
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#B3B3B3" viewBox="0 0 256 256">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#B3B3B3" viewBox="0 0 256 256">
               <path
                 d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm88,104a87.62,87.62,0,0,1-6.4,32.94l-44.7-27.49a15.92,15.92,0,0,0-6.24-2.23l-22.82-3.08a16.11,16.11,0,0,0-16,7.86h-8.72l-3.8-7.86a15.91,15.91,0,0,0-11-8.67l-8-1.73L96.14,104h16.71a16.06,16.06,0,0,0,7.73-2l12.25-6.76a16.62,16.62,0,0,0,3-2.14l26.91-24.34A15.93,15.93,0,0,0,166,49.1l-.36-.65A88.11,88.11,0,0,1,216,128ZM143.31,41.34,152,56.9,125.09,81.24,112.85,88H96.14a16,16,0,0,0-13.88,8l-8.73,15.23L63.38,84.19,74.32,58.32a87.87,87.87,0,0,1,69-17ZM40,128a87.53,87.53,0,0,1,8.54-37.8l11.34,30.27a16,16,0,0,0,11.62,10l21.43,4.61L96.74,143a16.09,16.09,0,0,0,14.4,9h1.48l-7.23,16.23a16,16,0,0,0,2.86,17.37l.14.14L128,205.94l-1.94,10A88.11,88.11,0,0,1,40,128Zm102.58,86.78,1.13-5.81a16.09,16.09,0,0,0-4-13.9,1.85,1.85,0,0,1-.14-.14L120,174.74,133.7,144l22.82,3.08,45.72,28.12A88.18,88.18,0,0,1,142.58,214.78Z"
               ></path>
@@ -548,7 +576,9 @@
       <div class="input-group mb-1">
         <div class="input-group-prepend">
           <span class="input-group-text">
-            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/calendar.svg" width="20" height="20" alt="" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256">
+              <path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-68-76a12,12,0,1,1-12-12A12,12,0,0,1,140,132Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,132ZM96,172a12,12,0,1,1-12-12A12,12,0,0,1,96,172Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,140,172Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,172Z"></path>
+            </svg>
           </span>
         </div>
         <input class="form-control" id="selectedYear" type="number" min="1900" max="2099" step="1" value="2024" onchange="generate()" />
@@ -580,7 +610,7 @@
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">
-            <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/clock.svg" width="20" height="20" alt="" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg>
           </span>
         </div>
         <select class="form-control" id="timeFormat" onchange="generate()">
@@ -588,6 +618,77 @@
           <option value="1" selected>24h - hh:mm - 15:30</option>
           <option value="2">12h - h:mm am/pm - 4:30pm</option>
         </select>
+      </div>
+    </div>
+  </section>
+
+  <!--  DATETIME -->
+  <section id="section-datetime" style="display: none">
+    <div class="card">
+      <h5>Options</h5>
+
+      <div class="layout-options gap-8">
+        <div class="w-50">
+          <p class="small">Year</p>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256">
+                  <path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-68-76a12,12,0,1,1-12-12A12,12,0,0,1,140,132Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,132ZM96,172a12,12,0,1,1-12-12A12,12,0,0,1,96,172Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,140,172Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,172Z"></path>
+                </svg>
+              </span>
+            </div>
+            <input class="form-control" id="datetimeYear" type="number" min="1900" max="2099" step="1" value="2024" onchange="generate()" />
+          </div>
+        </div>
+        <div class="w-100">
+          <p class="small">Date format</p>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256">
+                  <path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-68-76a12,12,0,1,1-12-12A12,12,0,0,1,140,132Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,132ZM96,172a12,12,0,1,1-12-12A12,12,0,0,1,96,172Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,140,172Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,172Z"></path>
+                </svg>
+              </span>
+            </div>
+            <select class="form-control" id="dateDatetimeFormat" onchange="generate()">
+              <option value="0" disabled>Date format</option>
+              <option value="1" selected>26/08/1988</option>
+              <option value="2">26-08-1988</option>
+              <option value="3">26 08 1988</option>
+              <option value="4">26 Aug 1988</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="layout-options gap-8">
+        <div class="w-50">
+          <p class="small">Separator</p>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256"><path d="M112,48V208a8,8,0,0,1-16,0V136H43.31l18.35,18.34a8,8,0,0,1-11.32,11.32l-32-32a8,8,0,0,1,0-11.32l32-32a8,8,0,0,1,11.32,11.32L43.31,120H96V48a8,8,0,0,1,16,0Zm125.66,74.34-32-32a8,8,0,0,0-11.32,11.32L212.69,120H160V48a8,8,0,0,0-16,0V208a8,8,0,0,0,16,0V136h52.69l-18.35,18.34a8,8,0,0,0,11.32,11.32l32-32A8,8,0,0,0,237.66,122.34Z"></path></svg>
+              </span>
+            </div>
+            <input class="form-control" id="datetimeSeparator" type="text" value=" - " onchange="generate()" />
+          </div>
+        </div>
+
+        <div class="w-100">
+          <p class="small">Time format</p>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg>
+              </span>
+            </div>
+            <select class="form-control" id="timeDatetimeFormat" onchange="generate()">
+              <option value="0" disabled>Select time format</option>
+              <option value="1" selected>24h - hh:mm - 15:30</option>
+              <option value="2">12h - h:mm am/pm - 4:30pm</option>
+            </select>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -602,7 +703,7 @@
           <div class="input-group me-1">
             <div class="input-group-prepend">
               <span class="input-group-text">
-                <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
               </span>
             </div>
             <input class="form-control" id="numberFrom" type="number" min="0" value="0" onchange="generate()" />
@@ -614,7 +715,7 @@
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text">
-                <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256"><path d="M189.66,122.34a8,8,0,0,1,0,11.32l-72,72a8,8,0,0,1-11.32-11.32L164.69,136H32a8,8,0,0,1,0-16H164.69L106.34,61.66a8,8,0,0,1,11.32-11.32ZM216,32a8,8,0,0,0-8,8V216a8,8,0,0,0,16,0V40A8,8,0,0,0,216,32Z"></path></svg>
               </span>
             </div>
             <input class="form-control" id="numberTo" type="number" min="0" value="50" onchange="generate()" />
@@ -639,7 +740,7 @@
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text">
-                <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-right.svg" width="20" height="20" alt="" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
               </span>
             </div>
             <input class="form-control" id="moneyFrom" type="number" min="0" value="0" onchange="generate()" />
@@ -651,7 +752,7 @@
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text">
-                <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/to-left.svg" width="20" height="20" alt="" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256"><path d="M189.66,122.34a8,8,0,0,1,0,11.32l-72,72a8,8,0,0,1-11.32-11.32L164.69,136H32a8,8,0,0,1,0-16H164.69L106.34,61.66a8,8,0,0,1,11.32-11.32ZM216,32a8,8,0,0,0-8,8V216a8,8,0,0,0,16,0V40A8,8,0,0,0,216,32Z"></path></svg>
               </span>
             </div>
             <input class="form-control" id="moneyTo" type="number" min="0" value="50" onchange="generate()" />
@@ -665,7 +766,7 @@
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text">
-                <img src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/coin-currency.svg" width="20" height="20" alt="" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256"><path d="M172,76a44,44,0,1,0-44,44A44.05,44.05,0,0,0,172,76Zm-44,28a28,28,0,1,1,28-28A28,28,0,0,1,128,104Zm60,24a44,44,0,1,0,44,44A44.05,44.05,0,0,0,188,128Zm0,72a28,28,0,1,1,28-28A28,28,0,0,1,188,200ZM68,128a44,44,0,1,0,44,44A44.05,44.05,0,0,0,68,128Zm0,72a28,28,0,1,1,28-28A28,28,0,0,1,68,200Z"></path></svg>
               </span>
             </div>
             <input class="form-control" id="moneyCurrency" type="text" value="$" onchange="generate()" />
@@ -761,7 +862,7 @@
       </a>
     </div>
     <div class="footer-version">
-      <p>v18</p>
+      <p>v19</p>
     </div>
   </footer>
 </div>
@@ -932,6 +1033,20 @@
     //Display times section if times is selected
     if (el.value == "times") {
       let section = document.getElementById("section-times");
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName("section");
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+    }
+
+    //Display datetime section if datetime is selected
+    if (el.value == "datetime") {
+      let section = document.getElementById("section-datetime");
       if (section.style.display == "none") {
         let sections = document.getElementsByTagName("section");
         for (var i = 0; i < sections.length; i++) {
@@ -1223,22 +1338,8 @@
 
     if (dataSelection == "dates" && selectedYear !== "" && dateFormat != 0) {
       for (var i = 0; i < count; i++) {
-        d = (Math.floor(Math.random() * (31 - 1 + 1)) + 1).toString();
-        m = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
-        let separator = ["_", "/", "-", " ", " "];
-        let mm = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        if (dateFormat == 1) {
-          genStorage.push(d + "/" + m + "/" + selectedYear);
-        }
-        if (dateFormat == 2) {
-          genStorage.push(d + "-" + m + "-" + selectedYear);
-        }
-        if (dateFormat == 3) {
-          genStorage.push(d + " " + m + " " + selectedYear);
-        }
-        if (dateFormat == 4) {
-          genStorage.push(d + " " + mm[m] + " " + selectedYear);
-        }
+        date = generateDateFormat(selectedYear, dateFormat);
+        genStorage.push(date);
       }
     }
 
@@ -1246,23 +1347,68 @@
 
     if (dataSelection == "times" && timeFormat != 0) {
       for (var i = 0; i < count; i++) {
-        hh = (Math.floor(Math.random() * (23 - 1 + 1)) + 1).toString();
-        h = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
-        m = (Math.floor(Math.random() * (60 - 1 + 1)) + 1).toString();
-        if (hh < 10) {
-          hh = "0" + hh;
-        }
-        if (m < 10) {
-          m = "0" + m;
-        }
-        let time = ["am", "pm"];
-        x = Math.floor(Math.random() * time.length);
-        if (timeFormat == 1) {
-          genStorage.push(hh + ":" + m);
-        }
-        if (timeFormat == 2) {
-          genStorage.push(h + ":" + m + time[x]);
-        }
+        time = generateTimeFormat(timeFormat);
+        genStorage.push(time);
+      }
+    }
+
+    const datetimeYear = document.getElementById("datetimeYear").value;
+    const datetimeDateFormat = document.getElementById("dateDatetimeFormat").value;
+    const datetimeSeparator = document.getElementById("datetimeSeparator").value;
+    const timeDatetimeFormat = document.getElementById("timeDatetimeFormat").value;
+
+    if (dataSelection == "datetime" && datetimeYear !== "" && datetimeDateFormat != 0) {
+      for (var i = 0; i < count; i++) {
+        date = generateDateFormat(datetimeYear, datetimeDateFormat);
+        time = generateTimeFormat(timeDatetimeFormat);
+        datetime = date + datetimeSeparator + time;
+        genStorage.push(datetime);
+      }
+    }
+
+    // Function to generate random date based on the selected format and a given year
+    function generateDateFormat(year, format) {
+      d = (Math.floor(Math.random() * (31 - 1 + 1)) + 1).toString();
+      m = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
+      let mm = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      if (dateFormat == 1) {
+        genDate = d + "/" + m + "/" + year;
+        return genDate;
+      }
+      if (dateFormat == 2) {
+        genDate = d + "-" + m + "-" + year;
+        return genDate;
+      }
+      if (dateFormat == 3) {
+        genDate = d + " " + m + " " + year;
+        return genDate;
+      }
+      if (dateFormat == 4) {
+        genDate = d + " " + mm[m] + " " + year;
+        return genDate;
+      }
+    }
+
+    // Function to generate random time based on the selected format
+    function generateTimeFormat(format) {
+      hh = (Math.floor(Math.random() * (23 - 1 + 1)) + 1).toString();
+      h = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
+      m = (Math.floor(Math.random() * (60 - 1 + 1)) + 1).toString();
+      if (hh < 10) {
+        hh = "0" + hh;
+      }
+      if (m < 10) {
+        m = "0" + m;
+      }
+      let time = ["am", "pm"];
+      x = Math.floor(Math.random() * time.length);
+      if (format == 1) {
+        genTime = hh + ":" + m;
+        return genTime;
+      }
+      if (format == 2) {
+        genTime = h + ":" + m + time[x];
+        return genTime;
       }
     }
 
