@@ -438,7 +438,9 @@
       <option value="creditcards">💳 Credit card</option>
       <option value="ethereum">⛓️ Ethereum Address</option>
       <option value="wifi" data-url="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/datasets/wifi.json">🛜 Wi-Fi Network</option>
-      <option value="custom">Custom</option>
+      <option disabled>────────────────────</option>
+      <option value="advanced">🧱 Advanced</option>
+      <option value="custom">⚙️ Custom dataset</option>
     </select>
     <div id="formHelper" class="form-helper">
       <p>Select a dataset to get started.<br />Each dataset has different options that you can customise to your liking.</p>
@@ -446,9 +448,9 @@
   </div>
 
   <div class="card" id="changelog">
-    <h3>✨ What's new in v19.0</h3>
-    <p class="small">15 May 2025</p>
-    <p>In version 19 we have added customisable random datetime, improved the UI of Mockreate, added new icons and fixed a few bugs.</p>
+    <h3>✨ What's new in v20.0</h3>
+    <p class="small">22 May 2025</p>
+    <p>In version 20 we have added advanced patterns that you can use to create advanced randomisation following custom patterns.</p>
     <a href="https://www.loom.com/share/af90c8ef179842fdb8ed1a662e280fb2?sid=f6ebf442-6de8-47dc-8634-38aeceebdfea" target="_blank" class="btn btn-primary mt-1">
       <img class="vertical-align-bottom" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/video.svg" width="24" height="24" alt="" />
       How to use Mockreate
@@ -824,6 +826,31 @@
   <!-- WIFI NETWORK -->
   <section id="section-wifi" style="display: none"></section>
 
+  <!--  ADVANCED -->
+  <section id="section-advanced" style="display: none">
+    <div class="card">
+      <h5>Options</h5>
+      <p class="small">Pattern</p>
+      <input class="form-control mb-1" id="advancedPattern" type="text" placeholder="e.g. PG-*****" onchange="generate()" />
+      <div class="w-100">
+        <p class="small">Wildcard values</p>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#B3B3B3" viewBox="0 0 256 256"><path d="M211,103.43l-70.13,28,49.47,63.61a8,8,0,1,1-12.63,9.82L128,141,78.32,204.91a8,8,0,0,1-12.63-9.82l49.47-63.61L45,103.43A8,8,0,0,1,51,88.57l69,27.61V40a8,8,0,0,1,16,0v76.18l69-27.61A8,8,0,1,1,211,103.43Z"></path></svg>
+            </span>
+          </div>
+          <select class="form-control" id="advancedWildcard" onchange="generate()">
+            <option value="0" disabled>Select</option>
+            <option value="1" selected>Numbers</option>
+            <option value="2">Letters</option>
+            <option value="3">Numbers and letters</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!--  CUSTOM  -->
   <section id="section-custom" style="display: none">
     <div class="card">
@@ -862,7 +889,7 @@
       </a>
     </div>
     <div class="footer-version">
-      <p>v19</p>
+      <p>v20</p>
     </div>
   </footer>
 </div>
@@ -908,6 +935,7 @@
       changelog.style.display = "none";
     }
 
+    //NAMES -------------------------------------------------------------------------
     //Display names section if names is selected
     if (el.value == "names") {
       let section = document.getElementById("section-names");
@@ -921,6 +949,8 @@
         section.style.display = "none";
       }
     }
+
+    //SURNAMES -------------------------------------------------------------------------
     //Display surnames section if surname is selected
     if (el.value == "surnames") {
       let section = document.getElementById("section-surnames");
@@ -934,6 +964,8 @@
         section.style.display = "none";
       }
     }
+
+    //FULLNAMES -------------------------------------------------------------------------
     //Display full names section if full names is selected
     if (el.value == "fullnames") {
       let section = document.getElementById("section-fullnames");
@@ -947,6 +979,8 @@
         section.style.display = "none";
       }
     }
+
+    //USERNAMES -------------------------------------------------------------------------
     //Display  usernames section if usernames is selected
     if (el.value == "usernames") {
       let section = document.getElementById("section-usernames");
@@ -960,6 +994,8 @@
         section.style.display = "none";
       }
     }
+
+    //EMAILS -------------------------------------------------------------------------
     //Display  emails section if emails is selected
     if (el.value == "emails") {
       let section = document.getElementById("section-emails");
@@ -974,6 +1010,7 @@
       }
     }
 
+    //COMPANIES -------------------------------------------------------------------------
     //Display companies section if companies is selected
     if (el.value == "companies") {
       let section = document.getElementById("section-companies");
@@ -988,6 +1025,7 @@
       }
     }
 
+    //PHONE NUMBERS -------------------------------------------------------------------------
     //Display  phone numbers section if phone numbers is selected
     if (el.value == "phones") {
       let section = document.getElementById("section-phones");
@@ -1002,6 +1040,7 @@
       }
     }
 
+    //ADDRESS -------------------------------------------------------------------------
     //Display address section if phone numbers is selected
     if (el.value == "address") {
       let section = document.getElementById("section-address");
@@ -1016,6 +1055,7 @@
       }
     }
 
+    //DATES -------------------------------------------------------------------------
     //Display dates section if dates is selected
     if (el.value == "dates") {
       let section = document.getElementById("section-dates");
@@ -1030,6 +1070,7 @@
       }
     }
 
+    //TIME -------------------------------------------------------------------------
     //Display times section if times is selected
     if (el.value == "times") {
       let section = document.getElementById("section-times");
@@ -1044,6 +1085,7 @@
       }
     }
 
+    //DATETIME -------------------------------------------------------------------------
     //Display datetime section if datetime is selected
     if (el.value == "datetime") {
       let section = document.getElementById("section-datetime");
@@ -1058,6 +1100,7 @@
       }
     }
 
+    //NUMBERS -------------------------------------------------------------------------
     //Display numbers section if numbers is selected
     if (el.value == "numbers") {
       let section = document.getElementById("section-numbers");
@@ -1072,6 +1115,7 @@
       }
     }
 
+    //MONEY -------------------------------------------------------------------------
     //Display money section if money is selected
     if (el.value == "money") {
       let section = document.getElementById("section-money");
@@ -1086,6 +1130,7 @@
       }
     }
 
+    //LICENSE PLATES -------------------------------------------------------------------------
     //Display license plates section if credit cards is selected
     if (el.value == "licenseplates") {
       let section = document.getElementById("section-licenseplates");
@@ -1100,6 +1145,7 @@
       }
     }
 
+    //CREDIT CARDS -------------------------------------------------------------------------
     //Display credit cards section if credit cards is selected
     if (el.value == "creditcards") {
       let section = document.getElementById("section-creditcards");
@@ -1114,6 +1160,7 @@
       }
     }
 
+    //ETHEREUM ADDRESS -------------------------------------------------------------------------
     //Display ethereum address section if ethereum is selected
     if (el.value == "ethereum") {
       let section = document.getElementById("section-ethereum");
@@ -1128,6 +1175,7 @@
       }
     }
 
+    //WIFI -------------------------------------------------------------------------
     //Display wifi network section if wifi is selected
     if (el.value == "wifi") {
       let section = document.getElementById("section-wifi");
@@ -1142,6 +1190,22 @@
       }
     }
 
+    //ADVANCED -------------------------------------------------------------------------
+    //Display advanced section if advanced is selected
+    if (el.value == "advanced") {
+      let section = document.getElementById("section-advanced");
+      if (section.style.display == "none") {
+        let sections = document.getElementsByTagName("section");
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = "none";
+        }
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+    }
+
+    //CUSTOM -------------------------------------------------------------------------
     //Display custom section if custom is selected
     if (el.value == "custom") {
       let section = document.getElementById("section-custom");
@@ -1183,6 +1247,7 @@
     genderSelection = document.getElementById("genderSelection").value;
     const dataSelection = document.getElementById("datasetSelector").value;
 
+    //NAMES -------------------------------------------------------------------------
     if (dataSelection == "names") {
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
 
@@ -1203,6 +1268,7 @@
       }
     }
 
+    //SURNAME -------------------------------------------------------------------------
     if (dataSelection == "surnames") {
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
 
@@ -1217,6 +1283,7 @@
       }
     }
 
+    //FULLNAMES ----------------------------------------------------------------------
     if (dataSelection == "fullnames") {
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
       const request = new Request(requestURL);
@@ -1229,6 +1296,7 @@
       }
     }
 
+    //USERNAMES -----------------------------------------------------------------------
     if (dataSelection == "usernames") {
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
       const request = new Request(requestURL);
@@ -1241,6 +1309,7 @@
       }
     }
 
+    //EMAILS -------------------------------------------------------------------------
     if (dataSelection == "emails") {
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
       const request = new Request(requestURL);
@@ -1253,6 +1322,7 @@
       }
     }
 
+    //COMPANIES ----------------------------------------------------------------------
     if (dataSelection == "companies") {
       const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
       const request = new Request(requestURL);
@@ -1284,6 +1354,7 @@
       return result;
     }
 
+    //PHONES --------------------------------------------------------------------------
     if (dataSelection == "phones" && phonePrefix !== "") {
       if (phoneDigits == "") {
         genStorage.push("Invalid format");
@@ -1307,6 +1378,7 @@
       }
     }
 
+    //ADDRESS ------------------------------------------------------------------------
     const countrySelector = document.getElementById("countrySelector");
 
     if (dataSelection == "address" && countrySelector.value !== "null") {
@@ -1333,6 +1405,7 @@
       }
     }
 
+    //DATES -------------------------------------------------------------------------
     let selectedYear = document.getElementById("selectedYear").value;
     let dateFormat = document.getElementById("dateFormat").value;
 
@@ -1343,6 +1416,7 @@
       }
     }
 
+    //TIME --------------------------------------------------------------------------
     let timeFormat = document.getElementById("timeFormat").value;
 
     if (dataSelection == "times" && timeFormat != 0) {
@@ -1352,6 +1426,8 @@
       }
     }
 
+    //DATETIME ----------------------------------------------------------------------
+    let datetime = "";
     const datetimeYear = document.getElementById("datetimeYear").value;
     const datetimeDateFormat = document.getElementById("dateDatetimeFormat").value;
     const datetimeSeparator = document.getElementById("datetimeSeparator").value;
@@ -1520,6 +1596,34 @@
         let compose = items[x].wifi + "_" + string;
         console.log(typeof compose);
         genStorage.push(compose);
+      }
+    }
+
+    if (dataSelection == "advanced") {
+      const advancedPattern = document.getElementById("advancedPattern").value;
+      const advancedWildcard = document.getElementById("advancedWildcard").value;
+
+      function generateWildcardValue(type) {
+        switch (type) {
+          case "1": // Numbers
+            return Math.floor(Math.random() * 10).toString();
+          case "2": // Letters
+            return String.fromCharCode(65 + Math.floor(Math.random() * 26));
+          case "3": // Numbers and letters
+            const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return chars.charAt(Math.floor(Math.random() * chars.length));
+          default:
+            return "*";
+        }
+      }
+
+      for (var i = 0; i < count; i++) {
+        let result = advancedPattern;
+        // Replace each * with a random value based on wildcard type
+        while (result.includes("*")) {
+          result = result.replace("*", generateWildcardValue(advancedWildcard));
+        }
+        genStorage.push(result);
       }
     }
 
