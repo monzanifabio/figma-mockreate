@@ -356,9 +356,7 @@ async function loadAvatarUrls() {
   }
 
   const files = await response.json();
-  const urls = files
-    .filter((file) => file.type === "file" && /\.(png|jpe?g)$/i.test(file.name) && file.download_url)
-    .map((file) => file.download_url);
+  const urls = files.filter((file) => file.type === "file" && /\.(png|jpe?g)$/i.test(file.name) && file.download_url).map((file) => file.download_url);
 
   if (!urls.length) {
     throw new Error("The avatar folder contains no supported images");
@@ -372,7 +370,6 @@ function updateCreateButton() {
   const avatarMode = document.getElementById("datasetSelector").value === "avatars";
   const selectionAvailable = avatarMode ? avatarSelectionAvailable : textSelectionAvailable;
   btnCreate.disabled = avatarGenerationInProgress || !selectionAvailable;
-
 }
 
 // Get the state of the selection
