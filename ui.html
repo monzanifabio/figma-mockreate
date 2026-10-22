@@ -735,9 +735,7 @@ async function loadAvatarUrls() {
   }
 
   const files = await response.json();
-  const urls = files
-    .filter((file) => file.type === "file" && /\\.(png|jpe?g)$/i.test(file.name) && file.download_url)
-    .map((file) => file.download_url);
+  const urls = files.filter((file) => file.type === "file" && /\\.(png|jpe?g)$/i.test(file.name) && file.download_url).map((file) => file.download_url);
 
   if (!urls.length) {
     throw new Error("The avatar folder contains no supported images");
@@ -751,7 +749,6 @@ function updateCreateButton() {
   const avatarMode = document.getElementById("datasetSelector").value === "avatars";
   const selectionAvailable = avatarMode ? avatarSelectionAvailable : textSelectionAvailable;
   btnCreate.disabled = avatarGenerationInProgress || !selectionAvailable;
-
 }
 
 // Get the state of the selection
@@ -1278,8 +1275,8 @@ btnCreate.onclick = async () => {
 
       <div class="card" id="changelog">
         <h3>✨ What's new in v21.0</h3>
-        <p class="small">22 May 2025</p>
-        <p>In version 20 we have added advanced patterns that you can use to create advanced randomisation following custom patterns.</p>
+        <p class="small">22 Oct 2026</p>
+        <p>This is a major version with significant updates and improvements under the hood for speed and reliability. We fixed some small bugs in date and datetime that caused some unexpected behavior. We have also added the new Avatar generator that insert a random user avatars into shapes and frames.</p>
         <a href="https://www.loom.com/share/af90c8ef179842fdb8ed1a662e280fb2?sid=f6ebf442-6de8-47dc-8634-38aeceebdfea" target="_blank" class="btn btn-primary mt-1">
           <img class="vertical-align-bottom" src="https://raw.githubusercontent.com/monzanifabio/figma-mockreate/main/img/video.svg" width="24" height="24" alt="" />
           How to use Mockreate
