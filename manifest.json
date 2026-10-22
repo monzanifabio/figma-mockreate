@@ -2,6 +2,7 @@
   "name": "Mockreate AI",
   "id": "1096384653667384513",
   "api": "1.0.0",
+  "documentAccess": "dynamic-page",
   "main": "code.js",
   "editorType": ["figma"],
   "ui": "ui.html",
