@@ -343,16 +343,36 @@ let genderSelection;
 let textSelectionAvailable = false;
 let avatarSelectionAvailable = false;
 let avatarGenerationInProgress = false;
-const avatarAssetUrls = window.mockreateAvatarAssets || [];
+let avatarAssetUrls;
+
+async function loadAvatarUrls() {
+  if (avatarAssetUrls) {
+    return avatarAssetUrls;
+  }
+
+  const response = await fetch("https://api.github.com/repos/monzanifabio/figma-mockreate/contents/datasets/avatars?ref=main");
+  if (!response.ok) {
+    throw new Error(`Could not list avatars: ${response.status}`);
+  }
+
+  const files = await response.json();
+  const urls = files
+    .filter((file) => file.type === "file" && /\.(png|jpe?g)$/i.test(file.name) && file.download_url)
+    .map((file) => file.download_url);
+
+  if (!urls.length) {
+    throw new Error("The avatar folder contains no supported images");
+  }
+
+  avatarAssetUrls = urls;
+  return urls;
+}
 
 function updateCreateButton() {
   const avatarMode = document.getElementById("datasetSelector").value === "avatars";
-  const selectionAvailable = avatarMode ? avatarSelectionAvailable && avatarAssetUrls.length > 0 : textSelectionAvailable;
+  const selectionAvailable = avatarMode ? avatarSelectionAvailable : textSelectionAvailable;
   btnCreate.disabled = avatarGenerationInProgress || !selectionAvailable;
 
-  if (avatarMode && !avatarGenerationInProgress) {
-    document.getElementById("avatarStatus").textContent = avatarAssetUrls.length ? "Select one or more shape layers to fill with random avatars." : "Add PNG or JPEG files to src/assets/avatars to enable avatars.";
-  }
 }
 
 // Get the state of the selection
@@ -367,7 +387,6 @@ onmessage = (event) => {
   }
 
   if (message.type === "avatar-generation-result") {
-    document.getElementById("avatarStatus").textContent = message.success ? "Avatars applied." : "Could not apply avatars. Please try again.";
     avatarGenerationInProgress = false;
     updateCreateButton();
   }
@@ -791,15 +810,15 @@ async function generate() {
 async function generateAvatars() {
   avatarGenerationInProgress = true;
   updateCreateButton();
-  document.getElementById("avatarStatus").textContent = "Generating avatars...";
 
   try {
+    const imageUrls = await loadAvatarUrls();
     const avatars = await Promise.all(
       Array.from({ length: count }, async () => {
-        const imageUrl = avatarAssetUrls[Math.floor(Math.random() * avatarAssetUrls.length)];
+        const imageUrl = imageUrls[Math.floor(Math.random() * imageUrls.length)];
         const response = await fetch(imageUrl);
         if (!response.ok) {
-          throw new Error(`Could not load local avatar: ${response.status}`);
+          throw new Error(`Could not download avatar: ${response.status}`);
         }
         return Array.from(new Uint8Array(await response.arrayBuffer()));
       }),
@@ -817,7 +836,6 @@ async function generateAvatars() {
   } catch (error) {
     console.error(error);
     avatarGenerationInProgress = false;
-    document.getElementById("avatarStatus").textContent = "Could not load local avatars. Check the image files and try again.";
     updateCreateButton();
   }
 }

@@ -10,6 +10,8 @@ Install dependencies with `npm install`, then run `npm run dev` to serve the plu
 
 Run `npm run build` to bundle the UI into the root `ui.html` referenced by `manifest.json`. The build inlines its JavaScript and CSS for Figma.
 
+Avatars are downloaded at runtime from [datasets/avatars on GitHub](https://github.com/monzanifabio/figma-mockreate/tree/main/datasets/avatars). Select shape layers, choose Avatars, and generate to replace their fills with random images. PNG and JPEG files are supported. The directory listing is cached for the plugin session; new sessions discover added images without a rebuild. An internet connection is required, and GitHub API rate limits apply.
+
 ### What can you create with Mockreate?
 
 Mockreate allows you to generate random data from default datasets, random math and import your custom JSON data. (Watch the demo video below)
