@@ -19,35 +19,66 @@ figma.on("selectionchange", async () => {
   detectSelection();
 });
 
-// Check if the selection is of type text
-async function detectSelection() {
-  const selection = figma.currentPage.selection;
-  if (selection.length > 0) {
-    console.log(selection[0].type);
-    console.log(selection.length);
-    for (let i = 0; i < selection.length; i++) {
-      if (selection[i].type === "TEXT") {
-        await figma.loadFontAsync(selection[i].fontName);
-        figma.ui.postMessage({ type: selection.length, selected: true });
-      } else {
-        figma.ui.postMessage({ selected: false });
-      }
-    }
-  } else {
-    figma.ui.postMessage({ selected: false });
-    console.log("No selection");
-  }
+function isAvatarTarget(node) {
+  return node.type !== "TEXT" && "fills" in node && node.fills !== figma.mixed;
 }
 
-figma.ui.onmessage = (msg) => {
+async function detectSelection() {
+  const selection = figma.currentPage.selection;
+  const textSelected = selection.length > 0 && selection.every((node) => node.type === "TEXT");
+  const avatarSelected = selection.length > 0 && selection.every(isAvatarTarget);
+
+  if (textSelected) {
+    await Promise.all(selection.map((node) => figma.loadFontAsync(node.fontName)));
+  }
+
+  figma.ui.postMessage({
+    type: "selection-state",
+    count: selection.length,
+    textSelected,
+    avatarSelected,
+  });
+}
+
+figma.ui.onmessage = async (msg) => {
   if (msg.type === "create-random-text") {
     const selection = figma.currentPage.selection;
-    const count = selection.length;
+    if (selection.length !== msg.genStorage.length || !selection.every((node) => node.type === "TEXT")) {
+      figma.notify("Select text layers before generating text.");
+      return;
+    }
 
-    //Loop through the text nodes
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < selection.length; i++) {
       selection[i].characters = msg.genStorage[i];
     }
     figma.notify("Data generated");
+  }
+
+  if (msg.type === "create-random-avatars") {
+    const selection = figma.currentPage.selection;
+    if (selection.length !== msg.avatars.length || !selection.every(isAvatarTarget)) {
+      figma.notify("Select shape layers before applying avatars.");
+      figma.ui.postMessage({ type: "avatar-generation-result", success: false });
+      return;
+    }
+
+    try {
+      selection.forEach((node, index) => {
+        const image = figma.createImage(new Uint8Array(msg.avatars[index]));
+        node.fills = [
+          {
+            type: "IMAGE",
+            scaleMode: "FILL",
+            imageHash: image.hash,
+          },
+        ];
+      });
+      figma.notify("Avatars applied");
+      figma.ui.postMessage({ type: "avatar-generation-result", success: true });
+    } catch (error) {
+      console.error(error);
+      figma.notify("Could not apply avatars");
+      figma.ui.postMessage({ type: "avatar-generation-result", success: false });
+    }
   }
 };

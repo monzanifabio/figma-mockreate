@@ -1,0 +1,44 @@
+<section id="section-phones" style="display: none">
+    <div class="card">
+      <h5>Options</h5>
+      <p class="small">Phone prefix</p>
+      <div class="input-group mb-1">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0iI2UzZTNlMyIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxwYXRoIGQ9Ik0yMjQsMTI4YTgsOCwwLDAsMS04LDhIMTM2djgwYTgsOCwwLDAsMS0xNiwwVjEzNkg0MGE4LDgsMCwwLDEsMC0xNmg4MFY0MGE4LDgsMCwwLDEsMTYsMHY4MGg4MEE4LDgsMCwwLDEsMjI0LDEyOFoiPjwvcGF0aD48L3N2Zz4=" width="16" height="16" alt="" />
+          </span>
+        </div>
+        <input class="form-control" id="phonePrefix" type="number" value="44" placeholder="Phone prefix e.g.41" />
+      </div>
+
+      <p class="small">Format</p>
+      <div class="input-group mb-1">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <img
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0iI2UzZTNlMyIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxwYXRoIGQ9Ik0yMjIuMzcsMTU4LjQ2bC00Ny4xMS0yMS4xMS0uMTMtLjA2YTE2LDE2LDAsMCwwLTE1LjE3LDEuNCw4LjEyLDguMTIsMCwwLDAtLjc1LjU2TDEzNC44NywxNjBjLTE1LjQyLTcuNDktMzEuMzQtMjMuMjktMzguODMtMzguNTFsMjAuNzgtMjQuNzFjLjItLjI1LjM5LS41LjU3LS43N2ExNiwxNiwwLDAsMCwxLjMyLTE1LjA2bDAtLjEyTDk3LjU0LDMzLjY0YTE2LDE2LDAsMCwwLTE2LjYyLTkuNTJBNTYuMjYsNTYuMjYsMCwwLDAsMzIsODBjMCw3OS40LDY0LjYsMTQ0LDE0NCwxNDRhNTYuMjYsNTYuMjYsMCwwLDAsNTUuODgtNDguOTJBMTYsMTYsMCwwLDAsMjIyLjM3LDE1OC40NlpNMTc2LDIwOEExMjguMTQsMTI4LjE0LDAsMCwxLDQ4LDgwLDQwLjIsNDAuMiwwLDAsMSw4Mi44Nyw0MGEuNjEuNjEsMCwwLDAsMCwuMTJsMjEsNDdMODMuMiwxMTEuODZhNi4xMyw2LjEzLDAsMCwwLS41Ny43NywxNiwxNiwwLDAsMC0xLDE1LjdjOS4wNiwxOC41MywyNy43MywzNy4wNiw0Ni40Niw0Ni4xMWExNiwxNiwwLDAsMCwxNS43NS0xLjE0LDguNDQsOC40NCwwLDAsMCwuNzQtLjU2TDE2OC44OSwxNTJsNDcsMjEuMDVoMHMuMDgsMCwuMTEsMEE0MC4yMSw0MC4yMSwwLDAsMSwxNzYsMjA4WiI+PC9wYXRoPjwvc3ZnPg=="
+              width="16"
+              height="16"
+              alt=""
+            />
+          </span>
+        </div>
+        <select name="phone" id="phoneFormat" class="form-control" onchange="checkFormatSelected(this)">
+          <option value="null" selected disabled>Select format</option>
+          <option value="custom">Custom</option>
+          <option value="04xx xxx xxx">Australia</option>
+          <option value="13x xxxx xxxx">China</option>
+          <option value="0x xx xx xx xx">France</option>
+          <option value="xxxx xxxxxx">India</option>
+          <option value="xxx xxxxxxx">Italy</option>
+          <option value="6xx xxx xxx">Spain</option>
+          <option value="xxxx xxxxxx">United Kingdom</option>
+          <option value="212 xxx xxx">United States</option>
+        </select>
+      </div>
+
+      <div>
+        <input class="form-control" id="phoneDigits" type="hidden" value="xx-xxxx-xxx" placeholder="e.g. xx-xxxx-xxx" hidden />
+      </div>
+    </div>
+  </section>
