@@ -1,0 +1,23 @@
+<section id="section-advanced" style="display: none">
+    <div class="card">
+      <h5>Options</h5>
+      <p class="small">Pattern</p>
+      <input class="form-control mb-1" id="advancedPattern" type="text" placeholder="e.g. PG-*****" onchange="generate()" />
+      <div class="w-100">
+        <p class="small">Wildcard values</p>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#B3B3B3" viewBox="0 0 256 256"><path d="M211,103.43l-70.13,28,49.47,63.61a8,8,0,1,1-12.63,9.82L128,141,78.32,204.91a8,8,0,0,1-12.63-9.82l49.47-63.61L45,103.43A8,8,0,0,1,51,88.57l69,27.61V40a8,8,0,0,1,16,0v76.18l69-27.61A8,8,0,1,1,211,103.43Z"></path></svg>
+            </span>
+          </div>
+          <select class="form-control" id="advancedWildcard" onchange="generate()">
+            <option value="0" disabled>Select</option>
+            <option value="1" selected>Numbers</option>
+            <option value="2">Letters</option>
+            <option value="3">Numbers and letters</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>

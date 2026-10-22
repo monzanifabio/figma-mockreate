@@ -1,11 +1,17 @@
-import peoplePage from "./pages/people.html?raw";
-import contactPage from "./pages/contact.html?raw";
-import dateTimePage from "./pages/date-time.html?raw";
-import numbersMoneyPage from "./pages/numbers-money.html?raw";
-import identityCustomPage from "./pages/identity-custom.html?raw";
+const pageModules = import.meta.glob("./pages/*.html", { query: "?raw", import: "default", eager: true });
 import generatorSource from "./generator.js?raw";
 
-const pageMarkup = [peoplePage, contactPage, dateTimePage, numbersMoneyPage, identityCustomPage].join("\n");
+const datasetOptions = [...document.querySelector("#datasetSelector").options].filter((option) => option.value !== "null" && !option.disabled);
+const pageMarkup = datasetOptions
+  .map((option) => {
+    const page = pageModules[`./pages/${option.value}.html`];
+    if (!page) {
+      throw new Error(`Missing UI page for dataset: ${option.value}`);
+    }
+    return page;
+  })
+  .join("\n");
+
 document.body.innerHTML = document.body.innerHTML.replace("<!-- VITE_DATASET_PAGES -->", pageMarkup);
 
 const generatorScript = document.createElement("script");

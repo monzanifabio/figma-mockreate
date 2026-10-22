@@ -1,0 +1,23 @@
+<section id="section-ethereum" style="display: none">
+    <div class="card">
+      <h5>Options</h5>
+      <div class="form-check form-switch layout-options">
+        <p class="small m-0">Truncate</p>
+        <input class="form-check-input" type="checkbox" role="switch" id="addressTruncate" onchange="truncateAddress(this)" />
+      </div>
+      <div id="truncateInput" class="layout-options mt-1" style="display: none">
+        <div class="me-1">
+          <p class="small">Pre</p>
+          <input class="form-control" id="truncatePre" type="number" min="0" value="6" onchange="generate()" />
+        </div>
+        <div class="me-1">
+          <p class="small">Mid</p>
+          <input class="form-control" id="truncateMid" type="text" value="..." onchange="generate()" />
+        </div>
+        <div>
+          <p class="small">Post</p>
+          <input class="form-control" id="truncatePost" type="number" min="0" value="6" onchange="generate()" />
+        </div>
+      </div>
+    </div>
+  </section>

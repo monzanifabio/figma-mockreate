@@ -4,75 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mockreate</title>
-  <script type="module" crossorigin>(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const n of document.querySelectorAll('link[rel="modulepreload"]'))o(n);new MutationObserver(n=>{for(const e of n)if(e.type==="childList")for(const s of e.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&o(s)}).observe(document,{childList:!0,subtree:!0});function i(n){const e={};return n.integrity&&(e.integrity=n.integrity),n.referrerPolicy&&(e.referrerPolicy=n.referrerPolicy),n.crossOrigin==="use-credentials"?e.credentials="include":n.crossOrigin==="anonymous"?e.credentials="omit":e.credentials="same-origin",e}function o(n){if(n.ep)return;n.ep=!0;const e=i(n);fetch(n.href,e)}})();const l=`<section id="section-names" style="display: none">
-    <div class="card">
-      <h5>Options</h5>
-      <p class="small">Gender</p>
-      <div class="form-group">
-        <select id="genderSelection" class="form-control" name="" onchange="generate();">
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="both" selected>Both</option>
-        </select>
-      </div>
-    </div>
-  </section>
-
-<section id="section-surnames" style="display: none"></section>
-
-<section id="section-fullnames" style="display: none"></section>
-
-<section id="section-usernames" style="display: none"></section>
-
-<section id="section-emails" style="display: none"></section>
-
-<section id="section-companies" style="display: none"></section>
-`,c=`<section id="section-phones" style="display: none">
-    <div class="card">
-      <h5>Options</h5>
-      <p class="small">Phone prefix</p>
-      <div class="input-group mb-1">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0iI2UzZTNlMyIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxwYXRoIGQ9Ik0yMjQsMTI4YTgsOCwwLDAsMS04LDhIMTM2djgwYTgsOCwwLDAsMS0xNiwwVjEzNkg0MGE4LDgsMCwwLDEsMC0xNmg4MFY0MGE4LDgsMCwwLDEsMTYsMHY4MGg4MEE4LDgsMCwwLDEsMjI0LDEyOFoiPjwvcGF0aD48L3N2Zz4=" width="16" height="16" alt="" />
-          </span>
-        </div>
-        <input class="form-control" id="phonePrefix" type="number" value="44" placeholder="Phone prefix e.g.41" />
-      </div>
-
-      <p class="small">Format</p>
-      <div class="input-group mb-1">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <img
-              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0iI2UzZTNlMyIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxwYXRoIGQ9Ik0yMjIuMzcsMTU4LjQ2bC00Ny4xMS0yMS4xMS0uMTMtLjA2YTE2LDE2LDAsMCwwLTE1LjE3LDEuNCw4LjEyLDguMTIsMCwwLDAtLjc1LjU2TDEzNC44NywxNjBjLTE1LjQyLTcuNDktMzEuMzQtMjMuMjktMzguODMtMzguNTFsMjAuNzgtMjQuNzFjLjItLjI1LjM5LS41LjU3LS43N2ExNiwxNiwwLDAsMCwxLjMyLTE1LjA2bDAtLjEyTDk3LjU0LDMzLjY0YTE2LDE2LDAsMCwwLTE2LjYyLTkuNTJBNTYuMjYsNTYuMjYsMCwwLDAsMzIsODBjMCw3OS40LDY0LjYsMTQ0LDE0NCwxNDRhNTYuMjYsNTYuMjYsMCwwLDAsNTUuODgtNDguOTJBMTYsMTYsMCwwLDAsMjIyLjM3LDE1OC40NlpNMTc2LDIwOEExMjguMTQsMTI4LjE0LDAsMCwxLDQ4LDgwLDQwLjIsNDAuMiwwLDAsMSw4Mi44Nyw0MGEuNjEuNjEsMCwwLDAsMCwuMTJsMjEsNDdMODMuMiwxMTEuODZhNi4xMyw2LjEzLDAsMCwwLS41Ny43NywxNiwxNiwwLDAsMC0xLDE1LjdjOS4wNiwxOC41MywyNy43MywzNy4wNiw0Ni40Niw0Ni4xMWExNiwxNiwwLDAsMCwxNS43NS0xLjE0LDguNDQsOC40NCwwLDAsMCwuNzQtLjU2TDE2OC44OSwxNTJsNDcsMjEuMDVoMHMuMDgsMCwuMTEsMEE0MC4yMSw0MC4yMSwwLDAsMSwxNzYsMjA4WiI+PC9wYXRoPjwvc3ZnPg=="
-              width="16"
-              height="16"
-              alt=""
-            />
-          </span>
-        </div>
-        <select name="phone" id="phoneFormat" class="form-control" onchange="checkFormatSelected(this)">
-          <option value="null" selected disabled>Select format</option>
-          <option value="custom">Custom</option>
-          <option value="04xx xxx xxx">Australia</option>
-          <option value="13x xxxx xxxx">China</option>
-          <option value="0x xx xx xx xx">France</option>
-          <option value="xxxx xxxxxx">India</option>
-          <option value="xxx xxxxxxx">Italy</option>
-          <option value="6xx xxx xxx">Spain</option>
-          <option value="xxxx xxxxxx">United Kingdom</option>
-          <option value="212 xxx xxx">United States</option>
-        </select>
-      </div>
-
-      <div>
-        <input class="form-control" id="phoneDigits" type="hidden" value="xx-xxxx-xxx" placeholder="e.g. xx-xxxx-xxx" hidden />
-      </div>
-    </div>
-  </section>
-
-<section id="section-address" style="display: none">
+  <script type="module" crossorigin>(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))a(e);new MutationObserver(e=>{for(const n of e)if(n.type==="childList")for(const o of n.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&a(o)}).observe(document,{childList:!0,subtree:!0});function l(e){const n={};return e.integrity&&(n.integrity=e.integrity),e.referrerPolicy&&(n.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?n.credentials="include":e.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function a(e){if(e.ep)return;e.ep=!0;const n=l(e);fetch(e.href,n)}})();const c=`<section id="section-address" style="display: none">
     <div class="card">
       <h5>Options</h5>
       <p class="small">Country</p>
@@ -108,7 +40,45 @@
       </div>
     </div>
   </section>
-`,r=`<section id="section-dates" style="display: none">
+`,r=`<section id="section-advanced" style="display: none">
+    <div class="card">
+      <h5>Options</h5>
+      <p class="small">Pattern</p>
+      <input class="form-control mb-1" id="advancedPattern" type="text" placeholder="e.g. PG-*****" onchange="generate()" />
+      <div class="w-100">
+        <p class="small">Wildcard values</p>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#B3B3B3" viewBox="0 0 256 256"><path d="M211,103.43l-70.13,28,49.47,63.61a8,8,0,1,1-12.63,9.82L128,141,78.32,204.91a8,8,0,0,1-12.63-9.82l49.47-63.61L45,103.43A8,8,0,0,1,51,88.57l69,27.61V40a8,8,0,0,1,16,0v76.18l69-27.61A8,8,0,1,1,211,103.43Z"></path></svg>
+            </span>
+          </div>
+          <select class="form-control" id="advancedWildcard" onchange="generate()">
+            <option value="0" disabled>Select</option>
+            <option value="1" selected>Numbers</option>
+            <option value="2">Letters</option>
+            <option value="3">Numbers and letters</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+`,d=`<section id="section-companies" style="display: none"></section>
+`,m=`<section id="section-creditcards" style="display: none"></section>
+`,p=`<section id="section-custom" style="display: none">
+    <div class="card">
+      <div class="form-group mb-1">
+        <h5>Custom dataset</h5>
+        <input class="form-control" id="customDataset" type="url" placeholder="Link to your JSON dataset" onchange="generate();" />
+      </div>
+
+      <div class="form-group">
+        <h5>Key</h5>
+        <input class="form-control" id="customDatasetKey" type="text" placeholder="e.g. names" onchange="generate();" />
+      </div>
+    </div>
+  </section>
+`,u=`<section id="section-dates" style="display: none">
     <div class="card">
       <h5>Options</h5>
       <p class="small">Year</p>
@@ -140,27 +110,7 @@
       </div>
     </div>
   </section>
-
-<section id="section-times" style="display: none">
-    <div class="card">
-      <h5>Options</h5>
-      <p class="small">Time format</p>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg>
-          </span>
-        </div>
-        <select class="form-control" id="timeFormat" onchange="generate()">
-          <option value="0" disabled>Select time format</option>
-          <option value="1" selected>24h - hh:mm - 15:30</option>
-          <option value="2">12h - h:mm am/pm - 4:30pm</option>
-        </select>
-      </div>
-    </div>
-  </section>
-
-<section id="section-datetime" style="display: none">
+`,g=`<section id="section-datetime" style="display: none">
     <div class="card">
       <h5>Options</h5>
 
@@ -229,43 +179,33 @@
       </div>
     </div>
   </section>
-`,d=`<section id="section-numbers" style="display: none">
+`,h=`<section id="section-emails" style="display: none"></section>
+`,y=`<section id="section-ethereum" style="display: none">
     <div class="card">
       <h5>Options</h5>
-      <div class="layout-options mb-1">
-        <div>
-          <p class="small">From</p>
-          <div class="input-group me-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
-              </span>
-            </div>
-            <input class="form-control" id="numberFrom" type="number" min="0" value="0" onchange="generate()" />
-          </div>
-        </div>
-
-        <div class="ms-1">
-          <p class="small">To</p>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256"><path d="M189.66,122.34a8,8,0,0,1,0,11.32l-72,72a8,8,0,0,1-11.32-11.32L164.69,136H32a8,8,0,0,1,0-16H164.69L106.34,61.66a8,8,0,0,1,11.32-11.32ZM216,32a8,8,0,0,0-8,8V216a8,8,0,0,0,16,0V40A8,8,0,0,0,216,32Z"></path></svg>
-              </span>
-            </div>
-            <input class="form-control" id="numberTo" type="number" min="0" value="50" onchange="generate()" />
-          </div>
-        </div>
-      </div>
-
       <div class="form-check form-switch layout-options">
-        <p class="small m-0">Decimals</p>
-        <input class="form-check-input" type="checkbox" role="switch" id="numberRangeDecimals" checked />
+        <p class="small m-0">Truncate</p>
+        <input class="form-check-input" type="checkbox" role="switch" id="addressTruncate" onchange="truncateAddress(this)" />
+      </div>
+      <div id="truncateInput" class="layout-options mt-1" style="display: none">
+        <div class="me-1">
+          <p class="small">Pre</p>
+          <input class="form-control" id="truncatePre" type="number" min="0" value="6" onchange="generate()" />
+        </div>
+        <div class="me-1">
+          <p class="small">Mid</p>
+          <input class="form-control" id="truncateMid" type="text" value="..." onchange="generate()" />
+        </div>
+        <div>
+          <p class="small">Post</p>
+          <input class="form-control" id="truncatePost" type="number" min="0" value="6" onchange="generate()" />
+        </div>
       </div>
     </div>
   </section>
-
-<section id="section-money" style="display: none">
+`,v=`<section id="section-fullnames" style="display: none"></section>
+`,f=`<section id="section-licenseplates" style="display: none"></section>
+`,x=`<section id="section-money" style="display: none">
     <div class="card">
       <h5>Options</h5>
       <div class="layout-options mb-1">
@@ -323,74 +263,120 @@
       </div>
     </div>
   </section>
-`,m=`<section id="section-licenseplates" style="display: none"></section>
-
-<section id="section-creditcards" style="display: none"></section>
-
-<section id="section-ethereum" style="display: none">
+`,M=`<section id="section-names" style="display: none">
     <div class="card">
       <h5>Options</h5>
-      <div class="form-check form-switch layout-options">
-        <p class="small m-0">Truncate</p>
-        <input class="form-check-input" type="checkbox" role="switch" id="addressTruncate" onchange="truncateAddress(this)" />
-      </div>
-      <div id="truncateInput" class="layout-options mt-1" style="display: none">
-        <div class="me-1">
-          <p class="small">Pre</p>
-          <input class="form-control" id="truncatePre" type="number" min="0" value="6" onchange="generate()" />
-        </div>
-        <div class="me-1">
-          <p class="small">Mid</p>
-          <input class="form-control" id="truncateMid" type="text" value="..." onchange="generate()" />
-        </div>
-        <div>
-          <p class="small">Post</p>
-          <input class="form-control" id="truncatePost" type="number" min="0" value="6" onchange="generate()" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-<section id="section-wifi" style="display: none"></section>
-
-<section id="section-advanced" style="display: none">
-    <div class="card">
-      <h5>Options</h5>
-      <p class="small">Pattern</p>
-      <input class="form-control mb-1" id="advancedPattern" type="text" placeholder="e.g. PG-*****" onchange="generate()" />
-      <div class="w-100">
-        <p class="small">Wildcard values</p>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#B3B3B3" viewBox="0 0 256 256"><path d="M211,103.43l-70.13,28,49.47,63.61a8,8,0,1,1-12.63,9.82L128,141,78.32,204.91a8,8,0,0,1-12.63-9.82l49.47-63.61L45,103.43A8,8,0,0,1,51,88.57l69,27.61V40a8,8,0,0,1,16,0v76.18l69-27.61A8,8,0,1,1,211,103.43Z"></path></svg>
-            </span>
-          </div>
-          <select class="form-control" id="advancedWildcard" onchange="generate()">
-            <option value="0" disabled>Select</option>
-            <option value="1" selected>Numbers</option>
-            <option value="2">Letters</option>
-            <option value="3">Numbers and letters</option>
-          </select>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<section id="section-custom" style="display: none">
-    <div class="card">
-      <div class="form-group mb-1">
-        <h5>Custom dataset</h5>
-        <input class="form-control" id="customDataset" type="url" placeholder="Link to your JSON dataset" onchange="generate();" />
-      </div>
-
+      <p class="small">Gender</p>
       <div class="form-group">
-        <h5>Key</h5>
-        <input class="form-control" id="customDatasetKey" type="text" placeholder="e.g. names" onchange="generate();" />
+        <select id="genderSelection" class="form-control" name="" onchange="generate();">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="both" selected>Both</option>
+        </select>
       </div>
     </div>
   </section>
-`,p=`const btnCreate = document.getElementById("create");
+`,w=`<section id="section-numbers" style="display: none">
+    <div class="card">
+      <h5>Options</h5>
+      <div class="layout-options mb-1">
+        <div>
+          <p class="small">From</p>
+          <div class="input-group me-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
+              </span>
+            </div>
+            <input class="form-control" id="numberFrom" type="number" min="0" value="0" onchange="generate()" />
+          </div>
+        </div>
+
+        <div class="ms-1">
+          <p class="small">To</p>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256"><path d="M189.66,122.34a8,8,0,0,1,0,11.32l-72,72a8,8,0,0,1-11.32-11.32L164.69,136H32a8,8,0,0,1,0-16H164.69L106.34,61.66a8,8,0,0,1,11.32-11.32ZM216,32a8,8,0,0,0-8,8V216a8,8,0,0,0,16,0V40A8,8,0,0,0,216,32Z"></path></svg>
+              </span>
+            </div>
+            <input class="form-control" id="numberTo" type="number" min="0" value="50" onchange="generate()" />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-check form-switch layout-options">
+        <p class="small m-0">Decimals</p>
+        <input class="form-check-input" type="checkbox" role="switch" id="numberRangeDecimals" checked />
+      </div>
+    </div>
+  </section>
+`,E=`<section id="section-phones" style="display: none">
+    <div class="card">
+      <h5>Options</h5>
+      <p class="small">Phone prefix</p>
+      <div class="input-group mb-1">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0iI2UzZTNlMyIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxwYXRoIGQ9Ik0yMjQsMTI4YTgsOCwwLDAsMS04LDhIMTM2djgwYTgsOCwwLDAsMS0xNiwwVjEzNkg0MGE4LDgsMCwwLDEsMC0xNmg4MFY0MGE4LDgsMCwwLDEsMTYsMHY4MGg4MEE4LDgsMCwwLDEsMjI0LDEyOFoiPjwvcGF0aD48L3N2Zz4=" width="16" height="16" alt="" />
+          </span>
+        </div>
+        <input class="form-control" id="phonePrefix" type="number" value="44" placeholder="Phone prefix e.g.41" />
+      </div>
+
+      <p class="small">Format</p>
+      <div class="input-group mb-1">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <img
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0iI2UzZTNlMyIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxwYXRoIGQ9Ik0yMjIuMzcsMTU4LjQ2bC00Ny4xMS0yMS4xMS0uMTMtLjA2YTE2LDE2LDAsMCwwLTE1LjE3LDEuNCw4LjEyLDguMTIsMCwwLDAtLjc1LjU2TDEzNC44NywxNjBjLTE1LjQyLTcuNDktMzEuMzQtMjMuMjktMzguODMtMzguNTFsMjAuNzgtMjQuNzFjLjItLjI1LjM5LS41LjU3LS43N2ExNiwxNiwwLDAsMCwxLjMyLTE1LjA2bDAtLjEyTDk3LjU0LDMzLjY0YTE2LDE2LDAsMCwwLTE2LjYyLTkuNTJBNTYuMjYsNTYuMjYsMCwwLDAsMzIsODBjMCw3OS40LDY0LjYsMTQ0LDE0NCwxNDRhNTYuMjYsNTYuMjYsMCwwLDAsNTUuODgtNDguOTJBMTYsMTYsMCwwLDAsMjIyLjM3LDE1OC40NlpNMTc2LDIwOEExMjguMTQsMTI4LjE0LDAsMCwxLDQ4LDgwLDQwLjIsNDAuMiwwLDAsMSw4Mi44Nyw0MGEuNjEuNjEsMCwwLDAsMCwuMTJsMjEsNDdMODMuMiwxMTEuODZhNi4xMyw2LjEzLDAsMCwwLS41Ny43NywxNiwxNiwwLDAsMC0xLDE1LjdjOS4wNiwxOC41MywyNy43MywzNy4wNiw0Ni40Niw0Ni4xMWExNiwxNiwwLDAsMCwxNS43NS0xLjE0LDguNDQsOC40NCwwLDAsMCwuNzQtLjU2TDE2OC44OSwxNTJsNDcsMjEuMDVoMHMuMDgsMCwuMTEsMEE0MC4yMSw0MC4yMSwwLDAsMSwxNzYsMjA4WiI+PC9wYXRoPjwvc3ZnPg=="
+              width="16"
+              height="16"
+              alt=""
+            />
+          </span>
+        </div>
+        <select name="phone" id="phoneFormat" class="form-control" onchange="checkFormatSelected(this)">
+          <option value="null" selected disabled>Select format</option>
+          <option value="custom">Custom</option>
+          <option value="04xx xxx xxx">Australia</option>
+          <option value="13x xxxx xxxx">China</option>
+          <option value="0x xx xx xx xx">France</option>
+          <option value="xxxx xxxxxx">India</option>
+          <option value="xxx xxxxxxx">Italy</option>
+          <option value="6xx xxx xxx">Spain</option>
+          <option value="xxxx xxxxxx">United Kingdom</option>
+          <option value="212 xxx xxx">United States</option>
+        </select>
+      </div>
+
+      <div>
+        <input class="form-control" id="phoneDigits" type="hidden" value="xx-xxxx-xxx" placeholder="e.g. xx-xxxx-xxx" hidden />
+      </div>
+    </div>
+  </section>
+`,S=`<section id="section-surnames" style="display: none"></section>
+`,b=`<section id="section-times" style="display: none">
+    <div class="card">
+      <h5>Options</h5>
+      <p class="small">Time format</p>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e3e3e3" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg>
+          </span>
+        </div>
+        <select class="form-control" id="timeFormat" onchange="generate()">
+          <option value="0" disabled>Select time format</option>
+          <option value="1" selected>24h - hh:mm - 15:30</option>
+          <option value="2">12h - h:mm am/pm - 4:30pm</option>
+        </select>
+      </div>
+    </div>
+  </section>
+`,D=`<section id="section-usernames" style="display: none"></section>
+`,I=`<section id="section-wifi" style="display: none"></section>
+`,L=`const btnCreate = document.getElementById("create");
   const outputPreview = document.getElementById("outputPreview");
 
   // Get every numeric input and prevent to ever be 0
@@ -1158,8 +1144,8 @@
       },
       "*"
     );
-  };`,u=[l,c,r,d,m].join(`
-`);document.body.innerHTML=document.body.innerHTML.replace("\x3C!-- VITE_DATASET_PAGES -->",u);const a=document.createElement("script");a.textContent=p;document.body.append(a);</script>
+  };`,A=Object.assign({"./pages/address.html":c,"./pages/advanced.html":r,"./pages/companies.html":d,"./pages/creditcards.html":m,"./pages/custom.html":p,"./pages/dates.html":u,"./pages/datetime.html":g,"./pages/emails.html":h,"./pages/ethereum.html":y,"./pages/fullnames.html":v,"./pages/licenseplates.html":f,"./pages/money.html":x,"./pages/names.html":M,"./pages/numbers.html":w,"./pages/phones.html":E,"./pages/surnames.html":S,"./pages/times.html":b,"./pages/usernames.html":D,"./pages/wifi.html":I}),B=[...document.querySelector("#datasetSelector").options].filter(t=>t.value!=="null"&&!t.disabled),N=B.map(t=>{const s=A[`./pages/${t.value}.html`];if(!s)throw new Error(`Missing UI page for dataset: ${t.value}`);return s}).join(`
+`);document.body.innerHTML=document.body.innerHTML.replace("\x3C!-- VITE_DATASET_PAGES -->",N);const i=document.createElement("script");i.textContent=L;document.body.append(i);</script>
   <style rel="stylesheet" crossorigin>*{margin:0;padding:0;font-family:Inter,sans-serif}.figma-light body{color:#333}.figma-dark body{color:#fff;background-color:#2c2c2c}.container{margin:12px}.ms-1{margin-left:.5rem}.me-1{margin-right:.5rem}.mt-1{margin-top:1rem}.mb-1{margin-bottom:1rem}.m-0{margin:0!important}.w-33{width:33%!important}.w-50{width:50%!important}.w-100{width:100%!important}p{font-size:.8rem}.small{font-size:12px;margin-bottom:6px}h4,h5{margin-bottom:.5rem;font-weight:500}a{color:#a7acb1}a:hover{opacity:.8}hr{margin-top:1rem;margin-bottom:1rem;border-color:#009b4e}.d-flex{display:flex}.flex-row{flex-direction:row}.flex-column{flex-direction:column}#outputPreview{font-family:Roboto Mono,monospace;font-size:.8rem;color:#aaa;min-height:85px;max-height:130px;overflow:scroll}footer a{font-size:.8rem}.btn{display:inline-block;text-align:center;vertical-align:middle;padding:.375rem .75rem;font-size:1rem;line-height:1.5;border-radius:.25rem;border:1px solid transparent;cursor:pointer}.btn-primary{background-color:#00b763;border-color:#00b763;color:#fff;text-decoration:none}.btn-primary:hover{background-color:#009b4e;border-color:#009b4e;color:#fff}.btn-primary:focus{background-color:#008d47;border-color:#008d47;color:#fff;box-shadow:0 0 0 .2rem #00b7637f}.figma-light .btn-primary:disabled,.btn-primary[disabled]{background-color:#c0d0c9;border-color:#c0d0c9;color:#5f7665;cursor:default}.figma-dark .btn-primary:disabled,.btn-primary[disabled]{background-color:#2c463a;border-color:#2c463a;color:#5f7665;cursor:default}.btn-radio:checked+.btn{background-color:#444;border-color:#008d47}input[type=radio]{opacity:0;margin:0;height:1px;width:1px}input[type=radio]{box-sizing:border-box;padding:0}.btn-block{width:100%}.form-control{display:block;width:100%;height:calc(1.5em + .75rem + 2px);padding:.375rem .5rem;font-size:.85rem;font-weight:400;line-height:1.5;background-clip:padding-box;border:none;border-radius:4px}select{appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22iso-8859-1%22%3F%3E%3C!--%20Generator%3A%20Adobe%20Illustrator%2019.0.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200\)%20%20--%3E%3C!--%20License%3A%20CC0.%20Made%20by%20SVG%20Repo%3A%20https%3A%2F%2Fwww.svgrepo.com%2Fsvg%2F183552%2Fchevron%20--%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%20512%20512%22%20style%3D%22enable-background%3Anew%200%200%20512%20512%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20style%3D%22fill%3A%23ffffff%3B%22%20d%3D%22M505.183%2C123.179c-9.087-9.087-23.824-9.089-32.912%2C0.002l-216.266%2C216.27L39.729%2C123.179c-9.087-9.087-23.824-9.089-32.912%2C0.002c-9.089%2C9.089-9.089%2C23.824%2C0%2C32.912L239.55%2C388.82c4.364%2C4.364%2C10.283%2C6.816%2C16.455%2C6.816c6.172%2C0%2C12.092-2.453%2C16.455-6.817l232.721-232.727C514.272%2C147.004%2C514.272%2C132.268%2C505.183%2C123.179z%22%2F%3E%3C%2Fsvg%3E);background-repeat:no-repeat;background-position:right .7rem top 50%;background-size:.65rem auto}.figma-light .form-control{color:#495057;background-color:#fff}.figma-dark .form-control{color:#fff;background-color:#444}.form-control:focus{outline:0;box-shadow:0 0 0 .2rem #00b76340}.figma-light .form-control:focus{color:#495057;background-color:#fff;border-color:#00b763}.figma-dark .form-control:focus{color:#fff;background-color:#444;border-color:#00b763}label{display:inline-block;font-size:.8rem;margin-bottom:.5rem}.layout-options{display:flex;justify-content:space-between}.gap-8{gap:8px}.footer-section{display:flex;flex-direction:row;justify-content:space-between;align-items:center;padding-left:15px;padding-right:15px}.footer-version{display:flex;justify-content:end;padding-right:20px;padding-bottom:0}.footer-version p{color:#495057;font-size:8px}.btn-group{display:inline-flex;flex-direction:row;justify-content:space-between;border-radius:.25rem}.figma-light .btn-group{background-color:#e5e5e5}.figma-dark .btn-group{background-color:#2c2c2c}.btn-group label{margin:0}.btn-group-item{width:100%;text-align:center}footer{width:100%;position:fixed;bottom:0;left:0}.input-group{position:relative;display:flex;flex-wrap:nowrap;align-items:stretch;width:100%}.input-group-prepend{display:flex;margin-right:-1px}.input-group-text{display:flex;align-items:center;padding:.375rem;margin-bottom:0;font-size:1rem;font-weight:400;line-height:1.5;text-align:center;background-color:#fff;white-space:nowrap;border-radius:.25rem}.figma-light .input-group-text{background-color:#fff}.figma-dark .input-group-text{background-color:#444}.input-group>.input-group-prepend>.input-group-text{border-top-right-radius:0;border-bottom-right-radius:0}.input-group>.form-control{border-top-left-radius:0;border-bottom-left-radius:0}.form-helper{margin-top:.5rem;font-size:.8rem;color:#a7acb1;line-height:1.4}.figma-dark .card,.figma-light .card{padding-top:12px;padding-bottom:12px;margin-bottom:12px}.figma-dark .card h2{margin-bottom:.25rem;color:#fff}.figma-light .card h2{margin-bottom:.25rem;color:#333}.figma-dark .card p{color:#a7acb1}.figma-light .card p{color:#333}.vertical-align-bottom{vertical-align:bottom}.mini-banner{height:4px;background-color:#00b763;width:100%}.form-check{align-items:center}.form-switch .form-check-input:checked{background-position:right center;background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e")}.form-check-input:checked[type=checkbox]{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e")}.form-switch .form-check-input{width:2em;margin-left:-2.5em;background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");background-position:left center;border-radius:2em;transition:background-position .15s ease-in-out}.form-check-input:checked{background-color:#00b763;border-color:#00b763}.form-check-input[type=checkbox]{border-radius:1rem}.form-check-input{width:1em;height:1em;margin-top:.25em;vertical-align:top;background-color:#b3b3b3;background-repeat:no-repeat;background-position:center;background-size:contain;border:1px solid rgba(0,0,0,.25);-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-print-color-adjust:exact;color-adjust:exact;print-color-adjust:exact}</style>
 </head>
 <body>
