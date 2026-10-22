@@ -4,26 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mockreate</title>
-    <script type="module" crossorigin>
-      (function () {
-        const s = document.createElement("link").relList;
-        if (s && s.supports && s.supports("modulepreload")) return;
-        for (const e of document.querySelectorAll('link[rel="modulepreload"]')) o(e);
-        new MutationObserver((e) => {
-          for (const n of e) if (n.type === "childList") for (const a of n.addedNodes) a.tagName === "LINK" && a.rel === "modulepreload" && o(a);
-        }).observe(document, { childList: !0, subtree: !0 });
-        function l(e) {
-          const n = {};
-          return (e.integrity && (n.integrity = e.integrity), e.referrerPolicy && (n.referrerPolicy = e.referrerPolicy), e.crossOrigin === "use-credentials" ? (n.credentials = "include") : e.crossOrigin === "anonymous" ? (n.credentials = "omit") : (n.credentials = "same-origin"), n);
-        }
-        function o(e) {
-          if (e.ep) return;
-          e.ep = !0;
-          const n = l(e);
-          fetch(e.href, n);
-        }
-      })();
-      const r = `<section id="section-address" style="display: none">
+    <script type="module" crossorigin>(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))o(e);new MutationObserver(e=>{for(const n of e)if(n.type==="childList")for(const a of n.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&o(a)}).observe(document,{childList:!0,subtree:!0});function l(e){const n={};return e.integrity&&(n.integrity=e.integrity),e.referrerPolicy&&(n.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?n.credentials="include":e.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function o(e){if(e.ep)return;e.ep=!0;const n=l(e);fetch(e.href,n)}})();const r=`<section id="section-address" style="display: none">
     <div class="card">
       <h5>Options</h5>
       <p class="small">Country</p>
@@ -59,8 +40,7 @@
       </div>
     </div>
   </section>
-`,
-        c = `<section id="section-advanced" style="display: none">
+`,c=`<section id="section-advanced" style="display: none">
     <div class="card">
       <h5>Options</h5>
       <p class="small">Pattern</p>
@@ -83,18 +63,15 @@
       </div>
     </div>
   </section>
-`,
-        d = `<section id="section-avatars" style="display: none">
+`,d=`<section id="section-avatars" style="display: none">
   <div class="card">
     <h5>Avatars</h5>
     <p class="small" id="avatarStatus" aria-live="polite">Add PNG or JPEG files to src/assets/avatars to enable avatars.</p>
   </div>
-</section>`,
-        m = `<section id="section-companies" style="display: none"></section>
-`,
-        p = `<section id="section-creditcards" style="display: none"></section>
-`,
-        u = `<section id="section-custom" style="display: none">
+</section>
+`,m=`<section id="section-companies" style="display: none"></section>
+`,p=`<section id="section-creditcards" style="display: none"></section>
+`,u=`<section id="section-custom" style="display: none">
     <div class="card">
       <div class="form-group mb-1">
         <h5>Custom dataset</h5>
@@ -107,8 +84,7 @@
       </div>
     </div>
   </section>
-`,
-        g = `<section id="section-dates" style="display: none">
+`,g=`<section id="section-dates" style="display: none">
     <div class="card">
       <h5>Options</h5>
       <p class="small">Year</p>
@@ -140,8 +116,7 @@
       </div>
     </div>
   </section>
-`,
-        v = `<section id="section-datetime" style="display: none">
+`,v=`<section id="section-datetime" style="display: none">
     <div class="card">
       <h5>Options</h5>
 
@@ -210,10 +185,8 @@
       </div>
     </div>
   </section>
-`,
-        y = `<section id="section-emails" style="display: none"></section>
-`,
-        h = `<section id="section-ethereum" style="display: none">
+`,y=`<section id="section-emails" style="display: none"></section>
+`,h=`<section id="section-ethereum" style="display: none">
     <div class="card">
       <h5>Options</h5>
       <div class="form-check form-switch layout-options">
@@ -236,12 +209,9 @@
       </div>
     </div>
   </section>
-`,
-        f = `<section id="section-fullnames" style="display: none"></section>
-`,
-        x = `<section id="section-licenseplates" style="display: none"></section>
-`,
-        M = `<section id="section-money" style="display: none">
+`,f=`<section id="section-fullnames" style="display: none"></section>
+`,x=`<section id="section-licenseplates" style="display: none"></section>
+`,M=`<section id="section-money" style="display: none">
     <div class="card">
       <h5>Options</h5>
       <div class="layout-options mb-1">
@@ -299,8 +269,7 @@
       </div>
     </div>
   </section>
-`,
-        w = `<section id="section-names" style="display: none">
+`,w=`<section id="section-names" style="display: none">
     <div class="card">
       <h5>Options</h5>
       <p class="small">Gender</p>
@@ -313,8 +282,7 @@
       </div>
     </div>
   </section>
-`,
-        S = `<section id="section-numbers" style="display: none">
+`,S=`<section id="section-numbers" style="display: none">
     <div class="card">
       <h5>Options</h5>
       <div class="layout-options mb-1">
@@ -349,8 +317,7 @@
       </div>
     </div>
   </section>
-`,
-        E = `<section id="section-phones" style="display: none">
+`,E=`<section id="section-phones" style="display: none">
     <div class="card">
       <h5>Options</h5>
       <p class="small">Phone prefix</p>
@@ -394,10 +361,8 @@
       </div>
     </div>
   </section>
-`,
-        b = `<section id="section-surnames" style="display: none"></section>
-`,
-        A = `<section id="section-times" style="display: none">
+`,b=`<section id="section-surnames" style="display: none"></section>
+`,A=`<section id="section-times" style="display: none">
     <div class="card">
       <h5>Options</h5>
       <p class="small">Time format</p>
@@ -415,894 +380,853 @@
       </div>
     </div>
   </section>
-`,
-        I = `<section id="section-usernames" style="display: none"></section>
-`,
-        D = `<section id="section-wifi" style="display: none"></section>
-`,
-        L = `const btnCreate = document.getElementById("create");
-  const outputPreview = document.getElementById("outputPreview");
+`,I=`<section id="section-usernames" style="display: none"></section>
+`,D=`<section id="section-wifi" style="display: none"></section>
+`,L=`const btnCreate = document.getElementById("create");
+const outputPreview = document.getElementById("outputPreview");
 
-  // Get every numeric input and prevent to ever be 0
-  const numInputs = document.querySelectorAll("input[type=number]");
+// Get every numeric input and prevent to ever be 0
+const numInputs = document.querySelectorAll("input[type=number]");
 
-  numInputs.forEach(function (input) {
-    input.addEventListener("change", function (e) {
-      if (e.target.value == "") {
-        e.target.value = 0;
-      }
-    });
+numInputs.forEach(function (input) {
+  input.addEventListener("change", function (e) {
+    if (e.target.value == "") {
+      e.target.value = 0;
+    }
   });
+});
 
-  function checkFormatSelected(el) {
-    if (el.value == "custom") {
-      document.getElementById("phoneDigits").type = "text";
-    } else {
-      document.getElementById("phoneDigits").type = "hidden";
-    }
+function checkFormatSelected(el) {
+  if (el.value == "custom") {
+    document.getElementById("phoneDigits").type = "text";
+  } else {
+    document.getElementById("phoneDigits").type = "hidden";
+  }
+}
+
+function truncateAddress(el) {
+  if (el.checked) {
+    document.getElementById("truncateInput").style.display = "flex";
+  } else {
+    document.getElementById("truncateInput").style.display = "none";
+  }
+}
+
+function datasetController(el) {
+  //Layout options startup
+  if (el.value !== "null") {
+    let options = document.getElementById("options");
+    options.style.display = "block";
+    let helper = document.getElementById("formHelper");
+    let changelog = document.getElementById("changelog");
+    helper.style.display = "none";
+    changelog.style.display = "none";
   }
 
-  function truncateAddress(el) {
-    if (el.checked) {
-      document.getElementById("truncateInput").style.display = "flex";
-    } else {
-      document.getElementById("truncateInput").style.display = "none";
-    }
-  }
-
-  function datasetController(el) {
-    //Layout options startup
-    if (el.value !== "null") {
-      let options = document.getElementById("options");
-      options.style.display = "block";
-      let helper = document.getElementById("formHelper");
-      let changelog = document.getElementById("changelog");
-      helper.style.display = "none";
-      changelog.style.display = "none";
-    }
-
-    //NAMES -------------------------------------------------------------------------
-    //Display names section if names is selected
-    if (el.value == "names") {
-      let section = document.getElementById("section-names");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //SURNAMES -------------------------------------------------------------------------
-    //Display surnames section if surname is selected
-    if (el.value == "surnames") {
-      let section = document.getElementById("section-surnames");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //FULLNAMES -------------------------------------------------------------------------
-    //Display full names section if full names is selected
-    if (el.value == "fullnames") {
-      let section = document.getElementById("section-fullnames");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //USERNAMES -------------------------------------------------------------------------
-    //Display  usernames section if usernames is selected
-    if (el.value == "usernames") {
-      let section = document.getElementById("section-usernames");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //EMAILS -------------------------------------------------------------------------
-    //Display  emails section if emails is selected
-    if (el.value == "emails") {
-      let section = document.getElementById("section-emails");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //COMPANIES -------------------------------------------------------------------------
-    //Display companies section if companies is selected
-    if (el.value == "companies") {
-      let section = document.getElementById("section-companies");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //PHONE NUMBERS -------------------------------------------------------------------------
-    //Display  phone numbers section if phone numbers is selected
-    if (el.value == "phones") {
-      let section = document.getElementById("section-phones");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //ADDRESS -------------------------------------------------------------------------
-    //Display address section if phone numbers is selected
-    if (el.value == "address") {
-      let section = document.getElementById("section-address");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //DATES -------------------------------------------------------------------------
-    //Display dates section if dates is selected
-    if (el.value == "dates") {
-      let section = document.getElementById("section-dates");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //TIME -------------------------------------------------------------------------
-    //Display times section if times is selected
-    if (el.value == "times") {
-      let section = document.getElementById("section-times");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //DATETIME -------------------------------------------------------------------------
-    //Display datetime section if datetime is selected
-    if (el.value == "datetime") {
-      let section = document.getElementById("section-datetime");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //NUMBERS -------------------------------------------------------------------------
-    //Display numbers section if numbers is selected
-    if (el.value == "numbers") {
-      let section = document.getElementById("section-numbers");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //MONEY -------------------------------------------------------------------------
-    //Display money section if money is selected
-    if (el.value == "money") {
-      let section = document.getElementById("section-money");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //LICENSE PLATES -------------------------------------------------------------------------
-    //Display license plates section if credit cards is selected
-    if (el.value == "licenseplates") {
-      let section = document.getElementById("section-licenseplates");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //CREDIT CARDS -------------------------------------------------------------------------
-    //Display credit cards section if credit cards is selected
-    if (el.value == "creditcards") {
-      let section = document.getElementById("section-creditcards");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //ETHEREUM ADDRESS -------------------------------------------------------------------------
-    //Display ethereum address section if ethereum is selected
-    if (el.value == "ethereum") {
-      let section = document.getElementById("section-ethereum");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //WIFI -------------------------------------------------------------------------
-    //Display wifi network section if wifi is selected
-    if (el.value == "wifi") {
-      let section = document.getElementById("section-wifi");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //ADVANCED -------------------------------------------------------------------------
-    //Display advanced section if advanced is selected
-    if (el.value == "advanced") {
-      let section = document.getElementById("section-advanced");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //CUSTOM -------------------------------------------------------------------------
-    //Display custom section if custom is selected
-    if (el.value == "custom") {
-      let section = document.getElementById("section-custom");
-      if (section.style.display == "none") {
-        let sections = document.getElementsByTagName("section");
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = "none";
-        }
-        section.style.display = "block";
-      } else {
-        section.style.display = "none";
-      }
-    }
-
-    //AVATARS -----------------------------------------------------------------------
-    if (el.value == "avatars") {
-      let section = document.getElementById("section-avatars");
+  //NAMES -------------------------------------------------------------------------
+  //Display names section if names is selected
+  if (el.value == "names") {
+    let section = document.getElementById("section-names");
+    if (section.style.display == "none") {
       let sections = document.getElementsByTagName("section");
       for (var i = 0; i < sections.length; i++) {
         sections[i].style.display = "none";
       }
       section.style.display = "block";
+    } else {
+      section.style.display = "none";
     }
+  }
 
+  //SURNAMES -------------------------------------------------------------------------
+  //Display surnames section if surname is selected
+  if (el.value == "surnames") {
+    let section = document.getElementById("section-surnames");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //FULLNAMES -------------------------------------------------------------------------
+  //Display full names section if full names is selected
+  if (el.value == "fullnames") {
+    let section = document.getElementById("section-fullnames");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //USERNAMES -------------------------------------------------------------------------
+  //Display  usernames section if usernames is selected
+  if (el.value == "usernames") {
+    let section = document.getElementById("section-usernames");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //EMAILS -------------------------------------------------------------------------
+  //Display  emails section if emails is selected
+  if (el.value == "emails") {
+    let section = document.getElementById("section-emails");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //COMPANIES -------------------------------------------------------------------------
+  //Display companies section if companies is selected
+  if (el.value == "companies") {
+    let section = document.getElementById("section-companies");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //PHONE NUMBERS -------------------------------------------------------------------------
+  //Display  phone numbers section if phone numbers is selected
+  if (el.value == "phones") {
+    let section = document.getElementById("section-phones");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //ADDRESS -------------------------------------------------------------------------
+  //Display address section if phone numbers is selected
+  if (el.value == "address") {
+    let section = document.getElementById("section-address");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //DATES -------------------------------------------------------------------------
+  //Display dates section if dates is selected
+  if (el.value == "dates") {
+    let section = document.getElementById("section-dates");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //TIME -------------------------------------------------------------------------
+  //Display times section if times is selected
+  if (el.value == "times") {
+    let section = document.getElementById("section-times");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //DATETIME -------------------------------------------------------------------------
+  //Display datetime section if datetime is selected
+  if (el.value == "datetime") {
+    let section = document.getElementById("section-datetime");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //NUMBERS -------------------------------------------------------------------------
+  //Display numbers section if numbers is selected
+  if (el.value == "numbers") {
+    let section = document.getElementById("section-numbers");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //MONEY -------------------------------------------------------------------------
+  //Display money section if money is selected
+  if (el.value == "money") {
+    let section = document.getElementById("section-money");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //LICENSE PLATES -------------------------------------------------------------------------
+  //Display license plates section if credit cards is selected
+  if (el.value == "licenseplates") {
+    let section = document.getElementById("section-licenseplates");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //CREDIT CARDS -------------------------------------------------------------------------
+  //Display credit cards section if credit cards is selected
+  if (el.value == "creditcards") {
+    let section = document.getElementById("section-creditcards");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //ETHEREUM ADDRESS -------------------------------------------------------------------------
+  //Display ethereum address section if ethereum is selected
+  if (el.value == "ethereum") {
+    let section = document.getElementById("section-ethereum");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //WIFI -------------------------------------------------------------------------
+  //Display wifi network section if wifi is selected
+  if (el.value == "wifi") {
+    let section = document.getElementById("section-wifi");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //ADVANCED -------------------------------------------------------------------------
+  //Display advanced section if advanced is selected
+  if (el.value == "advanced") {
+    let section = document.getElementById("section-advanced");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //CUSTOM -------------------------------------------------------------------------
+  //Display custom section if custom is selected
+  if (el.value == "custom") {
+    let section = document.getElementById("section-custom");
+    if (section.style.display == "none") {
+      let sections = document.getElementsByTagName("section");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+      }
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  }
+
+  //AVATARS -----------------------------------------------------------------------
+  if (el.value == "avatars") {
+    let section = document.getElementById("section-avatars");
+    let sections = document.getElementsByTagName("section");
+    for (var i = 0; i < sections.length; i++) {
+      sections[i].style.display = "none";
+    }
+    section.style.display = "block";
+  }
+
+  updateCreateButton();
+}
+//Define array to store the generated results
+let genStorage = [];
+let count = 0;
+let genderSelection;
+let textSelectionAvailable = false;
+let avatarSelectionAvailable = false;
+let avatarGenerationInProgress = false;
+const avatarAssetUrls = window.mockreateAvatarAssets || [];
+
+function updateCreateButton() {
+  const avatarMode = document.getElementById("datasetSelector").value === "avatars";
+  const selectionAvailable = avatarMode ? avatarSelectionAvailable && avatarAssetUrls.length > 0 : textSelectionAvailable;
+  btnCreate.disabled = avatarGenerationInProgress || !selectionAvailable;
+
+  if (avatarMode && !avatarGenerationInProgress) {
+    document.getElementById("avatarStatus").textContent = avatarAssetUrls.length ? "Select one or more shape layers to fill with random avatars." : "Add PNG or JPEG files to src/assets/avatars to enable avatars.";
+  }
+}
+
+// Get the state of the selection
+onmessage = (event) => {
+  const message = event.data.pluginMessage;
+
+  if (message.type === "selection-state") {
+    count = message.count;
+    textSelectionAvailable = message.textSelected;
+    avatarSelectionAvailable = message.avatarSelected;
     updateCreateButton();
   }
-  //Define array to store the generated results
-  let genStorage = [];
-  let count = 0;
-  let genderSelection;
-  let textSelectionAvailable = false;
-  let avatarSelectionAvailable = false;
-  let avatarGenerationInProgress = false;
-  const avatarAssetUrls = window.mockreateAvatarAssets || [];
 
-  function updateCreateButton() {
-    const avatarMode = document.getElementById("datasetSelector").value === "avatars";
-    const selectionAvailable = avatarMode ? avatarSelectionAvailable && avatarAssetUrls.length > 0 : textSelectionAvailable;
-    btnCreate.disabled = avatarGenerationInProgress || !selectionAvailable;
+  if (message.type === "avatar-generation-result") {
+    document.getElementById("avatarStatus").textContent = message.success ? "Avatars applied." : "Could not apply avatars. Please try again.";
+    avatarGenerationInProgress = false;
+    updateCreateButton();
+  }
+};
 
-    if (avatarMode && !avatarGenerationInProgress) {
-      document.getElementById("avatarStatus").textContent = avatarAssetUrls.length
-        ? "Select one or more shape layers to fill with random avatars."
-        : "Add PNG or JPEG files to src/assets/avatars to enable avatars.";
+document.getElementById("datasetSelector").addEventListener("change", updateCreateButton);
+
+////////////////////////////////////////////////////////////////////////////////////
+// GENERATE
+////////////////////////////////////////////////////////////////////////////////////
+
+async function generate() {
+  //Empty the array on a new generation
+  genStorage.length = 0;
+  genderSelection = document.getElementById("genderSelection").value;
+  const dataSelection = document.getElementById("datasetSelector").value;
+
+  //NAMES -------------------------------------------------------------------------
+  if (dataSelection == "names") {
+    const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
+
+    const request = new Request(requestURL);
+
+    const response = await fetch(request);
+    const items = await response.json();
+
+    for (var i = 0; i < count; i++) {
+      x = Math.floor(Math.random() * items.length);
+      if (genderSelection === "both") {
+        genStorage.push(items[x].name);
+      } else if (items[x].gender === genderSelection) {
+        genStorage.push(items[x].name);
+      } else {
+        genStorage.push(items[x].name);
+      }
     }
   }
 
-  // Get the state of the selection
-  onmessage = (event) => {
-    const message = event.data.pluginMessage;
+  //SURNAME -------------------------------------------------------------------------
+  if (dataSelection == "surnames") {
+    const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
 
-    if (message.type === "selection-state") {
-      count = message.count;
-      textSelectionAvailable = message.textSelected;
-      avatarSelectionAvailable = message.avatarSelected;
-      updateCreateButton();
+    const request = new Request(requestURL);
+
+    const response = await fetch(request);
+    const items = await response.json();
+
+    for (var i = 0; i < count; i++) {
+      x = Math.floor(Math.random() * items.length);
+      genStorage.push(items[x]);
     }
+  }
 
-    if (message.type === "avatar-generation-result") {
-      document.getElementById("avatarStatus").textContent = message.success ? "Avatars applied." : "Could not apply avatars. Please try again.";
-      avatarGenerationInProgress = false;
-      updateCreateButton();
+  //FULLNAMES ----------------------------------------------------------------------
+  if (dataSelection == "fullnames") {
+    const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
+    const request = new Request(requestURL);
+    const response = await fetch(request);
+    const items = await response.json();
+
+    for (var i = 0; i < count; i++) {
+      x = Math.floor(Math.random() * items.length);
+      genStorage.push(items[x].full_name);
     }
-  };
+  }
 
-  document.getElementById("datasetSelector").addEventListener("change", updateCreateButton);
+  //USERNAMES -----------------------------------------------------------------------
+  if (dataSelection == "usernames") {
+    const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
+    const request = new Request(requestURL);
+    const response = await fetch(request);
+    const items = await response.json();
 
-  ////////////////////////////////////////////////////////////////////////////////////
-  // GENERATE
-  ////////////////////////////////////////////////////////////////////////////////////
-
-  async function generate() {
-    //Empty the array on a new generation
-    genStorage.length = 0;
-    genderSelection = document.getElementById("genderSelection").value;
-    const dataSelection = document.getElementById("datasetSelector").value;
-
-    //NAMES -------------------------------------------------------------------------
-    if (dataSelection == "names") {
-      const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
-
-      const request = new Request(requestURL);
-
-      const response = await fetch(request);
-      const items = await response.json();
-
-      for (var i = 0; i < count; i++) {
-        x = Math.floor(Math.random() * items.length);
-        if (genderSelection === "both") {
-          genStorage.push(items[x].name);
-        } else if (items[x].gender === genderSelection) {
-          genStorage.push(items[x].name);
-        } else {
-          genStorage.push(items[x].name);
-        }
-      }
+    for (var i = 0; i < count; i++) {
+      x = Math.floor(Math.random() * items.length);
+      genStorage.push(items[x].username);
     }
+  }
 
-    //SURNAME -------------------------------------------------------------------------
-    if (dataSelection == "surnames") {
-      const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
+  //EMAILS -------------------------------------------------------------------------
+  if (dataSelection == "emails") {
+    const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
+    const request = new Request(requestURL);
+    const response = await fetch(request);
+    const items = await response.json();
 
-      const request = new Request(requestURL);
-
-      const response = await fetch(request);
-      const items = await response.json();
-
-      for (var i = 0; i < count; i++) {
-        x = Math.floor(Math.random() * items.length);
-        genStorage.push(items[x]);
-      }
+    for (var i = 0; i < count; i++) {
+      x = Math.floor(Math.random() * items.length);
+      genStorage.push(items[x].email);
     }
+  }
 
-    //FULLNAMES ----------------------------------------------------------------------
-    if (dataSelection == "fullnames") {
-      const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
-      const request = new Request(requestURL);
-      const response = await fetch(request);
-      const items = await response.json();
+  //COMPANIES ----------------------------------------------------------------------
+  if (dataSelection == "companies") {
+    const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
+    const request = new Request(requestURL);
+    const response = await fetch(request);
+    const items = await response.json();
 
-      for (var i = 0; i < count; i++) {
-        x = Math.floor(Math.random() * items.length);
-        genStorage.push(items[x].full_name);
-      }
+    for (var i = 0; i < count; i++) {
+      x = Math.floor(Math.random() * items.length);
+      genStorage.push(items[x].company);
     }
+  }
 
-    //USERNAMES -----------------------------------------------------------------------
-    if (dataSelection == "usernames") {
-      const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
-      const request = new Request(requestURL);
-      const response = await fetch(request);
-      const items = await response.json();
+  let phonePrefix = document.getElementById("phonePrefix").value;
+  let phoneDigits = document.getElementById("phoneDigits").value;
+  let phoneFormat = document.getElementById("phoneFormat").value;
 
-      for (var i = 0; i < count; i++) {
-        x = Math.floor(Math.random() * items.length);
-        genStorage.push(items[x].username);
-      }
-    }
+  function generateRandomPattern(pattern) {
+    let result = "";
 
-    //EMAILS -------------------------------------------------------------------------
-    if (dataSelection == "emails") {
-      const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
-      const request = new Request(requestURL);
-      const response = await fetch(request);
-      const items = await response.json();
-
-      for (var i = 0; i < count; i++) {
-        x = Math.floor(Math.random() * items.length);
-        genStorage.push(items[x].email);
-      }
-    }
-
-    //COMPANIES ----------------------------------------------------------------------
-    if (dataSelection == "companies") {
-      const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
-      const request = new Request(requestURL);
-      const response = await fetch(request);
-      const items = await response.json();
-
-      for (var i = 0; i < count; i++) {
-        x = Math.floor(Math.random() * items.length);
-        genStorage.push(items[x].company);
-      }
-    }
-
-    let phonePrefix = document.getElementById("phonePrefix").value;
-    let phoneDigits = document.getElementById("phoneDigits").value;
-    let phoneFormat = document.getElementById("phoneFormat").value;
-
-    function generateRandomPattern(pattern) {
-      let result = "";
-
-      for (let i = 0; i < pattern.length; i++) {
-        if (pattern[i] === "x") {
-          const digit = Math.floor(Math.random() * 10);
-          result += digit;
-        } else {
-          result += pattern[i];
-        }
-      }
-
-      return result;
-    }
-
-    //PHONES --------------------------------------------------------------------------
-    if (dataSelection == "phones" && phonePrefix !== "") {
-      if (phoneDigits == "") {
-        genStorage.push("Invalid format");
-      }
-      if (phoneFormat == "null") {
-        genStorage.push("Invalid format");
-      }
-
-      if (phoneFormat == "custom" && phoneDigits !== "") {
-        for (var i = 0; i < count; i++) {
-          x = generateRandomPattern(phoneDigits);
-          genStorage.push("+" + phonePrefix + " " + x);
-        }
-      }
-
-      if (phoneFormat !== "null" && phoneFormat !== "custom") {
-        for (var i = 0; i < count; i++) {
-          x = generateRandomPattern(phoneFormat);
-          genStorage.push("+" + phonePrefix + " " + x);
-        }
-      }
-    }
-
-    //ADDRESS ------------------------------------------------------------------------
-    const countrySelector = document.getElementById("countrySelector");
-
-    if (dataSelection == "address" && countrySelector.value !== "null") {
-      const baseURL = "https://randommer.io/random-address?";
-      const number = "100";
-      const locale = countrySelector.value;
-      try {
-        const response = await fetch(baseURL + "number=" + number + "&culture=" + locale, {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-        });
-        const data = await response.json();
-        console.log(data);
-
-        for (var i = 0; i < count; i++) {
-          x = Math.floor(Math.random() * data.length);
-          console.log(data[x]);
-          genStorage.push(data[x]);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    //DATES -------------------------------------------------------------------------
-    let selectedYear = document.getElementById("selectedYear").value;
-    let dateFormat = document.getElementById("dateFormat").value;
-
-    if (dataSelection == "dates" && selectedYear !== "" && dateFormat != 0) {
-      for (var i = 0; i < count; i++) {
-        date = generateDateFormat(selectedYear, dateFormat);
-        genStorage.push(date);
-      }
-    }
-
-    //TIME --------------------------------------------------------------------------
-    let timeFormat = document.getElementById("timeFormat").value;
-
-    if (dataSelection == "times" && timeFormat != 0) {
-      for (var i = 0; i < count; i++) {
-        time = generateTimeFormat(timeFormat);
-        genStorage.push(time);
-      }
-    }
-
-    //DATETIME ----------------------------------------------------------------------
-    let datetime = "";
-    const datetimeYear = document.getElementById("datetimeYear").value;
-    const datetimeDateFormat = document.getElementById("dateDatetimeFormat").value;
-    const datetimeSeparator = document.getElementById("datetimeSeparator").value;
-    const timeDatetimeFormat = document.getElementById("timeDatetimeFormat").value;
-
-    if (dataSelection == "datetime" && datetimeYear !== "" && datetimeDateFormat != 0) {
-      for (var i = 0; i < count; i++) {
-        date = generateDateFormat(datetimeYear, datetimeDateFormat);
-        time = generateTimeFormat(timeDatetimeFormat);
-        datetime = date + datetimeSeparator + time;
-        genStorage.push(datetime);
-      }
-    }
-
-    // Function to generate random date based on the selected format and a given year
-    function generateDateFormat(year, format) {
-      d = (Math.floor(Math.random() * (31 - 1 + 1)) + 1).toString();
-      m = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
-      let mm = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-      if (dateFormat == 1) {
-        genDate = d + "/" + m + "/" + year;
-        return genDate;
-      }
-      if (dateFormat == 2) {
-        genDate = d + "-" + m + "-" + year;
-        return genDate;
-      }
-      if (dateFormat == 3) {
-        genDate = d + " " + m + " " + year;
-        return genDate;
-      }
-      if (dateFormat == 4) {
-        genDate = d + " " + mm[m] + " " + year;
-        return genDate;
-      }
-    }
-
-    // Function to generate random time based on the selected format
-    function generateTimeFormat(format) {
-      hh = (Math.floor(Math.random() * (23 - 1 + 1)) + 1).toString();
-      h = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
-      m = (Math.floor(Math.random() * (60 - 1 + 1)) + 1).toString();
-      if (hh < 10) {
-        hh = "0" + hh;
-      }
-      if (m < 10) {
-        m = "0" + m;
-      }
-      let time = ["am", "pm"];
-      x = Math.floor(Math.random() * time.length);
-      if (format == 1) {
-        genTime = hh + ":" + m;
-        return genTime;
-      }
-      if (format == 2) {
-        genTime = h + ":" + m + time[x];
-        return genTime;
-      }
-    }
-
-    let numberFrom = parseInt(document.getElementById("numberFrom").value);
-    let numberTo = parseInt(document.getElementById("numberTo").value);
-    let decimalCheck = document.getElementById("numberRangeDecimals");
-
-    if (dataSelection == "numbers" && numberFrom !== "" && numberTo !== "") {
-      if (decimalCheck.checked) {
-        for (var i = 0; i < count; i++) {
-          x = (Math.random() * (numberTo - numberFrom + 1) + numberFrom).toFixed(2).toString();
-          genStorage.push(x);
-        }
+    for (let i = 0; i < pattern.length; i++) {
+      if (pattern[i] === "x") {
+        const digit = Math.floor(Math.random() * 10);
+        result += digit;
       } else {
-        for (var i = 0; i < count; i++) {
-          x = (Math.floor(Math.random() * (numberTo - numberFrom + 1)) + numberFrom).toString();
-          genStorage.push(x);
-        }
+        result += pattern[i];
       }
     }
 
-    let moneyFrom = parseInt(document.getElementById("moneyFrom").value);
-    let moneyTo = parseInt(document.getElementById("moneyTo").value);
-    let currency = document.getElementById("moneyCurrency").value;
+    return result;
+  }
 
-    if (dataSelection == "money" && moneyFrom !== "" && moneyTo !== "") {
-      if (document.getElementById("symbol-prepend").checked) {
-        console.log("prepend");
-        for (var i = 0; i < count; i++) {
-          x = currency + (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString();
-          genStorage.push(x);
-        }
-      } else if (document.getElementById("symbol-append").checked) {
-        console.log("append");
-        for (var i = 0; i < count; i++) {
-          x = (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString() + currency;
-          genStorage.push(x);
-        }
-      }
+  //PHONES --------------------------------------------------------------------------
+  if (dataSelection == "phones" && phonePrefix !== "") {
+    if (phoneDigits == "") {
+      genStorage.push("Invalid format");
+    }
+    if (phoneFormat == "null") {
+      genStorage.push("Invalid format");
     }
 
-    if (dataSelection == "licenseplates") {
-      // btnCreate.removeAttribute("disabled");
+    if (phoneFormat == "custom" && phoneDigits !== "") {
       for (var i = 0; i < count; i++) {
-        a = Math.random()
-          .toString(36)
-          .replace(/[^a-z]+/g, "")
-          .substr(0, 2)
-          .toUpperCase();
-        b = (Math.floor(Math.random() * (999 - 123 + 1)) + 123).toString();
-        c = Math.random()
-          .toString(36)
-          .replace(/[^a-z]+/g, "")
-          .substr(0, 2)
-          .toUpperCase();
-
-        genStorage.push(a + " " + b + " " + c);
+        x = generateRandomPattern(phoneDigits);
+        genStorage.push("+" + phonePrefix + " " + x);
       }
     }
 
-    if (dataSelection == "ethereum") {
-      const truncateCheck = document.getElementById("addressTruncate");
-      let address = "";
-      let hexChar = "0123456789abcdefABCDEF";
-      if (truncateCheck.checked) {
-        let truncatePre = document.getElementById("truncatePre").value;
-        let truncateMid = document.getElementById("truncateMid").value;
-        let truncatePost = document.getElementById("truncatePost").value;
-        for (var i = 0; i < count; i++) {
-          for (var a = 0; a < 40; a++) {
-            address += hexChar.charAt(Math.floor(Math.random() * hexChar.length));
-          }
-          let addressPre = address.slice(2, truncatePre);
-          let addressPost = address.slice(-truncatePost);
-          address = addressPre + truncateMid + addressPost;
-          genStorage.push("0x" + address);
-          address = "";
-        }
-      } else {
-        for (var i = 0; i < count; i++) {
-          for (var a = 0; a < 40; a++) {
-            address += hexChar.charAt(Math.floor(Math.random() * hexChar.length));
-          }
-          genStorage.push("0x" + address);
-          address = "";
-        }
+    if (phoneFormat !== "null" && phoneFormat !== "custom") {
+      for (var i = 0; i < count; i++) {
+        x = generateRandomPattern(phoneFormat);
+        genStorage.push("+" + phonePrefix + " " + x);
       }
     }
+  }
 
-    if (dataSelection == "wifi") {
-      const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
-      const request = new Request(requestURL);
-      const response = await fetch(request);
-      const items = await response.json();
+  //ADDRESS ------------------------------------------------------------------------
+  const countrySelector = document.getElementById("countrySelector");
 
-      for (var j = 0; j < count; j++) {
-        x = Math.floor(Math.random() * items.length);
-        let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        let string = "";
-
-        for (var i = 0; i < 6; i++) {
-          if (i === 0 || i === 3 || i === 5) {
-            string += chars.charAt(Math.floor(Math.random() * 52)); // Random letter
-          } else if (i === 1 || i === 2 || i === 4) {
-            string += chars.charAt(52 + Math.floor(Math.random() * 10)); // Random number
-          }
-        }
-
-        let compose = items[x].wifi + "_" + string;
-        console.log(typeof compose);
-        genStorage.push(compose);
-      }
-    }
-
-    if (dataSelection == "advanced") {
-      const advancedPattern = document.getElementById("advancedPattern").value;
-      const advancedWildcard = document.getElementById("advancedWildcard").value;
-
-      function generateWildcardValue(type) {
-        switch (type) {
-          case "1": // Numbers
-            return Math.floor(Math.random() * 10).toString();
-          case "2": // Letters
-            return String.fromCharCode(65 + Math.floor(Math.random() * 26));
-          case "3": // Numbers and letters
-            const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            return chars.charAt(Math.floor(Math.random() * chars.length));
-          default:
-            return "*";
-        }
-      }
+  if (dataSelection == "address" && countrySelector.value !== "null") {
+    const baseURL = "https://randommer.io/random-address?";
+    const number = "100";
+    const locale = countrySelector.value;
+    try {
+      const response = await fetch(baseURL + "number=" + number + "&culture=" + locale, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      const data = await response.json();
+      console.log(data);
 
       for (var i = 0; i < count; i++) {
-        let result = advancedPattern;
-        // Replace each * with a random value based on wildcard type
-        while (result.includes("*")) {
-          result = result.replace("*", generateWildcardValue(advancedWildcard));
-        }
-        genStorage.push(result);
+        x = Math.floor(Math.random() * data.length);
+        console.log(data[x]);
+        genStorage.push(data[x]);
       }
+    } catch (error) {
+      console.log(error);
     }
+  }
 
-    if (dataSelection == "creditcards") {
+  //DATES -------------------------------------------------------------------------
+  let selectedYear = document.getElementById("selectedYear").value;
+  let dateFormat = document.getElementById("dateFormat").value;
+
+  if (dataSelection == "dates" && selectedYear !== "" && dateFormat != 0) {
+    for (var i = 0; i < count; i++) {
+      date = generateDateFormat(selectedYear, dateFormat);
+      genStorage.push(date);
+    }
+  }
+
+  //TIME --------------------------------------------------------------------------
+  let timeFormat = document.getElementById("timeFormat").value;
+
+  if (dataSelection == "times" && timeFormat != 0) {
+    for (var i = 0; i < count; i++) {
+      time = generateTimeFormat(timeFormat);
+      genStorage.push(time);
+    }
+  }
+
+  //DATETIME ----------------------------------------------------------------------
+  let datetime = "";
+  const datetimeYear = document.getElementById("datetimeYear").value;
+  const datetimeDateFormat = document.getElementById("dateDatetimeFormat").value;
+  const datetimeSeparator = document.getElementById("datetimeSeparator").value;
+  const timeDatetimeFormat = document.getElementById("timeDatetimeFormat").value;
+
+  if (dataSelection == "datetime" && datetimeYear !== "" && datetimeDateFormat != 0) {
+    for (var i = 0; i < count; i++) {
+      date = generateDateFormat(datetimeYear, datetimeDateFormat);
+      time = generateTimeFormat(timeDatetimeFormat);
+      datetime = date + datetimeSeparator + time;
+      genStorage.push(datetime);
+    }
+  }
+
+  // Function to generate random date based on the selected format and a given year
+  function generateDateFormat(year, format) {
+    d = (Math.floor(Math.random() * (31 - 1 + 1)) + 1).toString();
+    m = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
+    let mm = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    if (format == 1) {
+      genDate = d + "/" + m + "/" + year;
+      return genDate;
+    }
+    if (format == 2) {
+      genDate = d + "-" + m + "-" + year;
+      return genDate;
+    }
+    if (format == 3) {
+      genDate = d + " " + m + " " + year;
+      return genDate;
+    }
+    if (format == 4) {
+      genDate = d + " " + mm[Number(m) - 1] + " " + year;
+      return genDate;
+    }
+  }
+
+  // Function to generate random time based on the selected format
+  function generateTimeFormat(format) {
+    hh = (Math.floor(Math.random() * (23 - 1 + 1)) + 1).toString();
+    h = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
+    m = (Math.floor(Math.random() * (60 - 1 + 1)) + 1).toString();
+    if (hh < 10) {
+      hh = "0" + hh;
+    }
+    if (m < 10) {
+      m = "0" + m;
+    }
+    let time = ["am", "pm"];
+    x = Math.floor(Math.random() * time.length);
+    if (format == 1) {
+      genTime = hh + ":" + m;
+      return genTime;
+    }
+    if (format == 2) {
+      genTime = h + ":" + m + time[x];
+      return genTime;
+    }
+  }
+
+  let numberFrom = parseInt(document.getElementById("numberFrom").value);
+  let numberTo = parseInt(document.getElementById("numberTo").value);
+  let decimalCheck = document.getElementById("numberRangeDecimals");
+
+  if (dataSelection == "numbers" && numberFrom !== "" && numberTo !== "") {
+    if (decimalCheck.checked) {
       for (var i = 0; i < count; i++) {
-        x = (Math.floor(Math.random() * (9999999999999999 - 1234567890123456 + 1)) + 1234567890123456).toString().replace(/\\d{4}(?=.)/g, "$& ");
+        x = (Math.random() * (numberTo - numberFrom + 1) + numberFrom).toFixed(2).toString();
+        genStorage.push(x);
+      }
+    } else {
+      for (var i = 0; i < count; i++) {
+        x = (Math.floor(Math.random() * (numberTo - numberFrom + 1)) + numberFrom).toString();
         genStorage.push(x);
       }
     }
+  }
 
-    const customDataset = document.getElementById("customDataset");
-    const customDatasetKey = document.getElementById("customDatasetKey").value.toString();
+  let moneyFrom = parseInt(document.getElementById("moneyFrom").value);
+  let moneyTo = parseInt(document.getElementById("moneyTo").value);
+  let currency = document.getElementById("moneyCurrency").value;
 
-    if (dataSelection == "custom" && customDataset != "" && customDatasetKey != "") {
-      const requestURL = document.getElementById("customDataset").value;
-      const request = new Request(requestURL);
-      const response = await fetch(request);
-      const items = await response.json();
-
+  if (dataSelection == "money" && moneyFrom !== "" && moneyTo !== "") {
+    if (document.getElementById("symbol-prepend").checked) {
+      console.log("prepend");
       for (var i = 0; i < count; i++) {
-        x = Math.floor(Math.random() * items.length);
-        genStorage.push(items[x][customDatasetKey]);
+        x = currency + (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString();
+        genStorage.push(x);
+      }
+    } else if (document.getElementById("symbol-append").checked) {
+      console.log("append");
+      for (var i = 0; i < count; i++) {
+        x = (Math.random() * (moneyTo - moneyFrom + 1) + moneyFrom).toFixed(2).toString() + currency;
+        genStorage.push(x);
       }
     }
   }
 
-  async function generateAvatars() {
-    avatarGenerationInProgress = true;
-    updateCreateButton();
-    document.getElementById("avatarStatus").textContent = "Generating avatars...";
+  if (dataSelection == "licenseplates") {
+    // btnCreate.removeAttribute("disabled");
+    for (var i = 0; i < count; i++) {
+      a = Math.random()
+        .toString(36)
+        .replace(/[^a-z]+/g, "")
+        .substr(0, 2)
+        .toUpperCase();
+      b = (Math.floor(Math.random() * (999 - 123 + 1)) + 123).toString();
+      c = Math.random()
+        .toString(36)
+        .replace(/[^a-z]+/g, "")
+        .substr(0, 2)
+        .toUpperCase();
 
-    try {
-      const avatars = await Promise.all(
-        Array.from({ length: count }, async () => {
-          const imageUrl = avatarAssetUrls[Math.floor(Math.random() * avatarAssetUrls.length)];
-          const response = await fetch(imageUrl);
-          if (!response.ok) {
-            throw new Error(\`Could not load local avatar: \${response.status}\`);
-          }
-          return Array.from(new Uint8Array(await response.arrayBuffer()));
-        })
-      );
-
-      parent.postMessage(
-        {
-          pluginMessage: {
-            type: "create-random-avatars",
-            avatars,
-          },
-        },
-        "*"
-      );
-    } catch (error) {
-      console.error(error);
-      avatarGenerationInProgress = false;
-      document.getElementById("avatarStatus").textContent = "Could not load local avatars. Check the image files and try again.";
-      updateCreateButton();
+      genStorage.push(a + " " + b + " " + c);
     }
   }
 
-  btnCreate.onclick = async () => {
-    if (document.getElementById("datasetSelector").value === "avatars") {
-      await generateAvatars();
-      return;
+  if (dataSelection == "ethereum") {
+    const truncateCheck = document.getElementById("addressTruncate");
+    let address = "";
+    let hexChar = "0123456789abcdefABCDEF";
+    if (truncateCheck.checked) {
+      let truncatePre = document.getElementById("truncatePre").value;
+      let truncateMid = document.getElementById("truncateMid").value;
+      let truncatePost = document.getElementById("truncatePost").value;
+      for (var i = 0; i < count; i++) {
+        for (var a = 0; a < 40; a++) {
+          address += hexChar.charAt(Math.floor(Math.random() * hexChar.length));
+        }
+        let addressPre = address.slice(2, truncatePre);
+        let addressPost = address.slice(-truncatePost);
+        address = addressPre + truncateMid + addressPost;
+        genStorage.push("0x" + address);
+        address = "";
+      }
+    } else {
+      for (var i = 0; i < count; i++) {
+        for (var a = 0; a < 40; a++) {
+          address += hexChar.charAt(Math.floor(Math.random() * hexChar.length));
+        }
+        genStorage.push("0x" + address);
+        address = "";
+      }
+    }
+  }
+
+  if (dataSelection == "wifi") {
+    const requestURL = document.getElementById("datasetSelector").options[datasetSelector.selectedIndex].getAttribute("data-url");
+    const request = new Request(requestURL);
+    const response = await fetch(request);
+    const items = await response.json();
+
+    for (var j = 0; j < count; j++) {
+      x = Math.floor(Math.random() * items.length);
+      let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let string = "";
+
+      for (var i = 0; i < 6; i++) {
+        if (i === 0 || i === 3 || i === 5) {
+          string += chars.charAt(Math.floor(Math.random() * 52)); // Random letter
+        } else if (i === 1 || i === 2 || i === 4) {
+          string += chars.charAt(52 + Math.floor(Math.random() * 10)); // Random number
+        }
+      }
+
+      let compose = items[x].wifi + "_" + string;
+      console.log(typeof compose);
+      genStorage.push(compose);
+    }
+  }
+
+  if (dataSelection == "advanced") {
+    const advancedPattern = document.getElementById("advancedPattern").value;
+    const advancedWildcard = document.getElementById("advancedWildcard").value;
+
+    function generateWildcardValue(type) {
+      switch (type) {
+        case "1": // Numbers
+          return Math.floor(Math.random() * 10).toString();
+        case "2": // Letters
+          return String.fromCharCode(65 + Math.floor(Math.random() * 26));
+        case "3": // Numbers and letters
+          const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+          return chars.charAt(Math.floor(Math.random() * chars.length));
+        default:
+          return "*";
+      }
     }
 
-    await generate();
+    for (var i = 0; i < count; i++) {
+      let result = advancedPattern;
+      // Replace each * with a random value based on wildcard type
+      while (result.includes("*")) {
+        result = result.replace("*", generateWildcardValue(advancedWildcard));
+      }
+      genStorage.push(result);
+    }
+  }
+
+  if (dataSelection == "creditcards") {
+    for (var i = 0; i < count; i++) {
+      x = (Math.floor(Math.random() * (9999999999999999 - 1234567890123456 + 1)) + 1234567890123456).toString().replace(/\\d{4}(?=.)/g, "$& ");
+      genStorage.push(x);
+    }
+  }
+
+  const customDataset = document.getElementById("customDataset");
+  const customDatasetKey = document.getElementById("customDatasetKey").value.toString();
+
+  if (dataSelection == "custom" && customDataset != "" && customDatasetKey != "") {
+    const requestURL = document.getElementById("customDataset").value;
+    const request = new Request(requestURL);
+    const response = await fetch(request);
+    const items = await response.json();
+
+    for (var i = 0; i < count; i++) {
+      x = Math.floor(Math.random() * items.length);
+      genStorage.push(items[x][customDatasetKey]);
+    }
+  }
+}
+
+async function generateAvatars() {
+  avatarGenerationInProgress = true;
+  updateCreateButton();
+  document.getElementById("avatarStatus").textContent = "Generating avatars...";
+
+  try {
+    const avatars = await Promise.all(
+      Array.from({ length: count }, async () => {
+        const imageUrl = avatarAssetUrls[Math.floor(Math.random() * avatarAssetUrls.length)];
+        const response = await fetch(imageUrl);
+        if (!response.ok) {
+          throw new Error(\`Could not load local avatar: \${response.status}\`);
+        }
+        return Array.from(new Uint8Array(await response.arrayBuffer()));
+      }),
+    );
 
     parent.postMessage(
       {
         pluginMessage: {
-          type: "create-random-text",
-          genStorage,
+          type: "create-random-avatars",
+          avatars,
         },
       },
-      "*"
+      "*",
     );
-  };`,
-        B = Object.assign({
-          "./pages/address.html": r,
-          "./pages/advanced.html": c,
-          "./pages/avatars.html": d,
-          "./pages/companies.html": m,
-          "./pages/creditcards.html": p,
-          "./pages/custom.html": u,
-          "./pages/dates.html": g,
-          "./pages/datetime.html": v,
-          "./pages/emails.html": y,
-          "./pages/ethereum.html": h,
-          "./pages/fullnames.html": f,
-          "./pages/licenseplates.html": x,
-          "./pages/money.html": M,
-          "./pages/names.html": w,
-          "./pages/numbers.html": S,
-          "./pages/phones.html": E,
-          "./pages/surnames.html": b,
-          "./pages/times.html": A,
-          "./pages/usernames.html": I,
-          "./pages/wifi.html": D,
-        }),
-        N = Object.assign({}),
-        _ = [...document.querySelector("#datasetSelector").options].filter((t) => t.value !== "null" && !t.disabled),
-        T = _.map((t) => {
-          const s = B[`./pages/${t.value}.html`];
-          if (!s) throw new Error(`Missing UI page for dataset: ${t.value}`);
-          return s;
-        }).join(`
-`);
-      document.body.innerHTML = document.body.innerHTML.replace("\x3C!-- VITE_DATASET_PAGES -->", T);
-      window.mockreateAvatarAssets = Object.values(N);
-      const i = document.createElement("script");
-      i.textContent = L;
-      document.body.append(i);
-    </script>
-    <style rel="stylesheet" crossorigin>
-      *{margin:0;padding:0;font-family:Inter,sans-serif}.figma-light body{color:#333}.figma-dark body{color:#fff;background-color:#2c2c2c}.container{margin:12px}.ms-1{margin-left:.5rem}.me-1{margin-right:.5rem}.mt-1{margin-top:1rem}.mb-1{margin-bottom:1rem}.m-0{margin:0!important}.w-33{width:33%!important}.w-50{width:50%!important}.w-100{width:100%!important}p{font-size:.8rem}.small{font-size:12px;margin-bottom:6px}h4,h5{margin-bottom:.5rem;font-weight:500}a{color:#a7acb1}a:hover{opacity:.8}hr{margin-top:1rem;margin-bottom:1rem;border-color:#009b4e}.d-flex{display:flex}.flex-row{flex-direction:row}.flex-column{flex-direction:column}#outputPreview{font-family:Roboto Mono,monospace;font-size:.8rem;color:#aaa;min-height:85px;max-height:130px;overflow:scroll}footer a{font-size:.8rem}.btn{display:inline-block;text-align:center;vertical-align:middle;padding:.375rem .75rem;font-size:1rem;line-height:1.5;border-radius:.25rem;border:1px solid transparent;cursor:pointer}.btn-primary{background-color:#00b763;border-color:#00b763;color:#fff;text-decoration:none}.btn-primary:hover{background-color:#009b4e;border-color:#009b4e;color:#fff}.btn-primary:focus{background-color:#008d47;border-color:#008d47;color:#fff;box-shadow:0 0 0 .2rem #00b7637f}.figma-light .btn-primary:disabled,.btn-primary[disabled]{background-color:#c0d0c9;border-color:#c0d0c9;color:#5f7665;cursor:default}.figma-dark .btn-primary:disabled,.btn-primary[disabled]{background-color:#2c463a;border-color:#2c463a;color:#5f7665;cursor:default}.btn-radio:checked+.btn{background-color:#444;border-color:#008d47}input[type=radio]{opacity:0;margin:0;height:1px;width:1px}input[type=radio]{box-sizing:border-box;padding:0}.btn-block{width:100%}.form-control{display:block;width:100%;height:calc(1.5em + .75rem + 2px);padding:.375rem .5rem;font-size:.85rem;font-weight:400;line-height:1.5;background-clip:padding-box;border:none;border-radius:4px}select{appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22iso-8859-1%22%3F%3E%3C!--%20Generator%3A%20Adobe%20Illustrator%2019.0.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200\)%20%20--%3E%3C!--%20License%3A%20CC0.%20Made%20by%20SVG%20Repo%3A%20https%3A%2F%2Fwww.svgrepo.com%2Fsvg%2F183552%2Fchevron%20--%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%20512%20512%22%20style%3D%22enable-background%3Anew%200%200%20512%20512%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20style%3D%22fill%3A%23ffffff%3B%22%20d%3D%22M505.183%2C123.179c-9.087-9.087-23.824-9.089-32.912%2C0.002l-216.266%2C216.27L39.729%2C123.179c-9.087-9.087-23.824-9.089-32.912%2C0.002c-9.089%2C9.089-9.089%2C23.824%2C0%2C32.912L239.55%2C388.82c4.364%2C4.364%2C10.283%2C6.816%2C16.455%2C6.816c6.172%2C0%2C12.092-2.453%2C16.455-6.817l232.721-232.727C514.272%2C147.004%2C514.272%2C132.268%2C505.183%2C123.179z%22%2F%3E%3C%2Fsvg%3E);background-repeat:no-repeat;background-position:right .7rem top 50%;background-size:.65rem auto}.figma-light .form-control{color:#495057;background-color:#fff}.figma-dark .form-control{color:#fff;background-color:#444}.form-control:focus{outline:0;box-shadow:0 0 0 .2rem #00b76340}.figma-light .form-control:focus{color:#495057;background-color:#fff;border-color:#00b763}.figma-dark .form-control:focus{color:#fff;background-color:#444;border-color:#00b763}label{display:inline-block;font-size:.8rem;margin-bottom:.5rem}.layout-options{display:flex;justify-content:space-between}.gap-8{gap:8px}.footer-section{display:flex;flex-direction:row;justify-content:space-between;align-items:center;padding-left:15px;padding-right:15px}.footer-version{display:flex;justify-content:end;padding-right:20px;padding-bottom:0}.footer-version p{color:#495057;font-size:8px}.btn-group{display:inline-flex;flex-direction:row;justify-content:space-between;border-radius:.25rem}.figma-light .btn-group{background-color:#e5e5e5}.figma-dark .btn-group{background-color:#2c2c2c}.btn-group label{margin:0}.btn-group-item{width:100%;text-align:center}footer{width:100%;position:fixed;bottom:0;left:0}.input-group{position:relative;display:flex;flex-wrap:nowrap;align-items:stretch;width:100%}.input-group-prepend{display:flex;margin-right:-1px}.input-group-text{display:flex;align-items:center;padding:.375rem;margin-bottom:0;font-size:1rem;font-weight:400;line-height:1.5;text-align:center;background-color:#fff;white-space:nowrap;border-radius:.25rem}.figma-light .input-group-text{background-color:#fff}.figma-dark .input-group-text{background-color:#444}.input-group>.input-group-prepend>.input-group-text{border-top-right-radius:0;border-bottom-right-radius:0}.input-group>.form-control{border-top-left-radius:0;border-bottom-left-radius:0}.form-helper{margin-top:.5rem;font-size:.8rem;color:#a7acb1;line-height:1.4}.figma-dark .card,.figma-light .card{padding-top:12px;padding-bottom:12px;margin-bottom:12px}.figma-dark .card h2{margin-bottom:.25rem;color:#fff}.figma-light .card h2{margin-bottom:.25rem;color:#333}.figma-dark .card p{color:#a7acb1}.figma-light .card p{color:#333}.vertical-align-bottom{vertical-align:bottom}.mini-banner{height:4px;background-color:#00b763;width:100%}.form-check{align-items:center}.form-switch .form-check-input:checked{background-position:right center;background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e")}.form-check-input:checked[type=checkbox]{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e")}.form-switch .form-check-input{width:2em;margin-left:-2.5em;background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");background-position:left center;border-radius:2em;transition:background-position .15s ease-in-out}.form-check-input:checked{background-color:#00b763;border-color:#00b763}.form-check-input[type=checkbox]{border-radius:1rem}.form-check-input{width:1em;height:1em;margin-top:.25em;vertical-align:top;background-color:#b3b3b3;background-repeat:no-repeat;background-position:center;background-size:contain;border:1px solid rgba(0,0,0,.25);-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-print-color-adjust:exact;color-adjust:exact;print-color-adjust:exact}
-    </style>
+  } catch (error) {
+    console.error(error);
+    avatarGenerationInProgress = false;
+    document.getElementById("avatarStatus").textContent = "Could not load local avatars. Check the image files and try again.";
+    updateCreateButton();
+  }
+}
+
+btnCreate.onclick = async () => {
+  if (document.getElementById("datasetSelector").value === "avatars") {
+    await generateAvatars();
+    return;
+  }
+
+  await generate();
+
+  parent.postMessage(
+    {
+      pluginMessage: {
+        type: "create-random-text",
+        genStorage,
+      },
+    },
+    "*",
+  );
+};
+`,B=Object.assign({"./pages/address.html":r,"./pages/advanced.html":c,"./pages/avatars.html":d,"./pages/companies.html":m,"./pages/creditcards.html":p,"./pages/custom.html":u,"./pages/dates.html":g,"./pages/datetime.html":v,"./pages/emails.html":y,"./pages/ethereum.html":h,"./pages/fullnames.html":f,"./pages/licenseplates.html":x,"./pages/money.html":M,"./pages/names.html":w,"./pages/numbers.html":S,"./pages/phones.html":E,"./pages/surnames.html":b,"./pages/times.html":A,"./pages/usernames.html":I,"./pages/wifi.html":D}),N=Object.assign({}),_=[...document.querySelector("#datasetSelector").options].filter(t=>t.value!=="null"&&!t.disabled),T=_.map(t=>{const s=B[`./pages/${t.value}.html`];if(!s)throw new Error(`Missing UI page for dataset: ${t.value}`);return s}).join(`
+`);document.body.innerHTML=document.body.innerHTML.replace("\x3C!-- VITE_DATASET_PAGES -->",T);window.mockreateAvatarAssets=Object.values(N);const i=document.createElement("script");i.textContent=L;document.body.append(i);</script>
+    <style rel="stylesheet" crossorigin>*{margin:0;padding:0;font-family:Inter,sans-serif}.figma-light body{color:#333}.figma-dark body{color:#fff;background-color:#2c2c2c}.container{margin:12px}.ms-1{margin-left:.5rem}.me-1{margin-right:.5rem}.mt-1{margin-top:1rem}.mb-1{margin-bottom:1rem}.m-0{margin:0!important}.w-33{width:33%!important}.w-50{width:50%!important}.w-100{width:100%!important}p{font-size:.8rem}.small{font-size:12px;margin-bottom:6px}h4,h5{margin-bottom:.5rem;font-weight:500}a{color:#a7acb1}a:hover{opacity:.8}hr{margin-top:1rem;margin-bottom:1rem;border-color:#009b4e}.d-flex{display:flex}.flex-row{flex-direction:row}.flex-column{flex-direction:column}#outputPreview{font-family:Roboto Mono,monospace;font-size:.8rem;color:#aaa;min-height:85px;max-height:130px;overflow:scroll}footer a{font-size:.8rem}.btn{display:inline-block;text-align:center;vertical-align:middle;padding:.375rem .75rem;font-size:1rem;line-height:1.5;border-radius:.25rem;border:1px solid transparent;cursor:pointer}.btn-primary{background-color:#00b763;border-color:#00b763;color:#fff;text-decoration:none}.btn-primary:hover{background-color:#009b4e;border-color:#009b4e;color:#fff}.btn-primary:focus{background-color:#008d47;border-color:#008d47;color:#fff;box-shadow:0 0 0 .2rem #00b7637f}.figma-light .btn-primary:disabled,.btn-primary[disabled]{background-color:#c0d0c9;border-color:#c0d0c9;color:#5f7665;cursor:default}.figma-dark .btn-primary:disabled,.btn-primary[disabled]{background-color:#2c463a;border-color:#2c463a;color:#5f7665;cursor:default}.btn-radio:checked+.btn{background-color:#444;border-color:#008d47}input[type=radio]{opacity:0;margin:0;height:1px;width:1px}input[type=radio]{box-sizing:border-box;padding:0}.btn-block{width:100%}.form-control{display:block;width:100%;height:calc(1.5em + .75rem + 2px);padding:.375rem .5rem;font-size:.85rem;font-weight:400;line-height:1.5;background-clip:padding-box;border:none;border-radius:4px}select{appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22iso-8859-1%22%3F%3E%3C!--%20Generator%3A%20Adobe%20Illustrator%2019.0.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200\)%20%20--%3E%3C!--%20License%3A%20CC0.%20Made%20by%20SVG%20Repo%3A%20https%3A%2F%2Fwww.svgrepo.com%2Fsvg%2F183552%2Fchevron%20--%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%20512%20512%22%20style%3D%22enable-background%3Anew%200%200%20512%20512%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20style%3D%22fill%3A%23ffffff%3B%22%20d%3D%22M505.183%2C123.179c-9.087-9.087-23.824-9.089-32.912%2C0.002l-216.266%2C216.27L39.729%2C123.179c-9.087-9.087-23.824-9.089-32.912%2C0.002c-9.089%2C9.089-9.089%2C23.824%2C0%2C32.912L239.55%2C388.82c4.364%2C4.364%2C10.283%2C6.816%2C16.455%2C6.816c6.172%2C0%2C12.092-2.453%2C16.455-6.817l232.721-232.727C514.272%2C147.004%2C514.272%2C132.268%2C505.183%2C123.179z%22%2F%3E%3C%2Fsvg%3E);background-repeat:no-repeat;background-position:right .7rem top 50%;background-size:.65rem auto}.figma-light .form-control{color:#495057;background-color:#fff}.figma-dark .form-control{color:#fff;background-color:#444}.form-control:focus{outline:0;box-shadow:0 0 0 .2rem #00b76340}.figma-light .form-control:focus{color:#495057;background-color:#fff;border-color:#00b763}.figma-dark .form-control:focus{color:#fff;background-color:#444;border-color:#00b763}label{display:inline-block;font-size:.8rem;margin-bottom:.5rem}.layout-options{display:flex;justify-content:space-between}.gap-8{gap:8px}.footer-section{display:flex;flex-direction:row;justify-content:space-between;align-items:center;padding-left:15px;padding-right:15px}.footer-version{display:flex;justify-content:end;padding-right:20px;padding-bottom:0}.footer-version p{color:#495057;font-size:8px}.btn-group{display:inline-flex;flex-direction:row;justify-content:space-between;border-radius:.25rem}.figma-light .btn-group{background-color:#e5e5e5}.figma-dark .btn-group{background-color:#2c2c2c}.btn-group label{margin:0}.btn-group-item{width:100%;text-align:center}footer{width:100%;position:fixed;bottom:0;left:0}.input-group{position:relative;display:flex;flex-wrap:nowrap;align-items:stretch;width:100%}.input-group-prepend{display:flex;margin-right:-1px}.input-group-text{display:flex;align-items:center;padding:.375rem;margin-bottom:0;font-size:1rem;font-weight:400;line-height:1.5;text-align:center;background-color:#fff;white-space:nowrap;border-radius:.25rem}.figma-light .input-group-text{background-color:#fff}.figma-dark .input-group-text{background-color:#444}.input-group>.input-group-prepend>.input-group-text{border-top-right-radius:0;border-bottom-right-radius:0}.input-group>.form-control{border-top-left-radius:0;border-bottom-left-radius:0}.form-helper{margin-top:.5rem;font-size:.8rem;color:#a7acb1;line-height:1.4}.figma-dark .card,.figma-light .card{padding-top:12px;padding-bottom:12px;margin-bottom:12px}.figma-dark .card h2{margin-bottom:.25rem;color:#fff}.figma-light .card h2{margin-bottom:.25rem;color:#333}.figma-dark .card p{color:#a7acb1}.figma-light .card p{color:#333}.vertical-align-bottom{vertical-align:bottom}.mini-banner{height:4px;background-color:#00b763;width:100%}.form-check{align-items:center}.form-switch .form-check-input:checked{background-position:right center;background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e")}.form-check-input:checked[type=checkbox]{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e")}.form-switch .form-check-input{width:2em;margin-left:-2.5em;background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");background-position:left center;border-radius:2em;transition:background-position .15s ease-in-out}.form-check-input:checked{background-color:#00b763;border-color:#00b763}.form-check-input[type=checkbox]{border-radius:1rem}.form-check-input{width:1em;height:1em;margin-top:.25em;vertical-align:top;background-color:#b3b3b3;background-repeat:no-repeat;background-position:center;background-size:contain;border:1px solid rgba(0,0,0,.25);-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-print-color-adjust:exact;color-adjust:exact;print-color-adjust:exact}</style>
   </head>
   <body>
     <div class="mini-banner"></div>
@@ -1340,7 +1264,7 @@
       </div>
 
       <div class="card" id="changelog">
-        <h3>✨ What's new in v21</h3>
+        <h3>✨ What's new in v21.0</h3>
         <p class="small">22 May 2025</p>
         <p>In version 20 we have added advanced patterns that you can use to create advanced randomisation following custom patterns.</p>
         <a href="https://www.loom.com/share/af90c8ef179842fdb8ed1a662e280fb2?sid=f6ebf442-6de8-47dc-8634-38aeceebdfea" target="_blank" class="btn btn-primary mt-1">

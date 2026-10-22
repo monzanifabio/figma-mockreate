@@ -585,20 +585,20 @@ async function generate() {
     d = (Math.floor(Math.random() * (31 - 1 + 1)) + 1).toString();
     m = (Math.floor(Math.random() * (12 - 1 + 1)) + 1).toString();
     let mm = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    if (dateFormat == 1) {
+    if (format == 1) {
       genDate = d + "/" + m + "/" + year;
       return genDate;
     }
-    if (dateFormat == 2) {
+    if (format == 2) {
       genDate = d + "-" + m + "-" + year;
       return genDate;
     }
-    if (dateFormat == 3) {
+    if (format == 3) {
       genDate = d + " " + m + " " + year;
       return genDate;
     }
-    if (dateFormat == 4) {
-      genDate = d + " " + mm[m] + " " + year;
+    if (format == 4) {
+      genDate = d + " " + mm[Number(m) - 1] + " " + year;
       return genDate;
     }
   }
